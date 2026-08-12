@@ -1290,7 +1290,7 @@ function ackCardHTML(which, heading, sub, lines, noteText, prefillFrom){
       const pf = getAck(prefillFrom);
       if(pf) prefill = pf.name;
     }
-    signHTML = '<div class="sign-row"><input type="text" value="'+prefill+'" placeholder="Add your name, not a signature" id="ackInput_'+which+'" onblur="doAck(\''+which+'\')" onkeydown="if(event.key===\'Enter\'){this.blur()}"/><div class="savenote">Saved for you, not sent anywhere.</div></div>';
+    signHTML = '<div class="sign-row"><input type="text" value="'+prefill+'" placeholder="Add your name" id="ackInput_'+which+'" onblur="doAck(\''+which+'\')" onkeydown="if(event.key===\'Enter\'){this.blur()}"/><div class="savenote">Saved for you, not sent anywhere.</div></div>';
   }
   return '<div class="pledge-card"><span class="eyebrow">'+heading+'</span><h3>'+sub+'</h3><ul class="pledge-list">'+linesHTML+'</ul>'+signHTML+'</div>';
 }
