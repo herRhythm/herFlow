@@ -1035,7 +1035,161 @@ button, .topnav a, .backtop, .card {
   letter-spacing: 0.02em;
 }
 
+
+/* ——— Dark mode ——— */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --cream: #141018;
+  --cream-deep: #1A141F;
+  --plum: #D4B8DE;
+  --plum-deep: #F3EAF7;
+  --plum-mid: #C9A9D4;
+  --pink: #FF5A8A;
+  --pink-hot: #FF7AA3;
+  --pink-soft: #3A2430;
+  --pink-mist: rgba(255, 90, 138, 0.12);
+  --sage: #3DDB8A;
+  --sage-soft: #1A2E24;
+  --gold: #E8C56A;
+  --gold-soft: #2A2418;
+  --ink: #F4EEF2;
+  --ink-soft: #B9AEB6;
+  --paper: #221C26;
+  --line: rgba(255, 247, 249, 0.10);
+  --line-strong: rgba(255, 247, 249, 0.18);
+  --shadow: 0 12px 40px -18px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 24px 60px -28px rgba(0, 0, 0, 0.65);
+}
+
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(255, 90, 138, 0.14), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 100% 10%, rgba(232, 197, 106, 0.08), transparent 45%),
+    radial-gradient(ellipse 70% 50% at 90% 100%, rgba(212, 184, 222, 0.08), transparent 50%),
+    linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
+}
+
+html[data-theme="dark"] .brandbar {
+  background: #141018;
+  border-color: var(--line);
+}
+
+/* Invert logo: light bg → dark, black text → white; hue-rotate keeps brand colors closer */
+html[data-theme="dark"] .brandbar img {
+  filter: invert(1) hue-rotate(180deg) contrast(1.05) brightness(1.02);
+  /* Soften any pure-white fringing from invert */
+  background: transparent;
+}
+
+html[data-theme="dark"] .quick-card,
+html[data-theme="dark"] .intro-card,
+html[data-theme="dark"] .kitrow,
+html[data-theme="dark"] .qr-note,
+html[data-theme="dark"] .front {
+  background: var(--paper);
+}
+
+html[data-theme="dark"] .kitrow {
+  background: rgba(34, 28, 38, 0.92);
+}
+
+html[data-theme="dark"] .kitrow button {
+  background: linear-gradient(180deg, #2A2230, #1C1620);
+  color: var(--plum);
+  border-color: var(--line-strong);
+}
+
+html[data-theme="dark"] .back {
+  background: linear-gradient(160deg, #2A1A22 0%, #221C26 55%, #1C1620 100%);
+  border-color: rgba(255, 90, 138, 0.25);
+}
+
+html[data-theme="dark"] .mvf-block.myth {
+  background: rgba(255, 247, 249, 0.06);
+}
+
+html[data-theme="dark"] .locked {
+  background: repeating-linear-gradient(135deg, rgba(255,247,249,0.04) 0 10px, rgba(255,247,249,0.015) 10px 20px);
+  border-color: rgba(255, 247, 249, 0.18);
+  opacity: 0.75;
+}
+
+html[data-theme="dark"] .backtop {
+  background: var(--paper);
+  color: var(--plum);
+}
+
+html[data-theme="dark"] .carousel-nav button {
+  background: linear-gradient(180deg, #2A2230, #1C1620);
+  color: var(--plum);
+  border-color: var(--line-strong);
+}
+
+html[data-theme="dark"] .theme-toggle {
+  background: rgba(34, 28, 38, 0.9);
+  color: var(--gold);
+  border-color: var(--line-strong);
+}
+
+/* Theme toggle control */
+.theme-toggle {
+  position: fixed;
+  bottom: calc(16px + var(--safe-b));
+  right: max(16px, env(safe-area-inset-right));
+  z-index: 50;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--plum-deep);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+.theme-toggle:focus-visible {
+  outline: 3px solid rgba(225, 29, 96, 0.4);
+  outline-offset: 3px;
+}
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: inline; }
+html[data-theme="dark"] .theme-toggle .icon-sun { display: inline; }
+html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+@media (max-width: 700px) {
+  .theme-toggle {
+    bottom: calc(12px + var(--safe-b));
+    right: max(12px, env(safe-area-inset-right));
+    width: 44px;
+    height: 44px;
+  }
+}
+
 </style>
+
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem('cg_theme');
+    if (!t) {
+      t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+  } catch (e) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
 </head>
 <body>
 <div class="app" id="top">
@@ -1094,6 +1248,12 @@ button, .topnav a, .backtop, .card {
   </div>
   <a class="backtop" href="#top">↑ Back to top</a>
 </footer>
+
+<button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+  <span class="icon-moon" aria-hidden="true">☾</span>
+  <span class="icon-sun" aria-hidden="true">☀</span>
+</button>
+
 </div>
 
 <script>
@@ -1130,7 +1290,7 @@ function ackCardHTML(which, heading, sub, lines, noteText, prefillFrom){
       const pf = getAck(prefillFrom);
       if(pf) prefill = pf.name;
     }
-    signHTML = '<div class="sign-row"><input type="text" value="'+prefill+'" placeholder="Add your name" id="ackInput_'+which+'" onblur="doAck(\''+which+'\')" onkeydown="if(event.key===\'Enter\'){this.blur()}"/><div class="savenote">Saved for you, not sent anywhere.</div></div>';
+    signHTML = '<div class="sign-row"><input type="text" value="'+prefill+'" placeholder="Add your name, not a signature" id="ackInput_'+which+'" onblur="doAck(\''+which+'\')" onkeydown="if(event.key===\'Enter\'){this.blur()}"/><div class="savenote">Saved for you, not sent anywhere.</div></div>';
   }
   return '<div class="pledge-card"><span class="eyebrow">'+heading+'</span><h3>'+sub+'</h3><ul class="pledge-list">'+linesHTML+'</ul>'+signHTML+'</div>';
 }
@@ -1455,6 +1615,25 @@ function render(){
     });
   }
 }
+
+
+(function initThemeToggle(){
+  var btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  function current(){
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+  function apply(theme){
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem('cg_theme', theme); } catch (e) {}
+    btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.title = theme === 'dark' ? 'Light mode' : 'Dark mode';
+  }
+  apply(current());
+  btn.addEventListener('click', function(){
+    apply(current() === 'dark' ? 'light' : 'dark');
+  });
+})();
 
 loadState();
 render();
