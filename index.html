@@ -579,9 +579,12 @@ body {
 }
 
 .card {
-  perspective: 1400px;
+  /* Flat flip: works inside overflow:auto carousel (3D preserve-3d breaks on desktop) */
+  perspective: none;
   height: 275px;
   min-width: 0;
+  position: relative;
+  cursor: pointer;
 }
 .card:focus-visible {
   outline: 3px solid rgba(225, 29, 96, 0.4);
@@ -592,26 +595,31 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  transform-style: preserve-3d;
-  transition: transform .55s cubic-bezier(.4, .2, .2, 1);
+  transform-style: flat;
+  transition: none;
   cursor: pointer;
 }
-.card.flipped .card-inner { transform: rotateY(180deg); }
+.card.flipped .card-inner { transform: none; }
 .face {
   position: absolute;
   inset: 0;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
   border-radius: 20px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transition: opacity .35s ease, visibility .35s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
 }
 .front {
   background: var(--paper);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+  pointer-events: auto;
 }
 .front::before {
   content: '';
@@ -624,8 +632,24 @@ body {
 .back {
   background: linear-gradient(160deg, #FFF0F5 0%, #FFF8FA 55%, #FFF 100%);
   border: 1px solid rgba(225, 29, 96, 0.18);
-  transform: rotateY(180deg);
+  transform: none;
   box-shadow: 0 16px 36px -18px rgba(225, 29, 96, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+.card.flipped .front {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+.card.flipped .back {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+  pointer-events: auto;
 }
 .card-topline {
   display: flex;
@@ -997,7 +1021,7 @@ button, .topnav a, .backtop, .card {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-  .card-inner { transition: none !important; }
+  .face { transition: none !important; }
 }
 
 @media print {
@@ -1257,385 +1281,652 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 </div>
 
 <script>
+/**
+ * HerRhythm Companion Guide
+ * -------------------------
+ * Kit progress, flip cards, carousel, acknowledgements, theme.
+ */
+
+// ---------------------------------------------------------------------------
+// Data
+// ---------------------------------------------------------------------------
+
 const CARDS = [{"n": 1, "kit": 1, "title": "What Is Happening", "fact": "Her first period is called menarche. It marks a normal, healthy stage of growth, not an emergency.", "myth": "She is now fully grown up.", "truth": "Her body is changing, but she still needs the same warmth and patience as before."}, {"n": 2, "kit": 1, "title": "How Her Cycle Works", "fact": "A cycle is counted from the first day of one period to the first day of the next, and it usually repeats every 21 to 35 days.", "myth": "Every period lasts the same number of days for every woman.", "truth": "A period usually lasts 3 to 7 days, and the exact length is different for each person."}, {"n": 3, "kit": 2, "title": "What Not to Say", "fact": "A joke, a laugh, or silence in this moment can stay with her for years.", "myth": "It is best to stay quiet and let the women handle it.", "truth": "A short, kind word from you tells her she is safe and normal. Just being present is enough."}, {"n": 4, "kit": 2, "title": "What to Say Instead", "fact": "Girls remember how someone reacted more than what was said.", "myth": "“Are you okay?” is enough.", "truth": "“Let me know if you need anything, I’m here” opens the door without pressure."}, {"n": 5, "kit": 3, "title": "Symptoms Worth Watching For", "fact": "Cramps, bloating, fatigue, headaches, and mood changes are common and usually pass on their own.", "myth": "If she does not complain, she does not need help.", "truth": "Watch for her holding her stomach, going quiet, or looking tired. Very heavy bleeding, severe pain, or fainting means she should see a doctor."}, {"n": 6, "kit": 3, "title": "Practical Support", "fact": "Cramps, fatigue, and mood shifts are physical, not exaggeration.", "myth": "She is being dramatic.", "truth": "A hot drink, carrying her bag, or giving her space are simple ways to help."}, {"n": 7, "kit": 4, "title": "Chocolate and Comfort Gifts", "fact": "A small comfort gift can make a real difference during her cycle.", "myth": "Gifts during her period are unnecessary or silly.", "truth": "Dark chocolate is already part of the Rising Moon comfort kit. A bar, her favorite tea, or a warm drink is a small, simple way to show you noticed."}, {"n": 8, "kit": 4, "title": "Everyday Respect", "fact": "Period stigma often starts with small comments made at home, not outside it.", "myth": "Talking about periods is awkward or shameful.", "truth": "Treating it as normal at home is what breaks the stigma everywhere else."}, {"n": 9, "kit": 5, "title": "If There’s a Leak or Stain", "fact": "A stain in public is one of her biggest fears at this stage.", "myth": "Pointing it out right away helps her fix it fast.", "truth": "Quietly offering a jacket, a bag, or a private word protects her dignity first."}, {"n": 10, "kit": 5, "title": "Myths About Her Body and Activity", "fact": "A period does not stop her from living her life.", "myth": "She should rest and skip sports, school, or plans.", "truth": "With the right products and comfort care, she can do everything she did before."}, {"n": 11, "kit": 6, "title": "Buying Products Without Awkwardness", "fact": "Picking up pads or a heating patch for her is not a big deal.", "myth": "Buying period products is a woman’s job.", "truth": "Doing it without hesitation shows her this is normal, not shameful."}, {"n": 12, "kit": 6, "title": "Your Role Going Forward", "fact": "Her confidence in this stage often traces back to how the men around her responded the first time.", "myth": "This is a one-time conversation.", "truth": "Being an ally means checking in every cycle, not just the first one."}];
+
 const LINES_INITIAL = ["No jokes about her period, not even the small ones.", "Patience over silence, especially when you don’t know what to say.", "Helping before she has to ask.", "Treating her body like something normal, not something to whisper about.", "Showing up, cycle after cycle."];
+
 const LINES_RENEWAL = ["I will not joke about her period.", "I will speak to her with patience, not silence.", "I will help without being asked.", "I will treat her body as normal, not shameful.", "I will show up, every cycle."];
+
 const TOTAL_KITS = 6;
+const STORAGE = {
+  kit: 'cg_kit',
+  ackPrefix: 'cg_ack_',
+  theme: 'cg_theme'
+};
+
+// ---------------------------------------------------------------------------
+// State
+// ---------------------------------------------------------------------------
+
 let currentKit = 1;
-let flipped = {};
+let carouselPage = 0;
+/** @type {Record<number, boolean>} */
+const flipped = {};
 
-function loadState(){
-  try{ currentKit = parseInt(localStorage.getItem('cg_kit')||'1',10); }catch(e){ currentKit = 1; }
-}
-function saveKit(k){ try{ localStorage.setItem('cg_kit', k); }catch(e){} }
+// ---------------------------------------------------------------------------
+// Storage helpers
+// ---------------------------------------------------------------------------
 
-function getAck(which){
-  try{ return JSON.parse(localStorage.getItem('cg_ack_'+which)||'null'); }catch(e){ return null; }
+function loadKitFromStorage() {
+  try {
+    const value = parseInt(localStorage.getItem(STORAGE.kit) || '1', 10);
+    currentKit = Number.isFinite(value) ? value : 1;
+  } catch (err) {
+    currentKit = 1;
+  }
+  currentKit = Math.min(TOTAL_KITS, Math.max(1, currentKit));
 }
-function setAck(which, name){
-  const data = {name, date: new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})};
-  try{ localStorage.setItem('cg_ack_'+which, JSON.stringify(data)); }catch(e){}
+
+function saveKit(kit) {
+  try {
+    localStorage.setItem(STORAGE.kit, String(kit));
+  } catch (err) {
+    /* ignore quota / private mode */
+  }
+}
+
+function getAck(which) {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE.ackPrefix + which) || 'null');
+  } catch (err) {
+    return null;
+  }
+}
+
+function setAck(which, name) {
+  const data = {
+    name: name,
+    date: new Date().toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    })
+  };
+  try {
+    localStorage.setItem(STORAGE.ackPrefix + which, JSON.stringify(data));
+  } catch (err) {
+    /* ignore */
+  }
   return data;
 }
 
-function ackCardHTML(which, heading, sub, lines, noteText, prefillFrom){
+// ---------------------------------------------------------------------------
+// Card artwork (unique icon per card number 1–12)
+// ---------------------------------------------------------------------------
+
+function cardArt(cardNumber) {
+  const arts = {
+    1: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FDEBF1"/><path d="M40 18c-9 8-17 15-17 27 0 10 7 17 17 17s17-7 17-17c0-12-8-19-17-27Z" fill="#E13C6E"/><circle cx="34" cy="42" r="5" fill="#fff" opacity=".7"/></svg>',
+    2: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#F2EAF5"/><circle cx="40" cy="40" r="18" fill="none" stroke="#5B3A63" stroke-width="4"/><path d="M40 22v36M22 40h36" stroke="#E13C6E" stroke-width="3" opacity=".5"/><circle cx="40" cy="40" r="6" fill="#D9A441"/></svg>',
+    3: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#E7F6ED"/><path d="M24 48c8-16 24-16 32 0" fill="none" stroke="#2E9E5B" stroke-width="5" stroke-linecap="round"/><circle cx="28" cy="30" r="7" fill="#5B3A63"/><circle cx="52" cy="30" r="7" fill="#E13C6E"/></svg>',
+    4: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FFF4D9"/><path d="M22 44c9-14 27-14 36 0" fill="none" stroke="#D9A441" stroke-width="5" stroke-linecap="round"/><path d="M28 50c6 7 18 7 24 0" fill="none" stroke="#5B3A63" stroke-width="3" stroke-linecap="round"/><circle cx="30" cy="34" r="3" fill="#E13C6E"/><circle cx="50" cy="34" r="3" fill="#E13C6E"/></svg>',
+    5: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FDEBF1"/><path d="M40 20c-10 0-18 8-18 18 0 13 12 21 18 23 6-2 18-10 18-23 0-10-8-18-18-18Z" fill="none" stroke="#E13C6E" stroke-width="5"/><path d="M31 40l6 6 12-13" fill="none" stroke="#2E9E5B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    6: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#F2EAF5"/><path d="M24 46c4-12 10-18 16-18s12 6 16 18" fill="none" stroke="#5B3A63" stroke-width="5" stroke-linecap="round"/><path d="M28 52c6 5 18 5 24 0" fill="none" stroke="#E13C6E" stroke-width="4" stroke-linecap="round"/><path d="M40 18v10" stroke="#D9A441" stroke-width="4" stroke-linecap="round"/></svg>',
+    7: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#E8F4FC"/><path d="M26 50h28M30 42h20M34 34h12" stroke="#3D5A80" stroke-width="4" stroke-linecap="round"/><circle cx="40" cy="24" r="6" fill="#E13C6E"/></svg>',
+    8: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FDEBF1"/><rect x="26" y="24" width="28" height="34" rx="4" fill="none" stroke="#5B3A63" stroke-width="3"/><path d="M32 34h16M32 42h16M32 50h10" stroke="#E13C6E" stroke-width="3" stroke-linecap="round"/></svg>',
+    9: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#E7F6ED"/><path d="M40 18l4 12h13l-10 8 4 12-11-7-11 7 4-12-10-8h13z" fill="#D9A441"/></svg>',
+    10: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#F2EAF5"/><circle cx="40" cy="36" r="12" fill="none" stroke="#5B3A63" stroke-width="4"/><path d="M28 54c4-6 8-8 12-8s8 2 12 8" fill="none" stroke="#E13C6E" stroke-width="4" stroke-linecap="round"/></svg>',
+    11: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FFF4D9"/><path d="M40 22v36" stroke="#D9A441" stroke-width="4" stroke-linecap="round"/><path d="M28 34c8 4 16 4 24 0" fill="none" stroke="#5B3A63" stroke-width="3" stroke-linecap="round"/><path d="M28 48c8-4 16-4 24 0" fill="none" stroke="#E13C6E" stroke-width="3" stroke-linecap="round"/></svg>',
+    12: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FDEBF1"/><path d="M26 40c0-8 6-14 14-14s14 6 14 14-6 16-14 18c-8-2-14-10-14-18z" fill="#E13C6E"/><path d="M34 38h12M40 32v12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>'
+  };
+  return arts[cardNumber] || arts[1];
+}
+
+// ---------------------------------------------------------------------------
+// HTML builders
+// ---------------------------------------------------------------------------
+
+function lockedHTML(kitNeeded) {
+  return (
+    '<div class="locked">' +
+      '<div class="lock-icon">🔒</div>' +
+      '<div class="lock-text">Unlocks with</div>' +
+      '<div class="lock-kit">Kit ' + kitNeeded + '</div>' +
+    '</div>'
+  );
+}
+
+function cardHTML(card) {
+  const isFlipped = !!flipped[card.n];
+  const art = cardArt(card.n);
+  const num = String(card.n).padStart(2, '0');
+
+  return (
+    '<div class="card' + (isFlipped ? ' flipped' : '') + '"' +
+      ' data-card-n="' + card.n + '"' +
+      ' tabindex="0"' +
+      ' role="button"' +
+      ' aria-label="Card ' + card.n + ': ' + card.title + '. Tap or press Enter to flip."' +
+      ' onclick="toggleFlip(' + card.n + ')"' +
+      ' onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();toggleFlip(' + card.n + ')}">' +
+      '<div class="card-inner">' +
+        '<div class="face front">' +
+          '<div class="card-topline">' +
+            '<div class="card-num">CARD ' + num + ' / 12</div>' +
+            '<div class="card-art">' + art + '</div>' +
+          '</div>' +
+          '<div class="card-eyebrow">Did You Know</div>' +
+          '<div class="card-title">' + card.title + '</div>' +
+          '<div class="card-body">' + card.fact + '</div>' +
+          '<div class="flip-hint"><span>↻</span> Tap to see myth vs fact</div>' +
+        '</div>' +
+        '<div class="face back">' +
+          '<div class="card-topline">' +
+            '<div class="card-eyebrow">Myth vs Fact</div>' +
+            '<div class="card-art small">' + art + '</div>' +
+          '</div>' +
+          '<div class="mvf-row">' +
+            '<div class="mvf-block myth">' +
+              '<div class="mvf-label">Myth</div>' +
+              '<div class="mvf-text">' + card.myth + '</div>' +
+            '</div>' +
+            '<div class="mvf-block fact">' +
+              '<div class="mvf-label">Fact</div>' +
+              '<div class="mvf-text">' + card.truth + '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="flip-hint"><span>↻</span> Tap to flip back</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+function ackCardHTML(which, heading, sub, lines, noteText, prefillFrom) {
   const existing = getAck(which);
-  const linesHTML = lines.map(l => '<li>'+l+'</li>').join('');
+  const linesHTML = lines.map(function (line) {
+    return '<li>' + line + '</li>';
+  }).join('');
+
   let signHTML;
-  if(existing){
-    signHTML = '<div class="signed-block"><div class="sname">'+existing.name+'</div><div class="sdate">'+existing.date+'</div><div class="snote">'+noteText+'</div></div>';
+  if (existing) {
+    signHTML =
+      '<div class="signed-block">' +
+        '<div class="sname">' + existing.name + '</div>' +
+        '<div class="sdate">' + existing.date + '</div>' +
+        '<div class="snote">' + noteText + '</div>' +
+      '</div>';
   } else {
     let prefill = '';
-    if(prefillFrom){
-      const pf = getAck(prefillFrom);
-      if(pf) prefill = pf.name;
+    if (prefillFrom) {
+      const previous = getAck(prefillFrom);
+      if (previous) prefill = previous.name;
     }
-    signHTML = '<div class="sign-row"><input type="text" value="'+prefill+'" placeholder="Add your name" id="ackInput_'+which+'" onblur="doAck(\''+which+'\')" onkeydown="if(event.key===\'Enter\'){this.blur()}"/><div class="savenote">Saved for you, not sent anywhere.</div></div>';
+    signHTML =
+      '<div class="sign-row">' +
+        '<input type="text" value="' + prefill + '" placeholder="Add your name, not a signature" ' +
+          'id="ackInput_' + which + '" ' +
+          'onblur="doAck(\'' + which + '\')" ' +
+          'onkeydown="if(event.key===\'Enter\'){this.blur()}"/>' +
+        '<div class="savenote">Saved for you, not sent anywhere.</div>' +
+      '</div>';
   }
-  return '<div class="pledge-card"><span class="eyebrow">'+heading+'</span><h3>'+sub+'</h3><ul class="pledge-list">'+linesHTML+'</ul>'+signHTML+'</div>';
+
+  return (
+    '<div class="pledge-card">' +
+      '<span class="eyebrow">' + heading + '</span>' +
+      '<h3>' + sub + '</h3>' +
+      '<ul class="pledge-list">' + linesHTML + '</ul>' +
+      signHTML +
+    '</div>'
+  );
 }
 
-window.doAck = function(which){
-  const input = document.getElementById('ackInput_'+which);
-  const name = (input && input.value || '').trim();
-  if(!name){ return; }
-  setAck(which, name);
-  render();
-}
+// ---------------------------------------------------------------------------
+// Card flip
+// ---------------------------------------------------------------------------
 
-function cardArt(kit){
-  const arts = {
-    1:'<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FDEBF1"/><path d="M40 18c-9 8-17 15-17 27 0 10 7 17 17 17s17-7 17-17c0-12-8-19-17-27Z" fill="#E13C6E"/><circle cx="34" cy="42" r="5" fill="#fff" opacity=".7"/><path d="M25 28c5-5 10-7 15-8" stroke="#D9A441" stroke-width="3" stroke-linecap="round"/></svg>',
-    2:'<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#F2EAF5"/><circle cx="40" cy="40" r="22" fill="none" stroke="#5B3A63" stroke-width="5"/><path d="M40 18v44M18 40h44" stroke="#E13C6E" stroke-width="3" opacity=".55"/><circle cx="40" cy="40" r="7" fill="#D9A441"/></svg>',
-    3:'<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#E7F6ED"/><path d="M25 48c8-15 22-15 30 0" fill="none" stroke="#2E9E5B" stroke-width="5" stroke-linecap="round"/><circle cx="29" cy="31" r="7" fill="#5B3A63"/><circle cx="51" cy="31" r="7" fill="#E13C6E"/><path d="M34 54h12" stroke="#D9A441" stroke-width="4" stroke-linecap="round"/></svg>',
-    4:'<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FDEBF1"/><path d="M22 42c8-13 28-13 36 0" fill="none" stroke="#D9A441" stroke-width="5" stroke-linecap="round"/><path d="M28 48c7 8 17 8 24 0" fill="none" stroke="#5B3A63" stroke-width="4" stroke-linecap="round"/><circle cx="30" cy="34" r="3" fill="#E13C6E"/><circle cx="50" cy="34" r="3" fill="#E13C6E"/></svg>',
-    5:'<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FDEBF1"/><path d="M40 20c-10 0-18 8-18 18 0 13 12 21 18 23 6-2 18-10 18-23 0-10-8-18-18-18Z" fill="none" stroke="#E13C6E" stroke-width="5"/><path d="M31 40l6 6 12-13" fill="none" stroke="#2E9E5B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-    6:'<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#F2EAF5"/><path d="M24 46c4-12 10-18 16-18s12 6 16 18" fill="none" stroke="#5B3A63" stroke-width="5" stroke-linecap="round"/><path d="M28 51c6 6 18 6 24 0" fill="none" stroke="#E13C6E" stroke-width="4" stroke-linecap="round"/><path d="M40 19v8" stroke="#D9A441" stroke-width="4" stroke-linecap="round"/></svg>'
-  };
-  return arts[kit] || arts[1];
-}
+function toggleFlip(cardNumber) {
+  flipped[cardNumber] = !flipped[cardNumber];
 
-function cardHTML(card){
-  const isFlipped = !!flipped[card.n];
-  return '<div class="card'+(isFlipped?' flipped':'')+'" tabindex="0" role="button" aria-label="Card '+card.n+': '+card.title+'. Tap or press Enter to flip." onclick="toggleFlip('+card.n+')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();toggleFlip('+card.n+')}">'+
-    '<div class="card-inner">'+
-      '<div class="face front">'+
-        '<div class="card-topline"><div class="card-num">CARD '+String(card.n).padStart(2,'0')+' / 12</div><div class="card-art">'+cardArt(card.kit)+'</div></div>'+
-        '<div class="card-eyebrow">Did You Know</div>'+
-        '<div class="card-title">'+card.title+'</div>'+
-        '<div class="card-body">'+card.fact+'</div>'+
-        '<div class="flip-hint"><span>↻</span> Tap to see myth vs fact</div>'+
-      '</div>'+
-      '<div class="face back">'+
-        '<div class="card-topline"><div class="card-eyebrow">Myth vs Fact</div><div class="card-art small">'+cardArt(card.kit)+'</div></div>'+
-        '<div class="mvf-row">'+
-          '<div class="mvf-block myth"><div class="mvf-label">Myth</div><div class="mvf-text">'+card.myth+'</div></div>'+
-          '<div class="mvf-block fact"><div class="mvf-label">Fact</div><div class="mvf-text">'+card.truth+'</div></div>'+
-        '</div>'+
-        '<div class="flip-hint"><span>↻</span> Tap to flip back</div>'+
-      '</div>'+
-    '</div>'+
-  '</div>';
-}
+  const cardEl = document.querySelector('.card[data-card-n="' + cardNumber + '"]');
+  if (cardEl) {
+    cardEl.classList.toggle('flipped', !!flipped[cardNumber]);
+    return;
+  }
 
-function lockedHTML(kitNeeded){
-  return '<div class="locked"><div class="lock-icon">🔒</div><div class="lock-text">Unlocks with</div><div class="lock-kit">Kit '+kitNeeded+'</div></div>';
-}
-
-window.toggleFlip = function(n){
-  flipped[n] = !flipped[n];
+  // Fallback: full re-render (keeps carousel scroll)
   const scroller = document.getElementById('cardScroller');
   const keepScroll = scroller ? scroller.scrollLeft : 0;
   render();
-  const scroller2 = document.getElementById('cardScroller');
-  if(scroller2){
-    scroller2.scrollLeft = keepScroll;
+  const scrollerAfter = document.getElementById('cardScroller');
+  if (scrollerAfter) {
+    scrollerAfter.scrollLeft = keepScroll;
     updateCarouselUI();
   }
 }
 
-let carouselPage = 0;
+window.toggleFlip = toggleFlip;
 
-function getCarouselPageCount(){
+function doAck(which) {
+  const input = document.getElementById('ackInput_' + which);
+  const name = (input && input.value || '').trim();
+  if (!name) return;
+  setAck(which, name);
+  render();
+}
+
+window.doAck = doAck;
+
+// ---------------------------------------------------------------------------
+// Carousel
+// ---------------------------------------------------------------------------
+
+function getCarouselPageCount() {
   const scroller = document.getElementById('cardScroller');
-  if(!scroller) return 1;
+  if (!scroller) return 1;
   return scroller.querySelectorAll('.card-page').length || 1;
 }
 
-function goCarouselPage(page){
+function goCarouselPage(page) {
   const scroller = document.getElementById('cardScroller');
-  if(!scroller) return;
+  if (!scroller) return;
+
   const pages = scroller.querySelectorAll('.card-page');
-  const max = pages.length - 1;
-  carouselPage = Math.max(0, Math.min(page, max));
+  const maxIndex = Math.max(0, pages.length - 1);
+  carouselPage = Math.max(0, Math.min(page, maxIndex));
+
   const target = pages[carouselPage];
-  if(target){
-    scroller.scrollTo({ left: target.offsetLeft - scroller.offsetLeft, behavior: 'smooth' });
+  if (target) {
+    scroller.scrollTo({
+      left: target.offsetLeft - scroller.offsetLeft,
+      behavior: 'smooth'
+    });
   }
   updateCarouselUI();
 }
 
-function updateCarouselUI(){
+window.goCarouselPage = goCarouselPage;
+
+function updateCarouselUI() {
   const scroller = document.getElementById('cardScroller');
   const label = document.getElementById('carouselPageLabel');
-  const prev = document.getElementById('carouselPrev');
-  const next = document.getElementById('carouselNext');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
   const dots = document.getElementById('carouselDots');
-  if(!scroller) return;
+  if (!scroller) return;
+
   const pages = scroller.querySelectorAll('.card-page');
   const total = pages.length || 1;
-  // infer page from scroll
-  const w = scroller.clientWidth || 1;
-  carouselPage = Math.round(scroller.scrollLeft / w);
+  const width = scroller.clientWidth || 1;
+
+  carouselPage = Math.round(scroller.scrollLeft / width);
   carouselPage = Math.max(0, Math.min(carouselPage, total - 1));
-  if(label) label.textContent = (carouselPage + 1) + ' / ' + total;
-  if(prev) prev.disabled = carouselPage <= 0;
-  if(next) next.disabled = carouselPage >= total - 1;
-  if(dots){
-    dots.querySelectorAll('button').forEach((btn, i) => {
-      btn.setAttribute('aria-current', i === carouselPage ? 'true' : 'false');
+
+  if (label) label.textContent = (carouselPage + 1) + ' / ' + total;
+  if (prevBtn) prevBtn.disabled = carouselPage <= 0;
+  if (nextBtn) nextBtn.disabled = carouselPage >= total - 1;
+
+  if (dots) {
+    dots.querySelectorAll('button').forEach(function (btn, index) {
+      btn.setAttribute('aria-current', index === carouselPage ? 'true' : 'false');
     });
   }
 }
 
-function bindCarousel(){
-  const scroller = document.getElementById('cardScroller');
-  if(!scroller || scroller.dataset.bound === '1') {
-    // re-bind scroll after re-render: always refresh listener via flag reset
-  }
-  if(!scroller) return;
-  scroller.dataset.bound = '1';
-  scroller.onscroll = function(){
-    window.clearTimeout(scroller._scrollT);
-    scroller._scrollT = window.setTimeout(updateCarouselUI, 60);
-  };
-  document.getElementById('carouselPrev')?.addEventListener('click', function(){ goCarouselPage(carouselPage - 1); });
-  document.getElementById('carouselNext')?.addEventListener('click', function(){ goCarouselPage(carouselPage + 1); });
-}
-
-document.getElementById('kitUp').onclick = function(){
-  if(currentKit < TOTAL_KITS){ currentKit++; saveKit(currentKit); render(); }
-}
-document.getElementById('kitDown').onclick = function(){
-  if(currentKit > 1){ currentKit--; saveKit(currentKit); render(); }
-}
-
-
-function bindSwipeGestures(scroller){
-  if(!scroller || scroller.dataset.swipeBound === '1') return;
+/**
+ * Touch / pointer swipe on the card scroller.
+ * Horizontal swipes change page; vertical scrolls the document.
+ * Clicks on .card are ignored so flip still works on desktop.
+ */
+function bindSwipeGestures(scroller) {
+  if (!scroller || scroller.dataset.swipeBound === '1') return;
   scroller.dataset.swipeBound = '1';
 
-  var startX = 0, startY = 0, startT = 0;
-  var lastX = 0, tracking = false, locked = null; // locked: 'h' | 'v'
-  var SWIPE_MIN = 50;      // px
-  var SWIPE_MAX_OFF = 75;  // vertical tolerance
+  var startX = 0;
+  var startY = 0;
+  var startTime = 0;
+  var lastX = 0;
+  var tracking = false;
+  var axisLock = null; // 'h' | 'v' | null
+
+  var SWIPE_MIN_PX = 50;
   var SWIPE_MAX_MS = 600;
 
-  function onStart(x, y){
+  function onStart(x, y) {
     startX = lastX = x;
     startY = y;
-    startT = Date.now();
+    startTime = Date.now();
     tracking = true;
-    locked = null;
+    axisLock = null;
   }
 
-  function onMove(x, y, e){
-    if(!tracking) return;
+  function onMove(x, y, event) {
+    if (!tracking) return;
     var dx = x - startX;
     var dy = y - startY;
-    if(locked === null){
-      if(Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
-      locked = Math.abs(dx) > Math.abs(dy) ? 'h' : 'v';
+
+    if (axisLock === null) {
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+      axisLock = Math.abs(dx) > Math.abs(dy) ? 'h' : 'v';
     }
-    if(locked === 'h'){
-      // Prevent vertical page scroll fighting the carousel intent
-      if(e && e.cancelable) e.preventDefault();
+
+    if (axisLock === 'h') {
+      if (event && event.cancelable) event.preventDefault();
       lastX = x;
     }
   }
 
-  function onEnd(x){
-    if(!tracking) return;
+  function onEnd(x) {
+    if (!tracking) return;
     tracking = false;
-    if(locked !== 'h'){ locked = null; return; }
+
+    if (axisLock !== 'h') {
+      axisLock = null;
+      return;
+    }
+
     var dx = (x != null ? x : lastX) - startX;
-    var dt = Date.now() - startT;
-    locked = null;
-    if(Math.abs(dx) < SWIPE_MIN || dt > SWIPE_MAX_MS){
-      // snap back to current page
+    var elapsed = Date.now() - startTime;
+    axisLock = null;
+
+    if (Math.abs(dx) < SWIPE_MIN_PX || elapsed > SWIPE_MAX_MS) {
       goCarouselPage(carouselPage);
       return;
     }
-    if(dx < 0) goCarouselPage(carouselPage + 1); // swipe left → next
-    else goCarouselPage(carouselPage - 1);       // swipe right → prev
+
+    if (dx < 0) goCarouselPage(carouselPage + 1);
+    else goCarouselPage(carouselPage - 1);
   }
 
-  scroller.addEventListener('touchstart', function(e){
-    if(e.touches.length !== 1) return;
-    onStart(e.touches[0].clientX, e.touches[0].clientY);
+  scroller.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    onStart(event.touches[0].clientX, event.touches[0].clientY);
   }, { passive: true });
 
-  scroller.addEventListener('touchmove', function(e){
-    if(e.touches.length !== 1) return;
-    onMove(e.touches[0].clientX, e.touches[0].clientY, e);
+  scroller.addEventListener('touchmove', function (event) {
+    if (event.touches.length !== 1) return;
+    onMove(event.touches[0].clientX, event.touches[0].clientY, event);
   }, { passive: false });
 
-  scroller.addEventListener('touchend', function(e){
-    var x = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : lastX;
-    onEnd(x);
+  scroller.addEventListener('touchend', function (event) {
+    var touch = event.changedTouches && event.changedTouches[0];
+    onEnd(touch ? touch.clientX : lastX);
   }, { passive: true });
 
-  scroller.addEventListener('touchcancel', function(){
+  scroller.addEventListener('touchcancel', function () {
     tracking = false;
-    locked = null;
+    axisLock = null;
     goCarouselPage(carouselPage);
   }, { passive: true });
 
-  // Pointer events (pen / some laptops) — optional drag
-  scroller.addEventListener('pointerdown', function(e){
-    if(e.pointerType === 'mouse' && e.button !== 0) return;
-    if(e.pointerType === 'touch') return; // handled above
-    onStart(e.clientX, e.clientY);
-    try { scroller.setPointerCapture(e.pointerId); } catch(err){}
-  });
-  scroller.addEventListener('pointermove', function(e){
-    if(e.pointerType === 'touch') return;
-    onMove(e.clientX, e.clientY, e);
-  });
-  scroller.addEventListener('pointerup', function(e){
-    if(e.pointerType === 'touch') return;
-    onEnd(e.clientX);
-  });
-  scroller.addEventListener('pointercancel', function(e){
-    if(e.pointerType === 'touch') return;
-    tracking = false;
-    locked = null;
+  scroller.addEventListener('pointerdown', function (event) {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    if (event.pointerType === 'touch') return;
+    if (event.target && event.target.closest &&
+        (event.target.closest('.card') || event.target.closest('button'))) {
+      return;
+    }
+    onStart(event.clientX, event.clientY);
+    try { scroller.setPointerCapture(event.pointerId); } catch (err) { /* ignore */ }
   });
 
-  // Keyboard: left/right when scroller focused
-  scroller.addEventListener('keydown', function(e){
-    if(e.key === 'ArrowLeft'){ e.preventDefault(); goCarouselPage(carouselPage - 1); }
-    if(e.key === 'ArrowRight'){ e.preventDefault(); goCarouselPage(carouselPage + 1); }
+  scroller.addEventListener('pointermove', function (event) {
+    if (event.pointerType === 'touch') return;
+    if (!tracking) return;
+    onMove(event.clientX, event.clientY, event);
+  });
+
+  scroller.addEventListener('pointerup', function (event) {
+    if (event.pointerType === 'touch') return;
+    if (!tracking) return;
+    onEnd(event.clientX);
+  });
+
+  scroller.addEventListener('pointercancel', function (event) {
+    if (event.pointerType === 'touch') return;
+    tracking = false;
+    axisLock = null;
+  });
+
+  scroller.addEventListener('keydown', function (event) {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      goCarouselPage(carouselPage - 1);
+    }
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      goCarouselPage(carouselPage + 1);
+    }
   });
 }
 
-function render(){
-  document.getElementById('kitNum').textContent = currentKit;
+function bindCarouselControls() {
+  var prevBtn = document.getElementById('carouselPrev');
+  var nextBtn = document.getElementById('carouselNext');
+  var scroller = document.getElementById('cardScroller');
 
-  const unlockedCards = CARDS.filter(c => c.kit <= currentKit).length;
-  const ack1Done = !!getAck('initial');
-  const ack2Unlocked = currentKit >= TOTAL_KITS;
-  const ack2Done = !!getAck('renewal');
-  let doneCount = (ack1Done?1:0) + unlockedCards + (ack2Done?1:0);
-  document.getElementById('ptext').textContent = 'Touchpoint ' + doneCount + ' of 14 · Kit ' + currentKit + ' of ' + TOTAL_KITS;
-  const pct = Math.round((doneCount / 14) * 100);
-  const progressFill = document.getElementById('progressFill');
-  if(progressFill) progressFill.style.width = pct + '%';
-  const progressPct = document.getElementById('progressPct');
-  if(progressPct) progressPct.textContent = pct + '%';
-
-  const segWrap = document.getElementById('segments');
-  segWrap.innerHTML = '';
-  const totalSegs = 14;
-  for(let i=0;i<totalSegs;i++){
-    const seg = document.createElement('div');
-    seg.className = 'seg';
-    if(i===0 && ack1Done) seg.className += ' pledge';
-    else if(i===totalSegs-1 && ack2Done) seg.className += ' pledge';
-    else if(i>0 && i<totalSegs-1 && (i-1) < unlockedCards) seg.className += ' done';
-    segWrap.appendChild(seg);
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function () {
+      goCarouselPage(carouselPage - 1);
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function () {
+      goCarouselPage(carouselPage + 1);
+    });
   }
 
-  // Build card list (unlocked or locked placeholders) in order
-  const cardItems = CARDS.map(card => {
-    if(card.kit <= currentKit) return cardHTML(card);
+  if (!scroller) return;
+
+  scroller.addEventListener('scroll', function () {
+    window.clearTimeout(scroller._scrollTimer);
+    scroller._scrollTimer = window.setTimeout(updateCarouselUI, 60);
+  });
+
+  bindSwipeGestures(scroller);
+
+  requestAnimationFrame(function () {
+    var pages = scroller.querySelectorAll('.card-page');
+    if (pages[carouselPage]) {
+      scroller.scrollLeft = pages[carouselPage].offsetLeft - scroller.offsetLeft;
+    }
+    updateCarouselUI();
+  });
+}
+
+function buildCarouselHTML(cardItems) {
+  var pagesHTML = '';
+  var pageCount = Math.ceil(cardItems.length / 2) || 1;
+
+  for (var i = 0; i < cardItems.length; i += 2) {
+    var first = cardItems[i] || '';
+    var second = cardItems[i + 1] || '<div></div>';
+    var labelTo = Math.min(i + 2, cardItems.length);
+    pagesHTML +=
+      '<div class="card-page" role="group" aria-label="Cards ' + (i + 1) + ' and ' + labelTo + '">' +
+        first + second +
+      '</div>';
+  }
+
+  var dotsHTML = '';
+  for (var d = 0; d < pageCount; d++) {
+    dotsHTML +=
+      '<button type="button" aria-label="Go to card pair ' + (d + 1) + '" ' +
+        (d === carouselPage ? 'aria-current="true"' : '') +
+        ' onclick="goCarouselPage(' + d + ')"></button>';
+  }
+
+  return (
+    '<div class="card-carousel-wrap">' +
+      '<div class="carousel-toolbar">' +
+        '<span class="hint">2 cards at a time · swipe left/right or use arrows</span>' +
+        '<div class="carousel-nav">' +
+          '<button type="button" id="carouselPrev" aria-label="Previous cards">‹</button>' +
+          '<span class="carousel-page-label" id="carouselPageLabel">1 / ' + pageCount + '</span>' +
+          '<button type="button" id="carouselNext" aria-label="Next cards">›</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="card-scroller" id="cardScroller" tabindex="0" aria-label="Companion cards carousel">' +
+        pagesHTML +
+      '</div>' +
+      '<div class="carousel-dots" id="carouselDots">' + dotsHTML + '</div>' +
+    '</div>'
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Progress UI
+// ---------------------------------------------------------------------------
+
+function updateProgressUI() {
+  var unlockedCards = CARDS.filter(function (card) {
+    return card.kit <= currentKit;
+  }).length;
+
+  var ack1Done = !!getAck('initial');
+  var ack2Done = !!getAck('renewal');
+  var doneCount = (ack1Done ? 1 : 0) + unlockedCards + (ack2Done ? 1 : 0);
+
+  var ptext = document.getElementById('ptext');
+  if (ptext) {
+    ptext.textContent =
+      'Touchpoint ' + doneCount + ' of 14 · Kit ' + currentKit + ' of ' + TOTAL_KITS;
+  }
+
+  var pct = Math.round((doneCount / 14) * 100);
+  var progressFill = document.getElementById('progressFill');
+  if (progressFill) progressFill.style.width = pct + '%';
+  var progressPct = document.getElementById('progressPct');
+  if (progressPct) progressPct.textContent = pct + '%';
+
+  var segWrap = document.getElementById('segments');
+  if (!segWrap) return;
+
+  segWrap.innerHTML = '';
+  var totalSegs = 14;
+  for (var i = 0; i < totalSegs; i++) {
+    var seg = document.createElement('div');
+    seg.className = 'seg';
+    if (i === 0 && ack1Done) seg.className += ' pledge';
+    else if (i === totalSegs - 1 && ack2Done) seg.className += ' pledge';
+    else if (i > 0 && i < totalSegs - 1 && (i - 1) < unlockedCards) seg.className += ' done';
+    segWrap.appendChild(seg);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Main render
+// ---------------------------------------------------------------------------
+
+function render() {
+  var kitNum = document.getElementById('kitNum');
+  if (kitNum) kitNum.textContent = currentKit;
+
+  updateProgressUI();
+
+  var cardItems = CARDS.map(function (card) {
+    if (card.kit <= currentKit) return cardHTML(card);
     return lockedHTML(card.kit);
   });
 
-  // Group into pages of 2
-  let pagesHTML = '';
-  const pageCount = Math.ceil(cardItems.length / 2) || 1;
-  for(let i = 0; i < cardItems.length; i += 2){
-    const a = cardItems[i] || '';
-    const b = cardItems[i + 1] || '<div></div>';
-    pagesHTML += '<div class="card-page" role="group" aria-label="Cards ' + (i+1) + ' and ' + Math.min(i+2, cardItems.length) + '">' + a + b + '</div>';
-  }
+  var deck = document.getElementById('deck');
+  if (!deck) return;
 
-  let dotsHTML = '';
-  for(let i = 0; i < pageCount; i++){
-    dotsHTML += '<button type="button" aria-label="Go to card pair ' + (i+1) + '" ' +
-      (i === carouselPage ? 'aria-current="true"' : '') +
-      ' onclick="goCarouselPage(' + i + ')"></button>';
-  }
+  var html = '';
+  html += ackCardHTML(
+    'initial',
+    'Kit 1 · Before You Start',
+    'Small Things That Matter',
+    LINES_INITIAL,
+    'Thank you for being here.',
+    null
+  );
+  html += buildCarouselHTML(cardItems);
 
-  const deck = document.getElementById('deck');
-  let html = '';
-  html += ackCardHTML('initial', 'Kit 1 · Before You Start', 'Small Things That Matter', LINES_INITIAL, 'Thank you for being here.', null);
-
-  html += '<div class="card-carousel-wrap">' +
-    '<div class="carousel-toolbar">' +
-      '<span class="hint">2 cards at a time · swipe left/right or use arrows</span>' +
-      '<div class="carousel-nav">' +
-        '<button type="button" id="carouselPrev" aria-label="Previous cards">‹</button>' +
-        '<span class="carousel-page-label" id="carouselPageLabel">1 / ' + pageCount + '</span>' +
-        '<button type="button" id="carouselNext" aria-label="Next cards">›</button>' +
-      '</div>' +
-    '</div>' +
-    '<div class="card-scroller" id="cardScroller" tabindex="0" aria-label="Companion cards carousel">' +
-      pagesHTML +
-    '</div>' +
-    '<div class="carousel-dots" id="carouselDots">' + dotsHTML + '</div>' +
-  '</div>';
-
-  if(ack2Unlocked){
-    html += ackCardHTML('renewal', 'Kit 6 · Rising Moon', 'You Know What This Takes Now', LINES_RENEWAL, 'Still true. Still showing up.', 'initial');
+  if (currentKit >= TOTAL_KITS) {
+    html += ackCardHTML(
+      'renewal',
+      'Kit 6 · Rising Moon',
+      'You Know What This Takes Now',
+      LINES_RENEWAL,
+      'Still true. Still showing up.',
+      'initial'
+    );
   } else {
     html += lockedHTML(TOTAL_KITS);
   }
 
   deck.innerHTML = html;
+  bindCarouselControls();
+}
 
-  // Bind controls (new DOM each render)
-  document.getElementById('carouselPrev')?.addEventListener('click', function(){ goCarouselPage(carouselPage - 1); });
-  document.getElementById('carouselNext')?.addEventListener('click', function(){ goCarouselPage(carouselPage + 1); });
-  const scroller = document.getElementById('cardScroller');
-  if(scroller){
-    scroller.addEventListener('scroll', function(){
-      window.clearTimeout(scroller._scrollT);
-      scroller._scrollT = window.setTimeout(updateCarouselUI, 60);
-    });
-    bindSwipeGestures(scroller);
-    // restore page
-    requestAnimationFrame(function(){
-      const pages = scroller.querySelectorAll('.card-page');
-      if(pages[carouselPage]){
-        scroller.scrollLeft = pages[carouselPage].offsetLeft - scroller.offsetLeft;
+// ---------------------------------------------------------------------------
+// Kit stepper
+// ---------------------------------------------------------------------------
+
+function bindKitControls() {
+  var up = document.getElementById('kitUp');
+  var down = document.getElementById('kitDown');
+
+  if (up) {
+    up.onclick = function () {
+      if (currentKit < TOTAL_KITS) {
+        currentKit += 1;
+        saveKit(currentKit);
+        render();
       }
-      updateCarouselUI();
-    });
+    };
+  }
+
+  if (down) {
+    down.onclick = function () {
+      if (currentKit > 1) {
+        currentKit -= 1;
+        saveKit(currentKit);
+        render();
+      }
+    };
   }
 }
 
+// ---------------------------------------------------------------------------
+// Theme toggle
+// ---------------------------------------------------------------------------
 
-(function initThemeToggle(){
+function initThemeToggle() {
   var btn = document.getElementById('themeToggle');
   if (!btn) return;
-  function current(){
+
+  function currentTheme() {
     return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   }
-  function apply(theme){
+
+  function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
-    try { localStorage.setItem('cg_theme', theme); } catch (e) {}
-    btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    try {
+      localStorage.setItem(STORAGE.theme, theme);
+    } catch (err) { /* ignore */ }
+    btn.setAttribute(
+      'aria-label',
+      theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+    );
     btn.title = theme === 'dark' ? 'Light mode' : 'Dark mode';
   }
-  apply(current());
-  btn.addEventListener('click', function(){
-    apply(current() === 'dark' ? 'light' : 'dark');
-  });
-})();
 
-loadState();
+  applyTheme(currentTheme());
+  btn.addEventListener('click', function () {
+    applyTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Boot
+// ---------------------------------------------------------------------------
+
+loadKitFromStorage();
+bindKitControls();
+initThemeToggle();
 render();
 
 </script>
