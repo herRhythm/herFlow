@@ -543,7 +543,291 @@
       .theme-toggle .icon-sun { display: none; }
       html[data-theme="dark"] .theme-toggle .icon-sun { display: inline; }
       html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
-      
+
+      /* ——— Brand pillars ——— */
+      .pillars {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 56px 20px 8px;
+      }
+      .pillars-inner {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .pillar {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 26px 24px;
+        background: var(--paper);
+        position: relative;
+        overflow: hidden;
+      }
+      .pillar::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--pink), var(--gold));
+      }
+      .pillar .pillar-num {
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        color: var(--pink);
+        display: block;
+        margin-bottom: 14px;
+      }
+      .pillar h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 21px;
+        color: var(--plum-deep);
+        margin: 0 0 8px;
+      }
+      .pillar p {
+        margin: 0;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+      }
+
+      /* ——— Experiences ——— */
+      .experience-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .experience-card {
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        padding: 28px 24px;
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+      }
+      .experience-card .exp-tag {
+        align-self: flex-start;
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #fff;
+        background: var(--plum);
+        border-radius: 999px;
+        padding: 5px 12px;
+        margin-bottom: 16px;
+      }
+      .experience-card:nth-child(1) .exp-tag { background: var(--pink); }
+      .experience-card:nth-child(2) .exp-tag { background: var(--plum); }
+      .experience-card:nth-child(3) .exp-tag { background: var(--maroon); }
+      .experience-card h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 24px;
+        color: var(--plum-deep);
+        margin: 0 0 12px;
+      }
+      .experience-card p {
+        margin: 0 0 10px;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        flex: 1;
+      }
+      .experience-card p:last-of-type { margin-bottom: 18px; }
+      .experience-card .cta {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--pink);
+      }
+
+      /* ——— Impact band (Dignikits) ——— */
+      .impact-band {
+        position: relative;
+        overflow: hidden;
+        color: #fff;
+        background:
+          linear-gradient(105deg, rgba(20, 10, 18, 0.7) 0%, rgba(20, 10, 18, 0.3) 50%, rgba(20, 10, 18, 0.2) 100%),
+          linear-gradient(160deg, #3E2745 0%, #6B1E2B 55%, #C9952A 130%);
+        padding: 56px 20px;
+        text-align: center;
+      }
+      .impact-inner {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      .impact-band .eyebrow {
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 247, 249, 0.75);
+        display: block;
+        margin-bottom: 14px;
+      }
+      .impact-band h2 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: clamp(24px, 4vw, 34px);
+        margin: 0 0 16px;
+      }
+      .impact-band p {
+        margin: 0 auto 26px;
+        color: rgba(255, 247, 249, 0.86);
+        font-size: 14.5px;
+        max-width: 600px;
+      }
+      .impact-stats {
+        display: flex;
+        justify-content: center;
+        gap: 34px;
+        flex-wrap: wrap;
+        margin-bottom: 28px;
+      }
+      .impact-stats div { text-align: center; }
+      .impact-stats strong {
+        display: block;
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-size: 30px;
+        color: var(--gold);
+      }
+      .impact-stats span {
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        color: rgba(255, 247, 249, 0.75);
+        text-transform: uppercase;
+      }
+
+      /* ——— Loyalty program ——— */
+      .benefit-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-bottom: 28px;
+      }
+      .benefit-card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px 14px;
+        background: var(--paper);
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .benefit-card .b-icon {
+        width: 32px; height: 32px;
+        border-radius: 50%;
+        background: var(--cream-deep);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        flex-shrink: 0;
+      }
+      .benefit-card span.b-text {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--plum-deep);
+        line-height: 1.35;
+      }
+      .loyalty-extra {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .loyalty-card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--paper);
+        padding: 24px;
+      }
+      .loyalty-card h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 19px;
+        color: var(--plum-deep);
+        margin: 0 0 14px;
+      }
+      .points-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .points-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+      }
+      .points-list li::before {
+        content: '✦';
+        color: var(--gold);
+        flex-shrink: 0;
+      }
+      .milestone-track {
+        display: flex;
+        gap: 4px;
+        margin: 16px 0 10px;
+      }
+      .milestone-track span {
+        flex: 1;
+        height: 8px;
+        border-radius: 4px;
+        background: var(--cream-deep);
+      }
+      .milestone-track span.on {
+        background: linear-gradient(90deg, var(--pink), var(--gold));
+      }
+      .milestone-note {
+        font-size: 12.5px;
+        color: var(--ink-soft);
+      }
+      .milestone-note strong { color: var(--plum-deep); }
+
+      /* ——— Holidays ——— */
+      .holidays-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 14px;
+      }
+      .holiday-card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px 14px;
+        background: var(--paper);
+        text-align: center;
+      }
+      .holiday-card .h-date {
+        font-family: 'Space Mono', monospace;
+        font-size: 12px;
+        color: var(--pink);
+        letter-spacing: 0.04em;
+        margin-bottom: 8px;
+      }
+      .holiday-card .h-name {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--plum-deep);
+        line-height: 1.3;
+      }
+
+      @media (max-width: 900px) {
+        .pillars-inner { grid-template-columns: 1fr; }
+        .experience-grid { grid-template-columns: 1fr; }
+        .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+        .loyalty-extra { grid-template-columns: 1fr; }
+        .impact-stats { gap: 24px; }
+      }
+
       @media (max-width: 900px) {
         .features-inner { grid-template-columns: repeat(2, 1fr); }
         .feature:nth-child(2) { border-right: none; }
@@ -574,6 +858,8 @@
         .feature { border-right: none; border-bottom: 1px solid var(--line); }
         .feature:last-child { border-bottom: none; }
         .hero-inner { padding: 40px 18px 48px; }
+        .benefit-grid { grid-template-columns: 1fr 1fr; }
+        .impact-stats { gap: 18px; }
       }
   </style>
   <script>
@@ -632,11 +918,13 @@
 <section class="hero">
   <div class="hero-inner">
     <span class="hero-eyebrow">Private care · Guided at her pace</span>
-    <h1>WKnow Your Rhythm,<br>Flow with It, Live Empowered</h1>
+    <h1>Know Your Rhythm,<br>Flow with It, Live Empowered</h1>
     <p class="hero-lead">
-      We are a menstrual care ecosystem rooted in education and community impact by women who know these stories firsthand.
+      We are a menstrual care ecosystem rooted in education and community impact, built by women who know these stories firsthand.
     </p>
     <div class="hero-actions">
+      <a class="btn-hero" href="#experiences">Explore experiences</a>
+      <a class="btn-ghost" href="#loyalty">Join the loyalty program</a>
     </div>
     <div class="hero-checks">
       <span>Kit-by-kit guidance</span>
@@ -654,39 +942,91 @@
   </div>
 </section>
  
-<!-- Feature strip -->
-<section class="features" aria-label="Why HerRhythm">
-  <div class="features-inner">
-    <article class="feature">
-      <div class="feature-icon">01</div>
-      <div class="label">Private planning</div>
-      <h3>Shaped around her</h3>
-      <p>Language and timing that respect where she is — not a script.</p>
-    </article>
-    <article class="feature">
-      <div class="feature-icon">02</div>
-      <div class="label">Clear guidance</div>
-      <h3>Myth vs fact cards</h3>
-      <p>Short truths you can use in the moment, without the lecture.</p>
-    </article>
-    <article class="feature">
-      <div class="feature-icon">03</div>
-      <div class="label">Response promise</div>
-      <h3>Ask when you need</h3>
-      <p>Bring questions to Ask-HerRhythm whenever something feels unclear.</p>
-    </article>
-    <article class="feature">
-      <div class="feature-icon">04</div>
-      <div class="label">Local care</div>
-      <h3>Rooted in context</h3>
-      <p>Designed for families and caregivers navigating real life here.</p>
-    </article>
+<!-- Brand pillars -->
+<section class="pillars" aria-label="Our brand architecture">
+  <div class="section-head">
+    <span class="eyebrow">Brand architecture</span>
+    <h2>Three pillars, one rhythm</h2>
+    <p>Everything we make sits under one of these — so you always know where to start.</p>
+  </div>
+  <div class="pillars-inner">
+    <div class="pillar">
+      <span class="pillar-num">01</span>
+      <h3>Flow with it</h3>
+      <p>Products and care experiences — Menarche, Rising Moon, and future offerings designed around her stage of life.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-num">02</span>
+      <h3>Know your Rhythm</h3>
+      <p>Education — Becoming You, Menarche guides, and cycle literacy that make the science simple and shame-free.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-num">03</span>
+      <h3>Live Empowered</h3>
+      <p>Healthcare access, community, advocacy, and measurable social impact for every girl in her rhythm.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Experiences -->
+<section class="section" id="experiences">
+  <div class="section-head">
+    <span class="eyebrow">Flow with it</span>
+    <h2>Our care experiences</h2>
+    <p>Each stage gets its own kit, language, and pace — chosen to fit where she is right now.</p>
+  </div>
+  <div class="experience-grid">
+    <div class="experience-card">
+      <span class="exp-tag">Menarche</span>
+      <h3>Coming of Age</h3>
+      <p>A coming-of-age experience for you and your tween — because every girl deserves to begin her rhythm with confidence, joy, and unshakeable self-belief.</p>
+      <p>Learn. Care. Comfort. Support.</p>
+      <span class="cta">Discover Menarche →</span>
+    </div>
+    <div class="experience-card">
+      <span class="exp-tag">Teens</span>
+      <h3>Rising Moon Experience</h3>
+      <p>A well-rounded experience for your teens — learn, care, comfort, support, impact, and real self-care built around their cycle.</p>
+      <span class="cta">Discover Rising Moon →</span>
+    </div>
+    <div class="experience-card">
+      <span class="exp-tag">Give back</span>
+      <h3>Dignikits. Live Empowered</h3>
+      <p>Our donation kits — and your stand against period poverty. We take care of you, so you can take care of her.</p>
+      <p>For every purchase you make, you provide a Dignikit to 3 girls in need — keeping them in school every month, letting them sit at the front of class without fear, play sports, chase their dreams, and feel seen.</p>
+      <span class="cta">Make your stand →</span>
+    </div>
+  </div>
+</section>
+
+<!-- Impact band -->
+<section class="impact-band">
+  <div class="impact-inner">
+    <span class="eyebrow">Live Empowered</span>
+    <h2>One purchase, 4 hearts in Rhythm</h2>
+    <p>3 girls, half a classroom and then some more. Every Dignikit purchase becomes real support that keeps a girl in school — make your stand against period poverty today.</p>
+    <div class="impact-stats">
+      <div>
+        <strong>1</strong>
+        <span>Purchase</span>
+      </div>
+      <div>
+        <strong>3</strong>
+        <span>Girls Supported</span>
+      </div>
+      <div>
+        <strong>4</strong>
+        <span>Hearts in Rhythm</span>
+      </div>
+    </div>
+    <a class="btn-hero" href="checkout.html">Make your stand →</a>
   </div>
 </section>
  
 <!-- Modules -->
 <section class="section">
   <div class="section-head">
+    <span class="eyebrow">Know your Rhythm</span>
     <h2>Where to begin</h2>
     <p>Three core sections hold the journey. Start with the Companion Guide.</p>
   </div>
@@ -709,6 +1049,121 @@
       <p>Growth and identity.</p>
       <span class="cta">Open guide →</span>
     </a>
+  </div>
+</section>
+
+<!-- Loyalty program -->
+<section class="section" id="loyalty">
+  <div class="section-head">
+    <span class="eyebrow">Live Empowered · Membership</span>
+    <h2>The HerRhythm Loyalty Program</h2>
+    <p>Every purchase and every check-in earns you real access — to healthcare, to community, and to impact you can track.</p>
+  </div>
+
+  <div class="benefit-grid">
+    <div class="benefit-card">
+      <span class="b-icon">🚚</span>
+      <span class="b-text">Free delivery within Nairobi County</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🩺</span>
+      <span class="b-text">Access to pediatric clinics</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">⚕️</span>
+      <span class="b-text">Access to gynecology clinics</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🥗</span>
+      <span class="b-text">Access to nutrition clinics</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🤰</span>
+      <span class="b-text">Access to obstetrics clinics for moms</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">💊</span>
+      <span class="b-text">Access to pharmacy services</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">📚</span>
+      <span class="b-text">Menstrual health education sessions</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🌙</span>
+      <span class="b-text">Access to YourRhythm Girls impact tracking</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🎗️</span>
+      <span class="b-text">Exclusive HerRhythm collectibles</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🤝</span>
+      <span class="b-text">HerRhythm workshops — track impact, socialize, learn, give feedback</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">✦</span>
+      <span class="b-text">Priority new releases, limited editions &amp; collaborations</span>
+    </div>
+  </div>
+
+  <div class="loyalty-extra">
+    <div class="loyalty-card">
+      <h3>Earn points for</h3>
+      <ul class="points-list">
+        <li>Tracking cycles — mom knows, mom will take care of it</li>
+        <li>Attending health sessions (online, hybrid, or in person)</li>
+        <li>Male referrals to our Companion Programme</li>
+      </ul>
+    </div>
+    <div class="loyalty-card">
+      <h3>YourRhythm Girls</h3>
+      <p style="margin:0; font-size:13.5px; color:var(--ink-soft)">Every subsequent purchase creates real-time impact — tracked and showcased. These become your YourRhythm Girls.</p>
+      <div class="milestone-track" aria-hidden="true">
+        <span class="on"></span><span class="on"></span><span class="on"></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p class="milestone-note">Reach <strong>9 girls</strong> and unlock Exclusivity Access.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Holidays -->
+<section class="section">
+  <div class="section-head">
+    <span class="eyebrow">Community · Always in your corner</span>
+    <h2>Your holidays</h2>
+    <p>We remember, so you don't have to.</p>
+  </div>
+  <div class="holidays-grid">
+    <div class="holiday-card">
+      <div class="h-date">MAR 8</div>
+      <div class="h-name">International Women's Day</div>
+    </div>
+    <div class="holiday-card">
+      <div class="h-date">MAY 11</div>
+      <div class="h-name">Mother's Day</div>
+    </div>
+    <div class="holiday-card">
+      <div class="h-date">MAY 28</div>
+      <div class="h-name">World Menstrual Hygiene Day</div>
+    </div>
+    <div class="holiday-card">
+      <div class="h-date">AUG 2</div>
+      <div class="h-name">Sisters Day</div>
+    </div>
+    <div class="holiday-card">
+      <div class="h-date">AUG 26</div>
+      <div class="h-name">Women's Equality Day</div>
+    </div>
+    <div class="holiday-card">
+      <div class="h-date">OCT 11</div>
+      <div class="h-name">International Day of the Girl</div>
+    </div>
+    <div class="holiday-card">
+      <div class="h-date">NOV 25</div>
+      <div class="h-name">International Day for the Elimination of Violence Against Women</div>
+    </div>
   </div>
 </section>
  
