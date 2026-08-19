@@ -1,0 +1,1366 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#3E2745">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%20%20%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%233E2745%22/%3E%20%20%3Cpath%20d%3D%22M16%207c-4.5%204-7.5%207.2-7.5%2011.2%200%204.2%203.3%207.3%207.5%207.3s7.5-3.1%207.5-7.3c0-4-3-7.2-7.5-11.2z%22%20fill%3D%22%23E13C6E%22/%3E%3C/svg%3E" type="image/svg+xml">
+  <title>HerRhythm Care — Walk Beside Her</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+      :root {
+        --cream: #FBF7F4;
+        --cream-deep: #F3ECE7;
+        --plum: #5C3D66;
+        --plum-deep: #2F1C36;
+        --pink: #E11D60;
+        --pink-hot: #F0437A;
+        --gold: #C9952A;
+        --ink: #2A2226;
+        --ink-soft: #5C5358;
+        --paper: #FFFFFF;
+        --line: rgba(47, 28, 54, 0.08);
+        --line-strong: rgba(47, 28, 54, 0.14);
+        --maroon: #6B1E2B;
+        --maroon-mid: #8B2E3C;
+        --safe-b: env(safe-area-inset-bottom, 0px);
+      }
+      
+      html[data-theme="dark"] {
+        color-scheme: dark;
+        --cream: #121016;
+        --cream-deep: #18141C;
+        --plum: #D4B8DE;
+        --plum-deep: #F3EAF7;
+        --pink: #FF5A8A;
+        --pink-hot: #FF7AA3;
+        --gold: #E8C56A;
+        --ink: #F4EEF2;
+        --ink-soft: #B9AEB6;
+        --paper: #1C1820;
+        --line: rgba(255, 247, 249, 0.08);
+        --line-strong: rgba(255, 247, 249, 0.14);
+        --maroon: #A83D4D;
+        --maroon-mid: #C45A68;
+      }
+      
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        font-size: 15px;
+        line-height: 1.55;
+        color: var(--ink);
+        background: var(--cream);
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      a { color: inherit; text-decoration: none; }
+      
+      /* ——— Top utility bar ——— */
+      .topbar {
+        background: #FFFFFF;
+        border-bottom: 1px solid var(--line);
+      }
+      html[data-theme="dark"] .topbar { background: #1A1520; }
+      .topbar-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .topbar-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 12px;
+        color: var(--ink-soft);
+        min-width: 0;
+      }
+      .topbar-left .wa-icon {
+        width: 34px; height: 34px;
+        border-radius: 50%;
+        border: 1px solid var(--line-strong);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+        background: #fff;
+        transition: border-color .15s, transform .15s;
+      }
+      .topbar-left .wa-icon:hover { border-color: #25D366; transform: translateY(-1px); }
+      html[data-theme="dark"] .topbar-left .wa-icon { background: var(--paper); }
+      .topbar-left strong {
+        display: block;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        font-weight: 600;
+      }
+      .topbar-left a {
+        color: var(--plum-deep);
+        font-weight: 600;
+        font-size: 13px;
+      }
+      .topbar-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .topbar-logo img {
+        height: 88px;
+        width: auto;
+        max-width: 320px;
+        object-fit: contain;
+      }
+      .topbar-logo .logo-dark { display: none; }
+      html[data-theme="dark"] .topbar-logo .logo-light { display: none; }
+      html[data-theme="dark"] .topbar-logo .logo-dark { display: block; }
+      .topbar-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        justify-content: flex-end;
+      }
+      .topbar-link {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink-soft);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #6B4A2B;
+        color: #fff !important;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 12px 18px;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        transition: filter .15s, transform .15s;
+      }
+      .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+      html[data-theme="dark"] .btn-primary { background: var(--maroon); }
+      
+      /* ——— Main nav ——— */
+      .mainnav {
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        position: sticky;
+        top: 0;
+        z-index: 40;
+      }
+      .mainnav-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 52px;
+        flex-wrap: wrap;
+      }
+      .mainnav a {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--plum-deep);
+        padding: 10px 18px;
+        position: relative;
+        border: 1.5px solid transparent;
+        border-radius: 999px;
+        background:
+          linear-gradient(var(--paper), var(--paper)) padding-box,
+          linear-gradient(135deg, var(--pink) 0%, var(--gold) 50%, var(--plum) 100%) border-box;
+        transition: color .2s ease, transform .2s ease, box-shadow .2s ease, background .2s ease;
+      }
+      .mainnav a:hover {
+        color: #fff;
+        background:
+          linear-gradient(135deg, var(--pink) 0%, var(--pink-hot) 45%, var(--gold) 100%) border-box;
+        border-color: transparent;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px -8px rgba(225, 29, 96, 0.55);
+      }
+      .mainnav a.active {
+        color: #fff;
+        font-weight: 700;
+        border-color: transparent;
+        background:
+          linear-gradient(135deg, var(--plum) 0%, var(--pink) 55%, var(--gold) 100%) border-box;
+        box-shadow: 0 8px 20px -8px rgba(92, 61, 102, 0.55);
+      }
+      .mainnav a.active:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px -8px rgba(92, 61, 102, 0.6);
+      }
+      .mainnav a.active::after {
+        content: none;
+      }
+      .nav-toggle {
+        display: none;
+        margin: 8px auto;
+        border: 1px solid var(--line-strong);
+        background: var(--paper);
+        color: var(--plum-deep);
+        border-radius: 10px;
+        padding: 8px 14px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      
+      /* ——— Hero ——— */
+      .hero {
+        position: relative;
+        min-height: min(56vh, 460px);
+        display: flex;
+        align-items: center;
+        color: #fff;
+        overflow: hidden;
+        background:
+          linear-gradient(105deg, rgba(20, 10, 18, 0.72) 0%, rgba(20, 10, 18, 0.35) 48%, rgba(20, 10, 18, 0.25) 100%),
+          radial-gradient(ellipse at 70% 40%, rgba(225, 29, 96, 0.2), transparent 50%),
+          linear-gradient(160deg, #3E2745 0%, #5C3D66 40%, #8B4A5C 70%, #C9952A 100%);
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 32px 20px 40px;
+        width: 100%;
+      }
+      .hero-eyebrow {
+        font-family: 'Space Mono', monospace;
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(255, 247, 249, 0.75);
+        margin-bottom: 16px;
+        display: block;
+      }
+      .hero h1 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-weight: 500;
+        font-style: italic;
+        font-size: clamp(36px, 6vw, 64px);
+        line-height: 1.08;
+        margin: 0 0 18px;
+        max-width: 720px;
+        letter-spacing: -0.02em;
+        color: #fff;
+      }
+      .hero-lead {
+        margin: 0 0 28px;
+        max-width: 520px;
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255, 247, 249, 0.86);
+      }
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .btn-hero {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #C4A574;
+        color: #2A1C12 !important;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 14px 22px;
+        border-radius: 999px;
+        border: none;
+        transition: filter .15s, transform .15s;
+      }
+      .btn-hero:hover { filter: brightness(1.05); transform: translateY(-1px); }
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255,255,255,0.12);
+        color: #fff !important;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 13px 20px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.35);
+        backdrop-filter: blur(6px);
+        transition: background .15s;
+      }
+      .btn-ghost:hover { background: rgba(255,255,255,0.2); }
+      .hero-checks {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 22px;
+        font-size: 13px;
+        color: rgba(255, 247, 249, 0.88);
+      }
+      .hero-checks span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .hero-checks span::before {
+        content: '✓';
+        color: #E8C56A;
+        font-weight: 700;
+      }
+      
+      .hero-badge {
+        position: absolute;
+        right: max(20px, calc((100% - 1180px) / 2 + 20px));
+        bottom: 28px;
+        z-index: 3;
+        background: rgba(20, 14, 18, 0.72);
+        border: 1px solid rgba(255,255,255,0.12);
+        backdrop-filter: blur(10px);
+        color: #fff;
+        border-radius: 16px;
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        max-width: 280px;
+      }
+      .hero-badge .badge-icon {
+        width: 40px; height: 40px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .hero-badge strong {
+        display: block;
+        font-size: 18px;
+        letter-spacing: 0.02em;
+      }
+      .hero-badge span {
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.75;
+      }
+      .stars { color: #7DDEA8; letter-spacing: 2px; font-size: 12px; }
+      
+      /* ——— Feature strip ——— */
+      .features {
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+      }
+      .features-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      .feature {
+        padding: 28px 22px;
+        border-right: 1px solid var(--line);
+      }
+      .feature:last-child { border-right: none; }
+      .feature-icon {
+        width: 40px; height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--line-strong);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        font-size: 18px;
+        color: var(--plum);
+      }
+      .feature .label {
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin-bottom: 6px;
+      }
+      .feature h3 {
+        margin: 0 0 6px;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--plum-deep);
+        line-height: 1.3;
+      }
+      .feature p {
+        margin: 0;
+        font-size: 13px;
+        color: var(--ink-soft);
+        line-height: 1.45;
+      }
+      
+      /* ——— Modules section ——— */
+      .section {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 48px 20px;
+      }
+      .section-head {
+        margin-bottom: 22px;
+      }
+      .section-head .eyebrow {
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--pink);
+        display: block;
+        margin-bottom: 8px;
+      }
+      .section-head h2 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: clamp(26px, 4vw, 36px);
+        color: var(--plum-deep);
+        margin: 0 0 8px;
+      }
+      .section-head p {
+        margin: 0;
+        color: var(--ink-soft);
+        max-width: 520px;
+      }
+      .module-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .module-card {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 22px 20px;
+        display: flex;
+        flex-direction: column;
+        min-height: 180px;
+        transition: border-color .15s;
+      }
+      .module-card:hover { border-color: var(--pink); }
+      .module-card .mod-num {
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        color: var(--pink);
+        margin-bottom: 12px;
+      }
+      .module-card h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-size: 22px;
+        color: var(--plum-deep);
+        margin: 0 0 8px;
+      }
+      .module-card p {
+        margin: 0;
+        font-size: 13px;
+        color: var(--ink-soft);
+        flex: 1;
+      }
+      .module-card .cta {
+        margin-top: 16px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--pink);
+      }
+      
+      /* ——— Footer ——— */
+      .site-footer {
+        border-top: 1px solid var(--line);
+        padding: 28px 20px;
+        text-align: center;
+        color: var(--ink-soft);
+        font-size: 12px;
+      }
+      .site-footer strong { color: var(--plum-deep); }
+      
+      /* Floating WhatsApp */
+        .fab-wa {
+          position: fixed;
+          right: 18px;
+          bottom: calc(18px + var(--safe-b));
+          z-index: 50;
+          width: 56px; height: 56px;
+          border-radius: 50%;
+          background: #25D366;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 28px;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+          border: none;
+          cursor: pointer;
+          text-decoration: none;
+          transition: transform .15s, box-shadow .15s, filter .15s;
+        }
+        .fab-wa:hover {
+          transform: translateY(-2px) scale(1.05);
+          box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+          filter: brightness(1.05);
+        }
+      .theme-toggle {
+        position: fixed;
+        left: 18px;
+        bottom: calc(18px + var(--safe-b));
+        z-index: 50;
+        width: 44px; height: 44px;
+        border-radius: 50%;
+        border: 1px solid var(--line-strong);
+        background: var(--paper);
+        color: var(--plum-deep);
+        font-size: 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .theme-toggle .icon-sun { display: none; }
+      html[data-theme="dark"] .theme-toggle .icon-sun { display: inline; }
+      html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+      /* ——— Brand pillars ——— */
+      .pillars {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 56px 20px 8px;
+      }
+      .pillars-inner {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .pillar {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 26px 24px;
+        background: var(--paper);
+        position: relative;
+        overflow: hidden;
+      }
+      .pillar::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--pink), var(--gold));
+      }
+      .pillar .pillar-num {
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        color: var(--pink);
+        display: block;
+        margin-bottom: 14px;
+      }
+      .pillar h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 21px;
+        color: var(--plum-deep);
+        margin: 0 0 8px;
+      }
+      .pillar p {
+        margin: 0;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+      }
+
+      /* ——— Experiences ——— */
+      .experience-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .experience-card {
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        padding: 28px 24px;
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+      }
+      .experience-card .exp-tag {
+        align-self: flex-start;
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #fff;
+        background: var(--plum);
+        border-radius: 999px;
+        padding: 5px 12px;
+        margin-bottom: 16px;
+      }
+      .experience-card:nth-child(1) .exp-tag { background: var(--pink); }
+      .experience-card:nth-child(2) .exp-tag { background: var(--plum); }
+      .experience-card:nth-child(3) .exp-tag { background: var(--maroon); }
+      .experience-card h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 24px;
+        color: var(--plum-deep);
+        margin: 0 0 12px;
+      }
+      .experience-card p {
+        margin: 0 0 10px;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        flex: 1;
+      }
+      .experience-card p:last-of-type { margin-bottom: 18px; }
+      .experience-card .cta {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--pink);
+      }
+
+      /* ——— Impact band (Dignikits) ——— */
+      .impact-band {
+        position: relative;
+        overflow: hidden;
+        color: #fff;
+        background:
+          linear-gradient(105deg, rgba(20, 10, 18, 0.7) 0%, rgba(20, 10, 18, 0.3) 50%, rgba(20, 10, 18, 0.2) 100%),
+          linear-gradient(160deg, #3E2745 0%, #6B1E2B 55%, #C9952A 130%);
+        padding: 56px 20px;
+        text-align: center;
+      }
+      .impact-inner {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      .impact-band .eyebrow {
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 247, 249, 0.75);
+        display: block;
+        margin-bottom: 14px;
+      }
+      .impact-band h2 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: clamp(24px, 4vw, 34px);
+        margin: 0 0 16px;
+      }
+      .impact-band p {
+        margin: 0 auto 26px;
+        color: rgba(255, 247, 249, 0.86);
+        font-size: 14.5px;
+        max-width: 600px;
+      }
+      .impact-stats {
+        display: flex;
+        justify-content: center;
+        gap: 34px;
+        flex-wrap: wrap;
+        margin-bottom: 28px;
+      }
+      .impact-stats div { text-align: center; }
+      .impact-stats strong {
+        display: block;
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-size: 30px;
+        color: var(--gold);
+      }
+      .impact-stats span {
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        color: rgba(255, 247, 249, 0.75);
+        text-transform: uppercase;
+      }
+
+      /* ——— Loyalty program ——— */
+      .benefit-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-bottom: 28px;
+      }
+      .benefit-card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px 14px;
+        background: var(--paper);
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .benefit-card .b-icon {
+        width: 32px; height: 32px;
+        border-radius: 50%;
+        background: var(--cream-deep);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        flex-shrink: 0;
+      }
+      .benefit-card span.b-text {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--plum-deep);
+        line-height: 1.35;
+      }
+      .loyalty-extra {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .loyalty-card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--paper);
+        padding: 24px;
+      }
+      .loyalty-card h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 19px;
+        color: var(--plum-deep);
+        margin: 0 0 14px;
+      }
+      .points-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .points-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+      }
+      .points-list li::before {
+        content: '✦';
+        color: var(--gold);
+        flex-shrink: 0;
+      }
+      .milestone-track {
+        display: flex;
+        gap: 4px;
+        margin: 16px 0 10px;
+      }
+      .milestone-track span {
+        flex: 1;
+        height: 8px;
+        border-radius: 4px;
+        background: var(--cream-deep);
+      }
+      .milestone-track span.on {
+        background: linear-gradient(90deg, var(--pink), var(--gold));
+      }
+      .milestone-note {
+        font-size: 12.5px;
+        color: var(--ink-soft);
+      }
+      .milestone-note strong { color: var(--plum-deep); }
+
+      /* ——— Holidays ——— */
+      .holidays-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 14px;
+      }
+      .holiday-card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px 14px;
+        background: var(--paper);
+        text-align: center;
+      }
+      .holiday-card .h-date {
+        font-family: 'Space Mono', monospace;
+        font-size: 12px;
+        color: var(--pink);
+        letter-spacing: 0.04em;
+        margin-bottom: 8px;
+      }
+      .holiday-card .h-name {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--plum-deep);
+        line-height: 1.3;
+      }
+
+
+/* Client feedback panel */
+.client-feedback{position:fixed;top:0;right:0;width:min(390px,94vw);height:100vh;z-index:100;background:var(--paper);color:var(--ink);border-left:1px solid var(--line-strong);box-shadow:-14px 0 40px rgba(47,28,54,.16);padding:26px 22px;overflow-y:auto;transform:translateX(105%);transition:transform .25s ease}.client-feedback.open{transform:translateX(0)}
+.feedback-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:8px}.feedback-eyebrow{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink)}.feedback-head h2{margin:4px 0 0;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:26px;color:var(--plum-deep)}.feedback-close{width:34px;height:34px;border-radius:50%;border:1px solid var(--line-strong);background:var(--paper);color:var(--ink);font-size:22px;cursor:pointer}.feedback-intro{margin:0 0 20px;font-size:13px;color:var(--ink-soft)}
+.client-feedback label{display:block;margin:14px 0 7px;font-size:12px;font-weight:700;color:var(--plum-deep)}.client-feedback label span{font-weight:400;color:var(--ink-soft)}.client-feedback select,.client-feedback input,.client-feedback textarea{width:100%;border:1px solid var(--line-strong);border-radius:10px;background:var(--cream);color:var(--ink);font:inherit;font-size:13px;padding:11px 12px;outline:none}.client-feedback textarea{min-height:125px;resize:vertical}.client-feedback select:focus,.client-feedback input:focus,.client-feedback textarea:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(225,29,96,.09)}
+.feedback-save{width:100%;margin-top:18px;padding:12px 16px;border:0;border-radius:999px;background:linear-gradient(135deg,var(--plum),var(--pink));color:#fff;font-weight:700;cursor:pointer}.feedback-save:disabled{opacity:.65;cursor:wait}.feedback-status{min-height:20px;margin-top:9px;font-size:12px;text-align:center}.feedback-status.success{color:#18794E}.feedback-status.error{color:#B42318}.feedback-list-wrap{margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}.feedback-list-title{display:flex;justify-content:space-between;margin-bottom:10px;color:var(--plum-deep);font-size:13px}.feedback-list-title span{min-width:24px;padding:2px 7px;border-radius:999px;background:var(--cream-deep);text-align:center;font-size:11px}.feedback-item{margin-bottom:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--cream)}.feedback-item-section{font-size:10px;font-family:'Space Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--pink)}.feedback-item p{margin:5px 0;font-size:12.5px;white-space:pre-wrap}.feedback-item small{color:var(--ink-soft);font-size:10px}.feedback-empty{margin:0;padding:12px;border:1px dashed var(--line-strong);border-radius:10px;color:var(--ink-soft);font-size:12px;text-align:center}.feedback-tab{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:90;border:1px solid var(--line-strong);border-radius:999px;background:var(--plum);color:#fff;padding:11px 14px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 8px 24px rgba(47,28,54,.18);writing-mode:vertical-rl}.feedback-tab:hover{background:var(--pink)}
+@media(max-width:640px){.feedback-tab{right:10px;padding:9px 11px}}
+
+      @media (max-width: 900px) {
+        .pillars-inner { grid-template-columns: 1fr; }
+        .experience-grid { grid-template-columns: 1fr; }
+        .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+        .loyalty-extra { grid-template-columns: 1fr; }
+        .impact-stats { gap: 24px; }
+      }
+
+      @media (max-width: 900px) {
+        .features-inner { grid-template-columns: repeat(2, 1fr); }
+        .feature:nth-child(2) { border-right: none; }
+        .feature:nth-child(1),
+        .feature:nth-child(2) { border-bottom: 1px solid var(--line); }
+        .module-grid { grid-template-columns: 1fr; }
+        .hero-badge {
+          position: static;
+          margin-top: 24px;
+          max-width: 100%;
+        }
+        .topbar-inner { flex-wrap: wrap; }
+        .topbar-logo { order: -1; width: 100%; margin-bottom: 4px; }
+      }
+      
+      @media (max-width: 640px) {
+        .topbar-right .topbar-link { display: none; }
+        .mainnav-inner {
+          display: none;
+          flex-direction: column;
+          align-items: stretch;
+          padding: 8px;
+        }
+        .mainnav-inner.open { display: flex; }
+        .mainnav a { padding: 12px; }
+        .nav-toggle { display: block; }
+        .features-inner { grid-template-columns: 1fr; }
+        .feature { border-right: none; border-bottom: 1px solid var(--line); }
+        .feature:last-child { border-bottom: none; }
+        .hero-inner { padding: 40px 18px 48px; }
+        .benefit-grid { grid-template-columns: 1fr 1fr; }
+        .impact-stats { gap: 18px; }
+      }
+  </style>
+  <script>
+      (function(){
+        try {
+          var t = localStorage.getItem('cg_theme');
+          if (!t) {
+            t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+          }
+          document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+  </script>
+</head>
+<body>
+ 
+<!-- Top bar -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a class="wa-icon" href="https://wa.me/254795500696" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+        <svg viewBox="0 0 32 32" width="18" height="18" fill="#25D366" aria-hidden="true"><path d="M16.001 3C9.096 3 3.5 8.597 3.5 15.5c0 2.36.65 4.566 1.78 6.454L3 29l7.223-2.246A12.44 12.44 0 0 0 16.001 28C22.906 28 28.5 22.403 28.5 15.5S22.906 3 16.001 3Zm0 22.7c-2.02 0-3.9-.556-5.512-1.522l-.395-.234-4.29 1.334 1.36-4.18-.257-.43a10.19 10.19 0 0 1-1.607-5.468c0-5.65 4.6-10.25 10.25-10.25s10.25 4.6 10.25 10.25S21.65 25.7 16.001 25.7Zm5.61-7.68c-.307-.154-1.816-.897-2.098-1-.281-.103-.486-.154-.69.154-.205.307-.79 1-.968 1.205-.179.205-.358.23-.665.077-.307-.154-1.297-.478-2.47-1.523-.913-.813-1.53-1.818-1.708-2.125-.179-.307-.019-.473.135-.626.138-.138.307-.358.46-.537.154-.18.205-.307.307-.512.103-.205.051-.384-.026-.538-.077-.154-.69-1.662-.946-2.277-.249-.598-.502-.517-.69-.527l-.588-.01c-.205 0-.537.077-.818.384-.281.307-1.073 1.05-1.073 2.559 0 1.51 1.099 2.968 1.252 3.173.154.205 2.163 3.303 5.24 4.632.732.316 1.303.505 1.748.646.734.233 1.402.2 1.93.121.589-.088 1.816-.742 2.072-1.459.256-.717.256-1.331.179-1.459-.077-.128-.281-.205-.588-.358Z"/></svg>
+      </a>
+      <div>
+        <strong>Talk to us</strong>
+        <a href="https://wa.me/254795500696" target="_blank" rel="noopener">+254795500696</a>
+      </div>
+    </div>
+    <a class="topbar-logo" href="index.html" aria-label="HerRhythm Care home">
+      <img class="logo-light" src="images/logos/herRyhthmLight.png" alt="HerRhythm Care"/>
+      <img class="logo-dark" src="images/logos/herRyhthmDark.png" alt="HerRhythm Care"/>
+    </a>
+    <div class="topbar-right">
+      <a class="btn-primary" href="checkout.html">Get the kit →</a>
+    </div>
+  </div>
+</div>
+ 
+<!-- Main navigation -->
+<nav class="mainnav" aria-label="Primary">
+  <button type="button" class="nav-toggle" id="navToggle">Menu</button>
+  <div class="mainnav-inner" id="siteNav">
+    <a class="active" href="index.html">Home</a>
+    <a href="walking-beside-her.html">Walking Beside Her</a>
+    <a href="companion-guide.html">Companion Guide</a>
+    <a href="becoming-you.html">Becoming You</a>
+    <a href="ask.html">Ask-HerRhythm</a>
+    <a href="checkout.html">Checkout</a>
+    <a href="about.html">About Us</a>
+  </div>
+</nav>
+ 
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Private care · Guided at her pace</span>
+    <h1>Know Your Rhythm,<br>Flow with It, Live Empowered</h1>
+    <p class="hero-lead">
+      We are a menstrual care ecosystem rooted in education and community impact, built by women who know these stories firsthand.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-hero" href="#experiences">Explore experiences</a>
+      <a class="btn-ghost" href="#loyalty">Join the loyalty program</a>
+    </div>
+    <div class="hero-checks">
+      <span>Kit-by-kit guidance</span>
+      <span>No pressure, her pace</span>
+      <span>Saved only on your device</span>
+    </div>
+    <div class="hero-badge">
+      <div class="badge-icon">♥</div>
+      <div>
+        <div class="stars">●●●●●</div>
+        <strong>Built for her, with love</strong>
+        <span>Companion tools for caring adults</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- Brand pillars -->
+<section class="pillars" aria-label="Our brand architecture">
+  <div class="section-head">
+    <span class="eyebrow">Brand architecture</span>
+    <h2>Three pillars, one rhythm</h2>
+    <p>Everything we make sits under one of these — so you always know where to start.</p>
+  </div>
+  <div class="pillars-inner">
+    <div class="pillar">
+      <span class="pillar-num">01</span>
+      <h3>Flow with it</h3>
+      <p>Products and care experiences — Menarche, Rising Moon, and future offerings designed around her stage of life.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-num">02</span>
+      <h3>Know your Rhythm</h3>
+      <p>Education — Becoming You, Menarche guides, and cycle literacy that make the science simple and shame-free.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-num">03</span>
+      <h3>Live Empowered</h3>
+      <p>Healthcare access, community, advocacy, and measurable social impact for every girl in her rhythm.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Experiences -->
+<section class="section" id="experiences">
+  <div class="section-head">
+    <span class="eyebrow">Flow with it</span>
+    <h2>Our care experiences</h2>
+    <p>Each stage gets its own kit, language, and pace — chosen to fit where she is right now.</p>
+  </div>
+  <div class="experience-grid">
+    <div class="experience-card">
+      <span class="exp-tag">Menarche</span>
+      <h3>Coming of Age</h3>
+      <p>A coming-of-age experience for you and your tween — because every girl deserves to begin her rhythm with confidence, joy, and unshakeable self-belief.</p>
+      <p>Learn. Care. Comfort. Support.</p>
+      <span class="cta"><a href="menarche.html">Discover Menarche →</a></span>
+      <!-- <span class="cta">Discover Menarche →</span> -->
+    </div>
+    <div class="experience-card">
+      <span class="exp-tag">Teens</span>
+      <h3>Rising Moon Experience</h3>
+      <p>A well-rounded experience for your teens — learn, care, comfort, support, impact, and real self-care built around their cycle.</p>
+      <span class="cta"><a href="rising-moon.html">Discover Rising Moon →</a></span>
+    </div>
+    <div class="experience-card">
+      <span class="exp-tag">Give back</span>
+      <h3>Dignikits. Live Empowered</h3>
+      <p>Our donation kits — and your stand against period poverty. We take care of you, so you can take care of her.</p>
+      <p>For every purchase you make, you provide a Dignikit to 3 girls in need — keeping them in school every month, letting them sit at the front of class without fear, play sports, chase their dreams, and feel seen.</p>
+      <span class="cta"><a href="#give-back">Make your stand →</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- Impact band -->
+<section class="impact-band">
+  <div class="impact-inner">
+    <span class="eyebrow">Live Empowered</span>
+    <h2>One purchase, 4 hearts in Rhythm</h2>
+    <p>3 girls, half a classroom and then some more. Every Dignikit purchase becomes real support that keeps a girl in school — make your stand against period poverty today.</p>
+    <div class="impact-stats">
+      <div>
+        <strong>1</strong>
+        <span>Purchase</span>
+      </div>
+      <div>
+        <strong>3</strong>
+        <span>Girls Supported</span>
+      </div>
+      <div>
+        <strong>4</strong>
+        <span>Hearts in Rhythm</span>
+      </div>
+    </div>
+    <a class="btn-hero" href="checkout.html">Make your stand →</a>
+  </div>
+</section>
+ 
+<!-- Modules -->
+<section class="section">
+  <div class="section-head">
+    <span class="eyebrow">Know your Rhythm</span>
+    <h2>Where to begin</h2>
+    <p>Three core sections hold the journey. Start with the Companion Guide.</p>
+  </div>
+  <div class="module-grid">
+    <a class="module-card" href="walking-beside-her.html">
+      <span class="mod-num">01</span>
+      <h3>Walking Beside Her</h3>
+      <p>Presence, patience, and practical care.</p>
+      <span class="cta">Open guide →</span>
+    </a>
+    <a class="module-card" href="companion-guide.html">
+      <span class="mod-num">02</span>
+      <h3>The Companion Guide</h3>
+      <p>Kits, flip cards, and pledges — the guide is ready to use now.</p>
+      <span class="cta">Open guide →</span>
+    </a>
+    <a class="module-card" href="becoming-you.html">
+      <span class="mod-num">03</span>
+      <h3>Becoming You</h3>
+      <p>Growth and identity.</p>
+      <span class="cta">Open guide →</span>
+    </a>
+  </div>
+</section>
+
+<!-- Loyalty program -->
+<section class="section" id="loyalty">
+  <div class="section-head">
+    <span class="eyebrow">Live Empowered · Membership</span>
+    <h2>The HerRhythm Loyalty Program</h2>
+    <p>Every purchase and every check-in earns you real access — to healthcare, to community, and to impact you can track.</p>
+  </div>
+
+  <div class="benefit-grid">
+    <div class="benefit-card">
+      <span class="b-icon">🚚</span>
+      <span class="b-text">Free delivery within Nairobi County</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🩺</span>
+      <span class="b-text">Access to pediatric clinics</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">⚕️</span>
+      <span class="b-text">Access to gynecology clinics</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🥗</span>
+      <span class="b-text">Access to nutrition clinics</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🤰</span>
+      <span class="b-text">Access to obstetrics clinics for moms</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">💊</span>
+      <span class="b-text">Access to pharmacy services</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">📚</span>
+      <span class="b-text">Menstrual health education sessions</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🌙</span>
+      <span class="b-text">Access to YourRhythm Girls impact tracking</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🎗️</span>
+      <span class="b-text">Exclusive HerRhythm collectibles</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🤝</span>
+      <span class="b-text">HerRhythm workshops — track impact, socialize, learn, give feedback</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">✦</span>
+      <span class="b-text">Priority new releases, limited editions &amp; collaborations</span>
+    </div>
+  </div>
+
+  <div class="loyalty-extra">
+    <div class="loyalty-card">
+      <h3>Earn points for</h3>
+      <ul class="points-list">
+        <li>Tracking cycles — mom knows, mom will take care of it</li>
+        <li>Attending health sessions (online, hybrid, or in person)</li>
+        <li>Male referrals to our Companion Programme</li>
+      </ul>
+    </div>
+    <div class="loyalty-card">
+      <h3>YourRhythm Girls</h3>
+      <p style="margin:0; font-size:13.5px; color:var(--ink-soft)">Every subsequent purchase creates real-time impact — tracked and showcased. These become your YourRhythm Girls.</p>
+      <div class="milestone-track" aria-hidden="true">
+        <span class="on"></span><span class="on"></span><span class="on"></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p class="milestone-note">Reach <strong>9 girls</strong> and unlock Exclusivity Access.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Holidays -->
+<section class="section">
+  <div class="section-head">
+    <span class="eyebrow">Community · Always in your corner</span>
+    <h2>Your holidays</h2>
+    <p>We remember, so you don't have to.</p>
+  </div>
+  <div class="holidays-grid">
+    <div class="holiday-card">
+      <div class="h-date">MAR 8</div>
+      <div class="h-name">International Women's Day</div>
+    </div>
+    <div class="holiday-card">
+      <div class="h-date">MAY 11</div>
+      <div class="h-name">Mother's Day</div>
+    </div>
+    <div class="holiday-card">
+      <div class="h-date">MAY 28</div>
+      <div class="h-name">World Menstrual Hygiene Day</div>
+    </div>
+    <div class="holiday-card">
+      <div class="h-date">AUG 2</div>
+      <div class="h-name">Sisters Day</div>
+    </div>
+    <div class="holiday-card">
+      <div class="h-date">AUG 26</div>
+      <div class="h-name">Women's Equality Day</div>
+    </div>
+    <div class="holiday-card">
+      <div class="h-date">OCT 11</div>
+      <div class="h-name">International Day of the Girl</div>
+    </div>
+    <div class="holiday-card">
+      <div class="h-date">NOV 25</div>
+      <div class="h-name">International Day for the Elimination of Violence Against Women</div>
+    </div>
+  </div>
+</section>
+ 
+
+<!-- Client feedback / recommendations -->
+<aside class="client-feedback" id="clientFeedback" aria-label="Client recommendations">
+  <div class="feedback-head"><div><span class="feedback-eyebrow">Client review</span><h2>Recommend a change</h2></div><button type="button" class="feedback-close" id="feedbackClose" aria-label="Close">×</button></div>
+  <p class="feedback-intro">Select the section you are reviewing, then describe the proposed change.</p>
+  <form id="feedbackForm">
+    <label for="feedbackSection">Specific section</label>
+    <select id="feedbackSection" name="section" required><option value="">Select a section</option><option>Header / Navigation</option><option>Hero</option><option>Brand Architecture</option><option>Care Experiences</option><option>Impact Band</option><option>Where to Begin</option><option>Loyalty Program</option><option>Holidays</option><option>Footer</option><option>Other</option></select>
+    <label for="feedbackComment">Recommendation / proposed change</label>
+    <textarea id="feedbackComment" rows="6" placeholder="Describe what should be changed..." required></textarea>
+    <label for="feedbackName">Your name <span>(optional)</span></label>
+    <input id="feedbackName" maxlength="100" placeholder="Client name">
+    <button type="submit" class="feedback-save" id="feedbackSave">＋ Save recommendation</button>
+    <div class="feedback-status" id="feedbackStatus" role="status"></div>
+  </form>
+  <div class="feedback-list-wrap"><div class="feedback-list-title"><strong>Saved recommendations</strong><span id="feedbackCount">0</span></div><div id="feedbackList" class="feedback-list"><p class="feedback-empty">No recommendations saved yet.</p></div></div>
+</aside>
+<button type="button" class="feedback-tab" id="feedbackTab">✎ Client feedback</button>
+
+<footer class="site-footer">
+  <p>Created by <strong>HerRhythm Care</strong></p>
+  <p>&copy; 2026 HerRhythm Care. All rights reserved.</p>
+</footer>
+<!-- <a class="fab-wa" href="https://wa.me/254795500696" target="_blank" rel="noopener" aria-label="">
+  <svg viewBox="0 0 32 32" width="18" height="18" fill="#25D366" aria-hidden="true"><path d="M16.001 3C9.096 3 3.5 8.597 3.5 15.5c0 2.36.65 4.566 1.78 6.454L3 29l7.223-2.246A12.44 12.44 0 0 0 16.001 28C22.906 28 28.5 22.403 28.5 15.5S22.906 3 16.001 3Zm0 22.7c-2.02 0-3.9-.556-5.512-1.522l-.395-.234-4.29 1.334 1.36-4.18-.257-.43a10.19 10.19 0 0 1-1.607-5.468c0-5.65 4.6-10.25 10.25-10.25s10.25 4.6 10.25 10.25S21.65 25.7 16.001 25.7Zm5.61-7.68c-.307-.154-1.816-.897-2.098-1-.281-.103-.486-.154-.69.154-.205.307-.79 1-.968 1.205-.179.205-.358.23-.665.077-.307-.154-1.297-.478-2.47-1.523-.913-.813-1.53-1.818-1.708-2.125-.179-.307-.019-.473.135-.626.138-.138.307-.358.46-.537.154-.18.205-.307.307-.512.103-.205.051-.384-.026-.538-.077-.154-.69-1.662-.946-2.277-.249-.598-.502-.517-.69-.527l-.588-.01c-.205 0-.537.077-.818.384-.281.307-1.073 1.05-1.073 2.559 0 1.51 1.099 2.968 1.252 3.173.154.205 2.163 3.303 5.24 4.632.732.316 1.303.505 1.748.646.734.233 1.402.2 1.93.121.589-.088 1.816-.742 2.072-1.459.256-.717.256-1.331.179-1.459-.077-.128-.281-.205-.588-.358Z"/></svg>
+</a> -->
+
+<a class="fab-wa" href="https://wa.me/254795500696" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" aria-hidden="true"><path d="M16.001 3C9.096 3 3.5 8.597 3.5 15.5c0 2.36.65 4.566 1.78 6.454L3 29l7.223-2.246A12.44 12.44 0 0 0 16.001 28C22.906 28 28.5 22.403 28.5 15.5S22.906 3 16.001 3Zm0 22.7c-2.02 0-3.9-.556-5.512-1.522l-.395-.234-4.29 1.334 1.36-4.18-.257-.43a10.19 10.19 0 0 1-1.607-5.468c0-5.65 4.6-10.25 10.25-10.25s10.25 4.6 10.25 10.25S21.65 25.7 16.001 25.7Zm5.61-7.68c-.307-.154-1.816-.897-2.098-1-.281-.103-.486-.154-.69.154-.205.307-.79 1-.968 1.205-.179.205-.358.23-.665.077-.307-.154-1.297-.478-2.47-1.523-.913-.813-1.53-1.818-1.708-2.125-.179-.307-.019-.473.135-.626.138-.138.307-.358.46-.537.154-.18.205-.307.307-.512.103-.205.051-.384-.026-.538-.077-.154-.69-1.662-.946-2.277-.249-.598-.502-.517-.69-.527l-.588-.01c-.205 0-.537.077-.818.384-.281.307-1.073 1.05-1.073 2.559 0 1.51 1.099 2.968 1.252 3.173.154.205 2.163 3.303 5.24 4.632.732.316 1.303.505 1.748.646.734.233 1.402.2 1.93.121.589-.088 1.816-.742 2.072-1.459.256-.717.256-1.331.179-1.459-.077-.128-.281-.205-.588-.358Z"/></svg>
+</a>
+<button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+  <span class="icon-moon">☾</span>
+  <span class="icon-sun">☀</span>
+</button>
+
+<script>
+    // Client feedback panel
+    (function () {
+      var panel = document.getElementById('clientFeedback');
+      var tab = document.getElementById('feedbackTab');
+      var close = document.getElementById('feedbackClose');
+      var form = document.getElementById('feedbackForm');
+      var save = document.getElementById('feedbackSave');
+      var status = document.getElementById('feedbackStatus');
+      var list = document.getElementById('feedbackList');
+      var count = document.getElementById('feedbackCount');
+
+      if (!panel || !tab) return;
+
+      function openPanel() {
+        panel.classList.add('open');
+        loadComments();
+      }
+
+      function closePanel() {
+        panel.classList.remove('open');
+      }
+
+      function setStatus(message, type) {
+        if (!status) return;
+        status.textContent = message || '';
+        status.className = 'feedback-status' + (type ? ' ' + type : '');
+      }
+
+      function escapeHtml(value) {
+        var div = document.createElement('div');
+        div.textContent = value == null ? '' : String(value);
+        return div.innerHTML;
+      }
+
+      function renderComments(comments) {
+        if (!count || !list) return;
+        count.textContent = comments.length;
+        if (!comments.length) {
+          list.innerHTML = '<p class="feedback-empty">No recommendations saved yet.</p>';
+          return;
+        }
+        list.innerHTML = comments.map(function (item) {
+          return '<div class="feedback-item">' +
+            '<div class="feedback-item-section">' + escapeHtml(item.section) + '</div>' +
+            '<p>' + escapeHtml(item.comment) + '</p>' +
+            '<small>' + escapeHtml(item.created_at || '') + (item.name ? ' · ' + escapeHtml(item.name) : '') + '</small>' +
+            '</div>';
+        }).join('');
+      }
+
+      function loadComments() {
+        fetch('feedback.php', { headers: { 'Accept': 'application/json' }, cache: 'no-store' })
+          .then(function (response) {
+            if (!response.ok) throw new Error('Unable to load recommendations.');
+            return response.json();
+          })
+          .then(function (data) {
+            renderComments(Array.isArray(data.comments) ? data.comments : []);
+          })
+          .catch(function () {
+            renderComments([]);
+          });
+      }
+
+      tab.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        openPanel();
+      });
+
+      if (close) {
+        close.addEventListener('click', function (event) {
+          event.preventDefault();
+          closePanel();
+        });
+      }
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closePanel();
+      });
+
+      if (form) {
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+
+          var section = document.getElementById('feedbackSection').value.trim();
+          var comment = document.getElementById('feedbackComment').value.trim();
+          var name = document.getElementById('feedbackName').value.trim();
+
+          if (!section || !comment) {
+            setStatus('Please select a section and enter a recommendation.', 'error');
+            return;
+          }
+
+          save.disabled = true;
+          setStatus('Saving...', '');
+
+          fetch('feedback.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ section: section, comment: comment, name: name })
+          })
+          .then(function (response) {
+            return response.json().then(function (data) {
+              if (!response.ok || !data.success) throw new Error(data.message || 'Unable to save recommendation.');
+              return data;
+            });
+          })
+          .then(function (data) {
+            setStatus('Recommendation saved successfully.', 'success');
+            form.reset();
+            renderComments(Array.isArray(data.comments) ? data.comments : []);
+          })
+          .catch(function (error) {
+            setStatus(error.message || 'Unable to save recommendation.', 'error');
+          })
+          .finally(function () {
+            save.disabled = false;
+          });
+        });
+      }
+    })();
+
+    (function () {
+      var btn = document.getElementById('themeToggle');
+      if (btn) {
+        function current() {
+          return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        }
+        function apply(theme) {
+          document.documentElement.setAttribute('data-theme', theme);
+          try { localStorage.setItem('cg_theme', theme); } catch (e) {}
+          btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+        apply(current());
+        btn.addEventListener('click', function () {
+          apply(current() === 'dark' ? 'light' : 'dark');
+        });
+      }
+      var toggle = document.getElementById('navToggle');
+      var nav = document.getElementById('siteNav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', function () {
+          nav.classList.toggle('open');
+        });
+      }
+    })();
+</script>
+</body>
+</html>
+ 
+
