@@ -870,6 +870,19 @@
         .impact-stats { gap: 18px; }
       }
   </style>
+  <!-- Supabase browser client for GitHub Pages -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // Replace these two values with your Supabase project credentials.
+    // Use the Publishable key (or legacy anon key), NEVER the service_role/secret key.
+    window.HERRHYTHM_SUPABASE = {
+      // url: 'YOUR_SUPABASE_PROJECT_URL',
+      url: 'https://ygttwylsgjqzuspesnwv.supabase.co',
+      // key: 'YOUR_SUPABASE_PUBLISHABLE_KEY'
+      key: 'sb_publishable_hgqWTG-Ts8blo231i7KrZA_NgNHl7U2'
+    };
+    
+  </script>
   <script>
       (function(){
         try {
@@ -1212,7 +1225,7 @@
 </button>
 
 <script>
-    // Client feedback panel
+    // Client feedback panel — GitHub Pages + Supabase
     (function () {
       var panel = document.getElementById('clientFeedback');
       var tab = document.getElementById('feedbackTab');
@@ -1223,16 +1236,12 @@
       var list = document.getElementById('feedbackList');
       var count = document.getElementById('feedbackCount');
 
-      if (!panel || !tab) return;
+      if (!panel || !tab || !form) return;
 
-      function openPanel() {
-        panel.classList.add('open');
-        loadComments();
-      }
-
-      function closePanel() {
-        panel.classList.remove('open');
-      }
+      var config = window.HERRHYTHM_SUPABASE || {};
+      var supabaseUrl = config.url || '';
+      var supabaseKey = config.key || '';
+      var supabase = null;
 
       function setStatus(message, type) {
         if (!status) return;
@@ -1249,31 +1258,75 @@
       function renderComments(comments) {
         if (!count || !list) return;
         count.textContent = comments.length;
+
         if (!comments.length) {
           list.innerHTML = '<p class="feedback-empty">No recommendations saved yet.</p>';
           return;
         }
+
         list.innerHTML = comments.map(function (item) {
           return '<div class="feedback-item">' +
             '<div class="feedback-item-section">' + escapeHtml(item.section) + '</div>' +
             '<p>' + escapeHtml(item.comment) + '</p>' +
-            '<small>' + escapeHtml(item.created_at || '') + (item.name ? ' · ' + escapeHtml(item.name) : '') + '</small>' +
+            '<small>' + escapeHtml(formatDate(item.created_at)) +
+              (item.name ? ' · ' + escapeHtml(item.name) : '') + '</small>' +
             '</div>';
         }).join('');
       }
 
-      function loadComments() {
-        fetch('feedback.php', { headers: { 'Accept': 'application/json' }, cache: 'no-store' })
-          .then(function (response) {
-            if (!response.ok) throw new Error('Unable to load recommendations.');
-            return response.json();
-          })
-          .then(function (data) {
-            renderComments(Array.isArray(data.comments) ? data.comments : []);
-          })
-          .catch(function () {
-            renderComments([]);
-          });
+      function formatDate(value) {
+        if (!value) return '';
+        var date = new Date(value);
+        if (isNaN(date.getTime())) return value;
+        return date.toLocaleString([], {
+          year: 'numeric', month: 'short', day: 'numeric',
+          hour: '2-digit', minute: '2-digit'
+        });
+      }
+
+      function configureSupabase() {
+        if (!supabaseUrl || !supabaseKey ||
+            supabaseUrl === 'YOUR_SUPABASE_PROJECT_URL' ||
+            supabaseKey === 'YOUR_SUPABASE_PUBLISHABLE_KEY') {
+          return false;
+        }
+
+        if (!window.supabase || typeof window.supabase.createClient !== 'function') {
+          return false;
+        }
+
+        supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+        return true;
+      }
+
+      async function loadComments() {
+        if (!supabase && !configureSupabase()) {
+          renderComments([]);
+          setStatus('Connect this page to Supabase to load saved recommendations.', 'error');
+          return;
+        }
+
+        var result = await supabase
+          .from('client_recommendations')
+          .select('id, section, comment, name, created_at')
+          .order('created_at', { ascending: false });
+
+        if (result.error) {
+          console.error('Supabase load error:', result.error);
+          setStatus('Could not load recommendations. Check your Supabase table and RLS policies.', 'error');
+          return;
+        }
+
+        renderComments(result.data || []);
+      }
+
+      function openPanel() {
+        panel.classList.add('open');
+        loadComments();
+      }
+
+      function closePanel() {
+        panel.classList.remove('open');
       }
 
       tab.addEventListener('click', function (event) {
@@ -1293,46 +1346,48 @@
         if (event.key === 'Escape') closePanel();
       });
 
-      if (form) {
-        form.addEventListener('submit', function (event) {
-          event.preventDefault();
+      form.addEventListener('submit', async function (event) {
+        event.preventDefault();
 
-          var section = document.getElementById('feedbackSection').value.trim();
-          var comment = document.getElementById('feedbackComment').value.trim();
-          var name = document.getElementById('feedbackName').value.trim();
+        var section = document.getElementById('feedbackSection').value.trim();
+        var comment = document.getElementById('feedbackComment').value.trim();
+        var name = document.getElementById('feedbackName').value.trim();
 
-          if (!section || !comment) {
-            setStatus('Please select a section and enter a recommendation.', 'error');
-            return;
-          }
+        if (!section || !comment) {
+          setStatus('Please select a section and enter a recommendation.', 'error');
+          return;
+        }
 
-          save.disabled = true;
-          setStatus('Saving...', '');
+        if (!supabase && !configureSupabase()) {
+          setStatus('Supabase is not configured yet. Add your project URL and publishable key to index.html.', 'error');
+          return;
+        }
 
-          fetch('feedback.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({ section: section, comment: comment, name: name })
+        save.disabled = true;
+        setStatus('Saving...', '');
+
+        var result = await supabase
+          .from('client_recommendations')
+          .insert({
+            section: section,
+            comment: comment,
+            name: name || null
           })
-          .then(function (response) {
-            return response.json().then(function (data) {
-              if (!response.ok || !data.success) throw new Error(data.message || 'Unable to save recommendation.');
-              return data;
-            });
-          })
-          .then(function (data) {
-            setStatus('Recommendation saved successfully.', 'success');
-            form.reset();
-            renderComments(Array.isArray(data.comments) ? data.comments : []);
-          })
-          .catch(function (error) {
-            setStatus(error.message || 'Unable to save recommendation.', 'error');
-          })
-          .finally(function () {
-            save.disabled = false;
-          });
-        });
-      }
+          .select('id, section, comment, name, created_at')
+          .single();
+
+        save.disabled = false;
+
+        if (result.error) {
+          console.error('Supabase save error:', result.error);
+          setStatus('Could not save recommendation. Check your Supabase RLS INSERT policy.', 'error');
+          return;
+        }
+
+        setStatus('Recommendation saved successfully.', 'success');
+        form.reset();
+        await loadComments();
+      });
     })();
 
     (function () {
