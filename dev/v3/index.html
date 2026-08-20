@@ -876,12 +876,9 @@
     // Replace these two values with your Supabase project credentials.
     // Use the Publishable key (or legacy anon key), NEVER the service_role/secret key.
     window.HERRHYTHM_SUPABASE = {
-      // url: 'YOUR_SUPABASE_PROJECT_URL',
-      url: 'https://ygttwylsgjqzuspesnwv.supabase.co',
-      // key: 'YOUR_SUPABASE_PUBLISHABLE_KEY'
-      key: 'sb_publishable_hgqWTG-Ts8blo231i7KrZA_NgNHl7U2'
+      url: 'YOUR_SUPABASE_PROJECT_URL',
+      key: 'YOUR_SUPABASE_PUBLISHABLE_KEY'
     };
-    
   </script>
   <script>
       (function(){
@@ -1380,7 +1377,7 @@
 
         if (result.error) {
           console.error('Supabase save error:', result.error);
-          setStatus('Could not save recommendation. Check your Supabase RLS INSERT policy.', 'error');
+          setStatus('Could not save: ' + (result.error.message || 'Unknown Supabase error'), 'error');
           return;
         }
 
