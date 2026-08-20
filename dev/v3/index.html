@@ -875,9 +875,13 @@
   <script>
     // Replace these two values with your Supabase project credentials.
     // Use the Publishable key (or legacy anon key), NEVER the service_role/secret key.
+    // window.HERRHYTHM_SUPABASE = {
+    //   url: 'YOUR_SUPABASE_PROJECT_URL',
+    //   key: 'YOUR_SUPABASE_PUBLISHABLE_KEY'
+    // };
     window.HERRHYTHM_SUPABASE = {
-      url: 'YOUR_SUPABASE_PROJECT_URL',
-      key: 'YOUR_SUPABASE_PUBLISHABLE_KEY'
+      url: 'https://ygttwylsgjqzuspesnwv.supabase.co',
+      key: 'sb_publishable_hgqWTG-Ts8blo231i7KrZA_NgNHl7U2'
     };
   </script>
   <script>
@@ -1304,7 +1308,7 @@
         }
 
         var result = await supabase
-          .from('client_recommendations')
+          .from('supabase_clients')
           .select('id, section, comment, name, created_at')
           .order('created_at', { ascending: false });
 
@@ -1364,7 +1368,7 @@
         setStatus('Saving...', '');
 
         var result = await supabase
-          .from('client_recommendations')
+          .from('supabase_clients')
           .insert({
             section: section,
             comment: comment,
@@ -1416,3 +1420,97 @@
 </html>
  
 
+
+        }
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#3E2745">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%20%20%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%233E2745%22/%3E%20%20%3Cpath%20d%3D%22M16%207c-4.5%204-7.5%207.2-7.5%2011.2%200%204.2%203.3%207.3%207.5%207.3s7.5-3.1%207.5-7.3c0-4-3-7.2-7.5-11.2z%22%20fill%3D%22%23E13C6E%22/%3E%3C/svg%3E" type="image/svg+xml">
+  <title>HerRhythm Care — Walk Beside Her</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+      :root {
+        --cream: #FBF7F4;
+        --cream-deep: #F3ECE7;
+        --plum: #5C3D66;
+        --plum-deep: #2F1C36;
+        --pink: #E11D60;
+        --pink-hot: #F0437A;
+        --gold: #C9952A;
+        --ink: #2A2226;
+        --ink-soft: #5C5358;
+        --paper: #FFFFFF;
+        --line: rgba(47, 28, 54, 0.08);
+        --line-strong: rgba(47, 28, 54, 0.14);
+        --maroon: #6B1E2B;
+        --maroon-mid: #8B2E3C;
+        --safe-b: env(safe-area-inset-bottom, 0px);
+      }
+      
+      html[data-theme="dark"] {
+        color-scheme: dark;
+        --cream: #121016;
+        --cream-deep: #18141C;
+        --plum: #D4B8DE;
+          return;
+        save.disabled = true;
+        setStatus('Saving...', '');
+
+        var result = await supabase
+          .from('supabase_clients')
+          .insert({
+            section: section,
+            comment: comment,
+            name: name || null
+          })
+          .select('id, section, comment, name, created_at')
+          .single();
+
+        save.disabled = false;
+
+        if (result.error) {
+          console.error('Supabase save error:', result.error);
+          setStatus('Could not save: ' + (result.error.message || 'Unknown Supabase error'), 'error');
+          return;
+        }
+
+        setStatus('Recommendation saved successfully.', 'success');
+        form.reset();
+        await loadComments();
+      });
+    })();
+
+    (function () {
+      var btn = document.getElementById('themeToggle');
+      if (btn) {
+        function current() {
+          return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        }
+        function apply(theme) {
+          document.documentElement.setAttribute('data-theme', theme);
+          try { localStorage.setItem('cg_theme', theme); } catch (e) {}
+          btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+        apply(current());
+        btn.addEventListener('click', function () {
+          apply(current() === 'dark' ? 'light' : 'dark');
+        });
+      }
+      var toggle = document.getElementById('navToggle');
+      var nav = document.getElementById('siteNav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', function () {
+          nav.classList.toggle('open');
+        });
+      }
+    })();
+</script>
+</body>
+</html>
+ 
+
+          setStatus('Supabase is not configured yet. Add your project URL and publishable key to index.html.', 'error');
