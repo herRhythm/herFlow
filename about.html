@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#3E2745">
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%20%20%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%233E2745%22/%3E%20%20%3Cpath%20d%3D%22M16%207c-4.5%204-7.5%207.2-7.5%2011.2%200%204.2%203.3%207.3%207.5%207.3s7.5-3.1%207.5-7.3c0-4-3-7.2-7.5-11.2z%22%20fill%3D%22%23E13C6E%22/%3E%3C/svg%3E" type="image/svg+xml">
-    <title>About Us — HerRhythm Care</title>
+    <title>About Us</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -189,7 +189,39 @@
         }
         .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
         html[data-theme="dark"] .btn-primary { background: var(--maroon); }
-          
+            
+          /* ——— Checkout ——— */
+          .checkout-hero {
+            background: linear-gradient(160deg, #3E2745 0%, #5C3D66 45%, #8B4A5C 100%);
+            color: #fff;
+            padding: 40px 20px 34px;
+          }
+          .checkout-hero-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+          }
+          .checkout-hero .eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255, 247, 249, 0.75);
+            display: block;
+            margin-bottom: 10px;
+          }
+          .checkout-hero h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-style: italic;
+            font-weight: 600;
+            font-size: clamp(28px, 4.5vw, 40px);
+            margin: 0 0 10px;
+          }
+          .checkout-hero p {
+            margin: 0;
+            color: rgba(255, 247, 249, 0.82);
+            max-width: 480px;
+            font-size: 14px;
+          }
         /* ——— Main nav ——— */
         .mainnav {
           background: var(--paper);
@@ -1281,7 +1313,8 @@
           }
         })();
     </script>
-  </head>
+    <link rel="stylesheet" href="assets/client-feedback.css">
+</head>
 <body>    
     <!-- Top bar -->
     <div class="topbar">
@@ -1318,26 +1351,14 @@
       </div>
     </nav>
     
-    <div class="app">
-      <section class="about-hero">
+    <div class="app">      
+      <!-- Checkout hero -->
+      <section class="checkout-hero">
         <span class="eyebrow">About Us</span>
         <h1>HerRhythm Care</h1>
-        <p class="about-lead">We are a menstrual care ecosystem rooted in education and community impact by women who know these stories firsthand.</p>
-        <p class="about-story">Every month, millions of women buy menstrual products. With HerRhythm Care, your purchase does more than prepare you for your next cycle — it helps 3 other girls stay in school, supports menstrual education, and builds a future where no one has to choose between their period and their potential. While you're caring for yourself, you're extending that same care to someone who needs it most.</p>
+        <p>We are a menstrual care ecosystem rooted in education and community impact by women who know these stories firsthand.</p>
+        <p>Every month, millions of women buy menstrual products. With HerRhythm Care, your purchase does more than prepare you for your next cycle — it helps 3 other girls stay in school, supports menstrual education, and builds a future where no one has to choose between their period and their potential. While you're caring for yourself, you're extending that same care to someone who needs it most.</p>
       </section>
-
-      <div class="about-grid">
-        <article class="about-card">
-          <span class="eyebrow">Our Mission</span>
-          <h2>Dignity through every cycle</h2>
-          <p>We empower girls and women to navigate menstruation with dignity through trusted education, quality menstrual care, accessible healthcare, and community support—while creating measurable menstrual equity with every purchase.</p>
-        </article>
-        <article class="about-card">
-          <span class="eyebrow">Our Vision</span>
-          <h2>Africa's trusted companion</h2>
-          <p>To become Africa's most trusted menstrual health companion, walking with every girl and woman through every stage of her menstrual journey while ensuring that every purchase creates lasting opportunities for another.</p>
-        </article>
-      </div>
 
       <section class="values-section" aria-labelledby="values-heading">
         <span class="eyebrow">What we stand for</span>
@@ -1512,6 +1533,11 @@
       }
     })();
     </script>
-  </body>
+  
+<!-- Reusable client feedback -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/client-feedback-config.js"></script>
+<script src="assets/client-feedback.js"></script>
+</body>
 </html>
 

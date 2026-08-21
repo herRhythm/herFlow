@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#3E2745">
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%20%20%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%233E2745%22/%3E%20%20%3Cpath%20d%3D%22M16%207c-4.5%204-7.5%207.2-7.5%2011.2%200%204.2%203.3%207.3%207.5%207.3s7.5-3.1%207.5-7.3c0-4-3-7.2-7.5-11.2z%22%20fill%3D%22%23E13C6E%22/%3E%3C/svg%3E" type="image/svg+xml">
-    <title>Menarche · Coming of Age</title>
+    <title>About Us — HerRhythm Care</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -1045,369 +1045,226 @@
         html[data-theme="dark"] .mvf-block.myth { background: rgba(255,247,249,0.06); }
 
     
-        /* ——— Menarche / Coming of Age ——— */
-        .mn-hero { padding: 36px 0 16px; }
-        .mn-hero .eyebrow {
+        /* ——— About page ——— */
+        .about-hero { padding: 36px 0 12px; }
+        .about-hero .eyebrow, .about-card .eyebrow, .cred-panel .eyebrow,
+        .team-section .eyebrow, .founder-panel .eyebrow, .values-section .eyebrow {
           font-family: 'Space Mono', monospace;
           font-size: 10px;
-          letter-spacing: 0.16em;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
           color: var(--pink);
-          margin-bottom: 10px;
+          margin-bottom: 8px;
           display: block;
         }
-        .mn-hero h1 {
+        .impact-panel .eyebrow, .cred-panel .eyebrow { color: var(--gold); }
+        .about-hero .eyebrow { letter-spacing: 0.16em; margin-bottom: 10px; }
+        .about-hero h1 {
           font-family: 'Fraunces', Georgia, serif;
           font-style: italic;
           font-weight: 600;
-          font-size: clamp(28px, 5vw, 42px);
+          font-size: clamp(28px, 5vw, 40px);
           color: var(--plum-deep);
-          margin: 0 0 12px;
+          margin: 0 0 14px;
           line-height: 1.15;
           letter-spacing: -0.02em;
         }
-        .mn-hero .lead {
-          font-size: 16px;
-          line-height: 1.65;
-          color: var(--ink);
-          max-width: 720px;
-          margin: 0 0 12px;
-          text-align: justify;
+        .about-lead {
+          font-size: 16px; line-height: 1.65; color: var(--ink);
+          max-width: 720px; margin: 0 0 18px;
         }
-        .mn-hero .sub {
-          font-size: 14.5px;
-          line-height: 1.65;
-          color: var(--ink-soft);
-          max-width: 720px;
-          margin: 0 0 20px;
-          text-align: justify;
+        .about-story {
+          font-size: 15px; line-height: 1.7; color: var(--ink-soft);
+          max-width: 720px; margin: 0 0 28px;
         }
-        .mn-banner {
-          background: linear-gradient(145deg, #2A152F 0%, #3E2745 48%, #5C3D66 100%);
-          border-radius: var(--radius);
-          padding: 24px 22px;
-          color: #FFF8FA;
-          margin-bottom: 22px;
+        .about-grid {
+          display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px;
         }
-        .mn-banner .mod {
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: var(--gold);
-          margin-bottom: 8px;
-          display: block;
+        @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } }
+        .about-card {
+          background: var(--paper); border: 1px solid var(--line);
+          border-radius: var(--radius); padding: 22px 20px;
         }
-        .mn-banner h2 {
+        .about-card h2, .cred-panel h2, .team-section > h2, .founder-panel h2, .values-section > h2 {
           font-family: 'Fraunces', Georgia, serif;
-          font-style: italic;
-          font-weight: 600;
-          font-size: clamp(20px, 3vw, 26px);
-          margin: 0 0 8px;
-          color: #fff;
+          font-style: italic; font-weight: 600; font-size: 22px;
+          color: var(--plum-deep); margin: 0 0 10px;
         }
-        .mn-banner p {
-          margin: 0;
-          font-size: 14px;
-          line-height: 1.55;
-          color: rgba(255,247,249,0.88);
-          max-width: 640px;
+        .about-card p { margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink); }
+        .cred-panel {
+          background: var(--paper); border: 1px solid var(--line);
+          border-radius: var(--radius); padding: 24px 22px; margin-bottom: 20px;
         }
-        .pillar-nav {
+        .cred-panel p {
+          margin: 0 0 14px; font-size: 14px; line-height: 1.65;
+          color: var(--ink-soft); max-width: 720px;
+        }
+        .cred-list {
+          display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; padding: 0; list-style: none;
+        }
+        .cred-list li {
+          font-size: 12px; font-weight: 600; color: var(--plum-deep);
+          background: var(--pink-mist); border: 1px solid var(--line);
+          padding: 8px 12px; border-radius: var(--radius-pill);
+        }
+        /* Values */
+        .values-section { margin: 4px 0 24px; }
+        .values-section > h2 { margin-bottom: 6px; }
+        .values-intro {
+          font-size: 14px; color: var(--ink-soft); max-width: 640px;
+          margin: 0 0 18px; line-height: 1.6;
+        }
+        .values-grid {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 10px;
-          margin-bottom: 22px;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 14px;
         }
-        @media (max-width: 700px) {
-          .pillar-nav { grid-template-columns: 1fr 1fr; }
-        }
-        .pillar-nav a {
-          text-decoration: none;
-          text-align: center;
+        @media (max-width: 800px) { .values-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 520px) { .values-grid { grid-template-columns: 1fr; } }
+        .value-card {
           background: var(--paper);
           border: 1px solid var(--line);
-          border-radius: var(--radius-sm);
-          padding: 14px 10px;
-          color: var(--plum-deep);
-          font-weight: 600;
-          font-size: 13px;
-          transition: border-color .15s, color .15s;
+          border-radius: var(--radius);
+          padding: 22px 18px 20px;
+          position: relative;
+          overflow: hidden;
+          min-height: 100%;
+          transition: border-color .15s, transform .15s;
         }
-        .pillar-nav a:hover {
+        .value-card:hover {
           border-color: var(--pink);
-          color: var(--pink);
+          transform: translateY(-2px);
         }
-        .pillar-nav a span {
-          display: block;
+        .value-card::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 3px;
+          background: linear-gradient(90deg, var(--pink), var(--gold));
+        }
+        .value-num {
           font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.1em;
+          font-size: 11px;
+          letter-spacing: 0.08em;
           color: var(--pink);
-          margin-bottom: 4px;
           font-weight: 700;
+          margin-bottom: 10px;
         }
-        .pillar {
-          background: var(--paper);
-          border: 1px solid var(--line);
-          border-radius: var(--radius);
-          padding: 24px 20px;
-          margin-bottom: 16px;
-        }
-        .pillar .eyebrow {
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: var(--pink);
-          margin-bottom: 8px;
-          display: block;
-        }
-        .pillar h2 {
-          font-family: 'Fraunces', Georgia, serif;
-          font-style: italic;
-          font-weight: 600;
+        .value-icon {
           font-size: 22px;
-          color: var(--plum-deep);
-          margin: 0 0 6px;
+          margin-bottom: 10px;
+          line-height: 1;
         }
-        .pillar .tagline {
-          font-size: 14px;
-          font-style: italic;
-          color: var(--ink-soft);
-          margin: 0 0 12px;
-        }
-        .pillar > p {
-          font-size: 14.5px;
-          line-height: 1.65;
-          color: var(--ink);
-          margin: 0 0 14px;
-          text-align: justify;
-        }
-        .incl-label {
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: var(--ink-soft);
-          margin: 0 0 8px;
-          display: block;
-        }
-        .incl-list {
-          list-style: none;
-          padding: 0;
-          margin: 0 0 16px;
-          display: grid;
-          gap: 8px;
-        }
-        .incl-list li {
-          display: flex;
-          gap: 10px;
-          align-items: flex-start;
-          font-size: 14px;
-          color: var(--ink);
-          line-height: 1.45;
-          padding: 10px 12px;
-          background: var(--cream);
-          border-radius: 10px;
-          border: 1px solid var(--line);
-        }
-        html[data-theme="dark"] .incl-list li { background: var(--cream-deep); }
-        .incl-list li::before {
-          content: '✓';
-          color: var(--sage);
-          font-weight: 700;
-          flex-shrink: 0;
-        }
-        .incl-list li.upgrade::before { content: '✦'; color: var(--gold); }
-        .outcomes {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          margin-top: 4px;
-        }
-        .outcomes span {
-          font-size: 12px;
-          font-weight: 600;
-          color: var(--plum-deep);
-          background: var(--sage-soft);
-          border: 1px solid rgba(31, 154, 92, 0.2);
-          padding: 7px 12px;
-          border-radius: var(--radius-pill);
-        }
-        html[data-theme="dark"] .outcomes span {
-          background: var(--sage-soft);
-          color: var(--sage);
-        }
-        .promise {
-          background: linear-gradient(150deg, #2A152F 0%, #3E2745 100%);
-          border-radius: var(--radius);
-          padding: 28px 22px;
-          color: #FFF8FA;
-          margin: 8px 0 20px;
-        }
-        .promise .eyebrow {
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: var(--gold);
-          margin-bottom: 8px;
-          display: block;
-        }
-        .promise h2 {
-          font-family: 'Fraunces', Georgia, serif;
-          font-style: italic;
-          font-size: clamp(20px, 3vw, 26px);
-          margin: 0 0 8px;
-          color: #fff;
-        }
-        .promise .sub {
-          font-size: 14px;
-          color: rgba(255,247,249,0.85);
-          margin: 0 0 16px;
-        }
-        .promise-list {
-          list-style: none;
-          padding: 0;
-          margin: 0 0 18px;
-          display: grid;
-          gap: 10px;
-        }
-        .promise-list li {
-          display: flex;
-          gap: 10px;
-          align-items: flex-start;
-          font-size: 14.5px;
-          line-height: 1.5;
-          color: rgba(255,247,249,0.95);
-        }
-        .promise-list li::before {
-          content: '✔';
-          color: var(--gold);
-          font-weight: 700;
-          flex-shrink: 0;
-        }
-        .promise .closer {
-          font-family: 'Fraunces', Georgia, serif;
-          font-style: italic;
-          font-size: 17px;
-          color: #fff;
-          margin: 0;
-          border-top: 1px solid rgba(255,247,249,0.15);
-          padding-top: 14px;
-        }
-        .price-panel {
-          background: var(--paper);
-          border: 1px solid var(--line);
-          border-radius: var(--radius);
-          padding: 24px 20px;
-          margin-bottom: 20px;
-        }
-        .price-panel .eyebrow {
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: var(--gold);
-          margin-bottom: 8px;
-          display: block;
-        }
-        .price-panel h2 {
+        .value-title {
           font-family: 'Fraunces', Georgia, serif;
           font-style: italic;
           font-weight: 600;
-          font-size: 22px;
-          color: var(--plum-deep);
-          margin: 0 0 6px;
-        }
-        .price-panel .intro {
-          font-size: 14px;
-          color: var(--ink-soft);
-          margin: 0 0 16px;
-        }
-        .price-row {
-          display: flex;
-          justify-content: space-between;
-          align-items: baseline;
-          gap: 12px;
-          padding: 12px 0;
-          border-bottom: 1px solid var(--line);
-          font-size: 14px;
-        }
-        .price-row:last-of-type { border-bottom: none; }
-        .price-row .label { color: var(--ink); }
-        .price-row .amt {
-          font-weight: 600;
-          color: var(--plum-deep);
-          font-variant-numeric: tabular-nums;
-          white-space: nowrap;
-        }
-        .price-row.subtotal .label,
-        .price-row.subtotal .amt { color: var(--ink-soft); font-size: 13px; }
-        .price-row.total {
-          margin-top: 6px;
-          padding-top: 14px;
-          border-top: 2px solid var(--line-strong);
-          border-bottom: none;
-        }
-        .price-row.total .label {
-          font-family: 'Fraunces', Georgia, serif;
-          font-style: italic;
           font-size: 18px;
           color: var(--plum-deep);
+          margin: 0 0 8px;
+          line-height: 1.25;
         }
-        .price-row.total .amt {
-          font-size: 22px;
-          color: var(--pink);
-        }
-        .price-note {
-          font-size: 12px;
-          color: var(--ink-soft);
-          margin: 12px 0 0;
-        }
-        .mn-actions {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          margin: 8px 0 28px;
-        }
-        .mn-actions a {
-          text-decoration: none;
+        .value-body {
+          margin: 0;
           font-size: 13px;
-          font-weight: 600;
-          padding: 12px 18px;
-          border-radius: var(--radius-pill);
-          border: 1px solid var(--line);
-          color: var(--plum-deep);
-          background: var(--paper);
+          line-height: 1.55;
+          color: var(--ink-soft);
         }
-        .mn-actions a.primary {
-          background: var(--plum-deep);
-          border-color: var(--plum-deep);
-          color: #fff;
+        .impact-panel {
+          background: linear-gradient(150deg, #2A152F 0%, #3E2745 50%, #5C3D66 100%);
+          border-radius: var(--radius); padding: 28px 24px; color: #FFF8FA;
+          margin-bottom: 20px; border: 1px solid transparent;
         }
-        .mn-actions a.primary:hover {
-          background: var(--pink);
-          border-color: var(--pink);
+        .impact-panel h2 {
+          font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600;
+          font-size: clamp(22px, 3.5vw, 28px); margin: 0 0 8px; color: #FFF8FA;
         }
-        html[data-theme="dark"] .mn-actions a.primary {
-          background: var(--pink);
-          border-color: var(--pink);
+        .impact-panel .tagline {
+          font-size: 15px; line-height: 1.55; color: rgba(255,247,249,0.88);
+          margin: 0 0 16px; max-width: 560px;
         }
-        .logo-end {
-          display: block;
-          max-width: 260px;
-          margin: 12px auto 8px;
+        .impact-list { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 8px; }
+        .impact-list li {
+          font-size: 14px; line-height: 1.5; padding: 8px 0 8px 28px; position: relative;
+          color: rgba(255,247,249,0.92); border-bottom: 1px solid rgba(255,247,249,0.1);
         }
-        html[data-theme="dark"] .pillar,
-        html[data-theme="dark"] .price-panel {
-          background: var(--paper);
-          border-color: var(--line);
+        .impact-list li:last-child { border-bottom: none; }
+        .impact-list li::before {
+          content: '♥'; position: absolute; left: 0; top: 8px; color: var(--gold); font-size: 13px;
         }
-        html[data-theme="dark"] .mn-banner,
-        html[data-theme="dark"] .promise {
-          background: linear-gradient(145deg, #1A0F1E 0%, #2A152F 50%, #3E2745 100%);
+        .impact-closer {
+          font-style: italic; font-size: 14px; color: rgba(255,247,249,0.85);
+          margin: 0 0 10px; max-width: 640px;
+        }
+        .impact-cta { font-size: 13px; font-weight: 600; color: var(--gold); margin: 0; }
+        .founder-panel {
+          background: var(--paper); border: 1px solid var(--line);
+          border-radius: var(--radius); padding: 26px 22px; margin-bottom: 20px;
+        }
+        .founder-panel p {
+          margin: 0 0 12px; font-size: 14.5px; line-height: 1.7;
+          color: var(--ink); max-width: 720px;
+        }
+        .founder-panel p:last-child { margin-bottom: 0; }
+        .founder-panel .closer {
+          font-style: italic; color: var(--plum); border-top: 1px solid var(--line);
+          padding-top: 14px; margin-top: 6px;
+        }
+        .team-section { margin: 8px 0 24px; }
+        .team-section > h2 { margin-bottom: 6px; }
+        .team-intro {
+          font-size: 14px; color: var(--ink-soft); max-width: 640px;
+          margin: 0 0 18px; line-height: 1.6;
+        }
+        .team-grid {
+          display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px;
+        }
+        @media (max-width: 800px) { .team-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 520px) { .team-grid { grid-template-columns: 1fr; } }
+        .team-card {
+          background: var(--paper); border: 1px solid var(--line);
+          border-radius: var(--radius); padding: 20px 18px 18px;
+          display: flex; flex-direction: column; min-height: 100%;
+          transition: border-color .15s;
+        }
+        .team-card:hover { border-color: var(--pink); }
+        .team-avatar {
+          width: 72px; height: 72px; border-radius: 50%;
+          background: linear-gradient(145deg, var(--pink-soft), var(--gold-soft));
+          border: 2px solid var(--line-strong);
+          display: flex; align-items: center; justify-content: center;
+          font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600;
+          font-size: 22px; color: var(--plum-deep); margin-bottom: 14px;
+          overflow: hidden; flex-shrink: 0;
+        }
+        .team-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .team-role {
+          font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.1em;
+          text-transform: uppercase; color: var(--pink); margin-bottom: 4px;
+        }
+        .team-name {
+          font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600;
+          font-size: 18px; color: var(--plum-deep); margin: 0 0 8px; line-height: 1.25;
+        }
+        .team-bio { font-size: 13px; line-height: 1.55; color: var(--ink-soft); margin: 0; flex: 1; }
+        .about-actions {
+          display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 28px;
+        }
+        .about-actions a {
+          text-decoration: none; font-size: 13px; font-weight: 600;
+          padding: 12px 18px; border-radius: var(--radius-pill);
+          border: 1px solid var(--line); color: var(--plum-deep); background: var(--paper);
+          transition: border-color .15s, color .15s, background .15s;
+        }
+        .about-actions a:hover { border-color: var(--pink); color: var(--pink); }
+        .about-actions a.primary {
+          background: var(--plum-deep); border-color: var(--plum-deep); color: #fff;
+        }
+        .about-actions a.primary:hover {
+          background: var(--pink); border-color: var(--pink); color: #fff;
+        }
+        html[data-theme="dark"] .about-actions a.primary {
+          background: var(--pink); border-color: var(--pink);
         }
 
     </style>
@@ -1424,8 +1281,7 @@
           }
         })();
     </script>
-    <link rel="stylesheet" href="assets/client-feedback.css">
-</head>
+  </head>
 <body>    
     <!-- Top bar -->
     <div class="topbar">
@@ -1458,148 +1314,164 @@
         <a href="becoming-you.html">Becoming You</a>
         <a href="ask.html">Ask-HerRhythm</a>
         <a href="checkout.html">Checkout</a>
-        <a href="about.html">About Us</a>
+        <a class="active" href="about.html">About Us</a>
       </div>
     </nav>
     
     <div class="app">
-      <section class="mn-hero">
-        <span class="eyebrow">Coming of Age · First Period Kit</span>
-        <h1>Menarche</h1>
-        <p class="lead">Menarche is the first menstrual period — signaling the start of reproductive capacity. It is a major milestone in female development, and we at HerRhythm would like to be part of that experience.</p>
-        <p class="sub">A thoughtfully designed first-period companion that helps girls understand what is happening to their bodies, manage common symptoms, and feel supported by the people around them.</p>
-        <p class="sub">We combine education, comfort, and practical menstrual care into one beautiful experience — because every girl deserves to begin her rhythm with confidence, joy, and unshakeable self-belief.</p>
+      <section class="about-hero">
+        <span class="eyebrow">About Us</span>
+        <h1>HerRhythm Care</h1>
+        <p class="about-lead">We are a menstrual care ecosystem rooted in education and community impact by women who know these stories firsthand.</p>
+        <p class="about-story">Every month, millions of women buy menstrual products. With HerRhythm Care, your purchase does more than prepare you for your next cycle — it helps 3 other girls stay in school, supports menstrual education, and builds a future where no one has to choose between their period and their potential. While you're caring for yourself, you're extending that same care to someone who needs it most.</p>
       </section>
 
-      <div class="mn-banner">
-        <span class="mod">The Menarche Kit</span>
-        <h2>Because Menarche should be a conversation</h2>
-        <p>What’s inside: Learn · Care · Comfort · Support — everything she needs to meet her first cycle with clarity, not fear.</p>
+      <div class="about-grid">
+        <article class="about-card">
+          <span class="eyebrow">Our Mission</span>
+          <h2>Dignity through every cycle</h2>
+          <p>We empower girls and women to navigate menstruation with dignity through trusted education, quality menstrual care, accessible healthcare, and community support—while creating measurable menstrual equity with every purchase.</p>
+        </article>
+        <article class="about-card">
+          <span class="eyebrow">Our Vision</span>
+          <h2>Africa's trusted companion</h2>
+          <p>To become Africa's most trusted menstrual health companion, walking with every girl and woman through every stage of her menstrual journey while ensuring that every purchase creates lasting opportunities for another.</p>
+        </article>
       </div>
 
-      <nav class="pillar-nav" aria-label="Kit pillars">
-        <a href="#learn"><span>01</span>Learn</a>
-        <a href="#care"><span>02</span>Care</a>
-        <a href="#comfort"><span>03</span>Comfort</a>
-        <a href="#support"><span>04</span>Support</a>
-      </nav>
-
-      <!-- 1 Learn -->
-      <section class="pillar" id="learn">
-        <span class="eyebrow">Pillar 1</span>
-        <h2>Learn</h2>
-        <p class="tagline">“Understand what’s happening. Know what’s next.”</p>
-        <p>Everything she needs to move through her first period with clarity, not fear — plus the roadmap for what she learns next.</p>
-        <span class="incl-label">Included</span>
-        <ul class="incl-list">
-          <li><div><strong>Menarche Family Plan</strong> — where pads are stored, trusted adults, school contact, pain plan, who to call</div></li>
-          <li><div><strong>Know Your Rhythm</strong> — a guide to Menarche</div></li>
-        </ul>
-        <div class="outcomes">
-          <span>Understands her body</span>
-          <span>Knows what to expect</span>
-          <span>Feels prepared</span>
-          <span>Knows what’s next</span>
+      <section class="values-section" aria-labelledby="values-heading">
+        <span class="eyebrow">What we stand for</span>
+        <h2 id="values-heading">Our values</h2>
+        <p class="values-intro">These principles guide every kit we pack, every lesson we teach, and every girl we stand beside.</p>
+        <div class="values-grid">
+          <article class="value-card">
+            <div class="value-num">01</div>
+            <div class="value-icon" aria-hidden="true">♡</div>
+            <h3 class="value-title">Dignity first</h3>
+            <p class="value-body">Menstruation is natural. Silence, shame, and lack are not. We design every product and conversation so girls and women are met with respect, never stigma.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-num">02</div>
+            <div class="value-icon" aria-hidden="true">✦</div>
+            <h3 class="value-title">Education with care</h3>
+            <p class="value-body">Trusted guidance from licensed professionals — clear, practical, and free of fear. Knowledge that helps people navigate their cycles with confidence.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-num">03</div>
+            <div class="value-icon" aria-hidden="true">◎</div>
+            <h3 class="value-title">Equity in every purchase</h3>
+            <p class="value-body">Buy 1, Gift 3. Your kit is not luxury — it is solidarity. One purchase extends care so another girl can stay in school and keep her potential intact.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-num">04</div>
+            <div class="value-icon" aria-hidden="true">◈</div>
+            <h3 class="value-title">Community over charity</h3>
+            <p class="value-body">We walk with girls, families, and schools as partners. Impact is measured in classrooms attended, confidence kept, and dreams that do not bleed out.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-num">05</div>
+            <div class="value-icon" aria-hidden="true">✧</div>
+            <h3 class="value-title">Evidence and honesty</h3>
+            <p class="value-body">Every guide and recommendation is rooted in educational and healthcare practice — obstetrics, gynecology, nutrition, pediatrics, pharmacy, and menstrual education.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-num">06</div>
+            <div class="value-icon" aria-hidden="true">◉</div>
+            <h3 class="value-title">Show up, cycle after cycle</h3>
+            <p class="value-body">Support is not a one-time gesture. We build products, education, and community systems that stay present for the long menstrual journey — not just the first period.</p>
+          </article>
         </div>
       </section>
 
-      <!-- 2 Care -->
-      <section class="pillar" id="care">
-        <span class="eyebrow">Pillar 2</span>
-        <h2>Care</h2>
-        <p class="tagline">“Everything needed for her first cycle.”</p>
-        <p>Essential menstrual products chosen for care and confidence.</p>
-        <span class="incl-label">Included</span>
-        <ul class="incl-list">
-          <li><div><strong>Sanitary pads</strong> — light, regular &amp; overnight</div></li>
-          <li><div><strong>Panty liners</strong></div></li>
-          <li><div><strong>Wet wipes</strong></div></li>
-          <li><div><strong>Pocket tissues</strong></div></li>
-          <li><div><strong>DigniBag</strong> — for when she’s outside</div></li>
-          <li class="upgrade"><div><strong>Optional upgrade:</strong> Menstrual cups (2)</div></li>
+      <section class="cred-panel">
+        <span class="eyebrow">Credibility</span>
+        <h2>Medical &amp; Professional Credibility</h2>
+        <p>Rooted in educational and healthcare practice. Every guide, recommendation, and educational resource is developed alongside licensed professionals in:</p>
+        <ul class="cred-list">
+          <li>Obstetrics</li>
+          <li>Gynecology</li>
+          <li>Nutrition</li>
+          <li>Pediatrics</li>
+          <li>Pharmacy</li>
+          <li>Menstrual Education</li>
         </ul>
-        <div class="outcomes">
-          <span>Clean</span>
-          <span>Comfortable</span>
-          <span>Protected</span>
+        <p>This assures our community trusted access to quality menstrual care, menstrual education, and healthcare guidance.</p>
+      </section>
+
+      <section class="team-section" aria-labelledby="team-heading">
+        <span class="eyebrow">Our People</span>
+        <h2 id="team-heading">The team behind the rhythm</h2>
+        <p class="team-intro">Practitioners, educators, and community builders walking with girls and women — cycle after cycle.</p>
+        <div class="team-grid">
+          <article class="team-card">
+            <div class="team-avatar" aria-hidden="true">F</div>
+            <div class="team-role">Founder &amp; CEO</div>
+            <h3 class="team-name">Founder Name</h3>
+            <p class="team-bio">Leads HerRhythm Care’s mission to pair quality menstrual care with education and community impact. Replace with real name, photo, and bio.</p>
+          </article>
+          <article class="team-card">
+            <div class="team-avatar" aria-hidden="true">M</div>
+            <div class="team-role">Medical Advisor</div>
+            <h3 class="team-name">Advisor Name</h3>
+            <p class="team-bio">Licensed clinician guiding product safety, education accuracy, and healthcare partnerships across obstetrics and gynecology.</p>
+          </article>
+          <article class="team-card">
+            <div class="team-avatar" aria-hidden="true">E</div>
+            <div class="team-role">Education Lead</div>
+            <h3 class="team-name">Educator Name</h3>
+            <p class="team-bio">Designs menstrual education for girls, parents, and schools — turning science into clear, stigma-free conversations.</p>
+          </article>
+          <article class="team-card">
+            <div class="team-avatar" aria-hidden="true">C</div>
+            <div class="team-role">Community Impact</div>
+            <h3 class="team-name">Impact Lead</h3>
+            <p class="team-bio">Runs the Buy 1 Gift 3 pipeline — school partnerships, kit distribution, and measuring who stays in class because of your purchase.</p>
+          </article>
+          <article class="team-card">
+            <div class="team-avatar" aria-hidden="true">P</div>
+            <div class="team-role">Product &amp; Care</div>
+            <h3 class="team-name">Product Lead</h3>
+            <p class="team-bio">Curates kits and comfort essentials so every cycle feels prepared, practical, and kind — without the luxury markup.</p>
+          </article>
+          <article class="team-card">
+            <div class="team-avatar" aria-hidden="true">N</div>
+            <div class="team-role">Nutrition Partner</div>
+            <h3 class="team-name">Nutrition Lead</h3>
+            <p class="team-bio">Advises on cycle-aware nutrition and comfort guidance that sits alongside clinical and educational resources.</p>
+          </article>
         </div>
       </section>
 
-      <!-- 3 Comfort -->
-      <section class="pillar" id="comfort">
-        <span class="eyebrow">Pillar 3</span>
-        <h2>Comfort</h2>
-        <p class="tagline">“Gentle relief when symptoms begin.”</p>
-        <p>Designed to make the first cycle less overwhelming.</p>
-        <span class="incl-label">Included</span>
-        <ul class="incl-list">
-          <li><div><strong>Period heat patch</strong> — for when she’s outside</div></li>
-          <li><div><strong>Hot water bottle</strong> — for when she’s home</div></li>
-          <li><div><strong>Herbal tea bags</strong> — for occasional bloating relief</div></li>
+      <section class="impact-panel">
+        <span class="eyebrow">Our Impact Model</span>
+        <h2>Buy 1, Gift 3</h2>
+        <p class="tagline">Your kit isn't luxury. It's solidarity.</p>
+        <ul class="impact-list">
+          <li>It's a seat in a classroom.</li>
+          <li>It's confidence on a sports field.</li>
+          <li>It's passion on performance day.</li>
+          <li>It's one less day missed.</li>
+          <li>It's one more dream protected.</li>
         </ul>
-        <div class="outcomes">
-          <span>Less cramping</span>
-          <span>More comfort</span>
-          <span>A moment of self-care</span>
-        </div>
+        <p class="impact-closer">Gift a girl the dignity to stay in school tomorrow. Because no dream should bleed out.</p>
+        <p class="impact-closer">You're saying: "Your education matters. Your future matters. You matter."</p>
+        <p class="impact-cta">Measurable impact, one purchase at a time. Join our fight against period poverty today. One purchase, 4 hearts in rhythm.</p>
       </section>
 
-      <!-- 4 Support -->
-      <section class="pillar" id="support">
-        <span class="eyebrow">Pillar 4</span>
-        <h2>Support</h2>
-        <p class="tagline">“Because she shouldn’t go through it alone.”</p>
-        <p>Resources that help the family become part of the experience.</p>
-        <span class="incl-label">Included</span>
-        <ul class="incl-list">
-          <li><div><strong>Walking Beside Her</strong> — a mother’s helper</div></li>
-          <li><div><strong>The Companion Guide</strong> — a male guide to menstrual care</div></li>
-        </ul>
-        <div class="outcomes">
-          <span>Better conversations</span>
-          <span>Less stigma</span>
-          <span>Family support</span>
-        </div>
+      <section class="founder-panel">
+        <span class="eyebrow">Founder's Note</span>
+        <h2>Why we exist</h2>
+        <p>HerRhythm Care exists because too many girls are still being forced to shrink their lives around something natural.</p>
+        <p>We believe menses should be understood, supported, and met with dignity — not silence, shame, or lack.</p>
+        <p>This is why we combine menstrual care, education, and community support to fight period poverty at its root. Every experience we create, every girl we support, and every conversation we start is part of a larger mission to restore dignity where it has been denied.</p>
+        <p>We are not just building a menstrual care brand. We are building a movement where girls are not limited by their cycles, but empowered through them.</p>
+        <p class="closer">Because when a girl is supported through her period, she is supported through her potential.</p>
       </section>
 
-      <!-- Promise -->
-      <section class="promise">
-        <span class="eyebrow">The Menarche Promise</span>
-        <h2>The first period, handled well — for the whole family</h2>
-        <p class="sub">Every Menarche Kit helps her:</p>
-        <ul class="promise-list">
-          <li><strong>Learn</strong> what’s happening to her body</li>
-          <li><strong>Feel cared for</strong> and protected through her first cycle</li>
-          <li><strong>Find comfort</strong> when symptoms hit</li>
-          <li><strong>Feel supported</strong> by the people around her</li>
-        </ul>
-        <p class="closer">You are ready. You are supported. Your rhythm starts here.</p>
-      </section>
-
-      <!-- Kit price summary (customer-facing) -->
-      <section class="price-panel">
-        <span class="eyebrow">Kit overview</span>
-        <h2>What’s in the base kit</h2>
-        <p class="intro">A complete first-period experience — education, products, comfort tools, and family guides.</p>
-        <div class="price-row subtotal"><span class="label">Learn — guide &amp; family plan</span><span class="amt">Included</span></div>
-        <div class="price-row subtotal"><span class="label">Care — pads, liners, wipes, tissues, DigniBag</span><span class="amt">Included</span></div>
-        <div class="price-row subtotal"><span class="label">Comfort — heat patch, hot water bottle, herbal tea</span><span class="amt">Included</span></div>
-        <div class="price-row subtotal"><span class="label">Support — Walking Beside Her &amp; Companion Guide</span><span class="amt">Included</span></div>
-        <div class="price-row subtotal"><span class="label">Experience packaging &amp; delivery</span><span class="amt">Included</span></div>
-        <div class="price-row total">
-          <span class="label">Base kit</span>
-          <span class="amt">KES 6,800</span>
-        </div>
-        <p class="price-note">Optional menstrual cup upgrade available. Digital Companion Guide and Cycle Tracker included via QR.</p>
-      </section>
-
-      <img class="logo-end" src="hrc1.png" alt="HerRhythm Care — Know your rhythm. Flow with it. Live empowered."/>
-
-      <div class="mn-actions">
-        <a class="primary" href="checkout.html">Get the Menarche Kit</a>
-        <a href="walking-beside-her.html">Walking Beside Her</a>
-        <a href="companion-guide.html">Companion Guide</a>
-        <a href="becoming-you.html">Becoming You</a>
+      <div class="about-actions">
+        <a class="primary" href="checkout.html">Get the kit</a>
+        <a href="companion-guide.html">Explore the Companion Guide</a>
+        <a href="ask.html">Ask-HerRhythm</a>
       </div>
 
       <footer class="site-footer">
@@ -1640,11 +1512,6 @@
       }
     })();
     </script>
-  
-<!-- Reusable client feedback -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/client-feedback-config.js"></script>
-<script src="assets/client-feedback.js"></script>
-</body>
+  </body>
 </html>
 

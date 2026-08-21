@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#3E2745">
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%20%20%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%233E2745%22/%3E%20%20%3Cpath%20d%3D%22M16%207c-4.5%204-7.5%207.2-7.5%2011.2%200%204.2%203.3%207.3%207.5%207.3s7.5-3.1%207.5-7.3c0-4-3-7.2-7.5-11.2z%22%20fill%3D%22%23E13C6E%22/%3E%3C/svg%3E" type="image/svg+xml">
-    <title>Menarche · Coming of Age</title>
+    <title>The Companion Guide — HerRhythm Care</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -91,7 +91,12 @@
         }
 
         /* ——— Top utility bar ——— */
-        .topbar a, .topbar a:link, .topbar a:visited, .topbar a:hover, .topbar a:active, .topbar a:focus {
+        .topbar a,
+        .topbar a:link,
+        .topbar a:visited,
+        .topbar a:hover,
+        .topbar a:active,
+        .topbar a:focus {
           text-decoration: none !important;
         }
         .topbar {
@@ -142,11 +147,17 @@
           color: var(--plum-deep);
           font-weight: 600;
           font-size: 13px;
+          text-decoration: none;
+        }
+        .topbar-left a:hover,
+        .topbar-left a:focus {
+          text-decoration: none;
         }
         .topbar-logo {
           display: flex;
           align-items: center;
           justify-content: center;
+          text-decoration: none;
         }
         .topbar-logo img {
           height: 88px;
@@ -170,6 +181,7 @@
           display: inline-flex;
           align-items: center;
           gap: 6px;
+          text-decoration: none;
         }
         .btn-primary {
           display: inline-flex;
@@ -185,7 +197,13 @@
           border-radius: 999px;
           border: none;
           cursor: pointer;
+          text-decoration: none;
           transition: filter .15s, transform .15s;
+        }
+        .btn-primary:hover,
+        .btn-primary:focus {
+          text-decoration: none;
+          color: #fff !important;
         }
         .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
         html[data-theme="dark"] .btn-primary { background: var(--maroon); }
@@ -209,7 +227,12 @@
           min-height: 52px;
           flex-wrap: wrap;
         }
-        .mainnav a, .mainnav a:link, .mainnav a:visited, .mainnav a:hover, .mainnav a:active, .mainnav a:focus {
+        .mainnav a,
+        .mainnav a:link,
+        .mainnav a:visited,
+        .mainnav a:hover,
+        .mainnav a:active,
+        .mainnav a:focus {
           text-decoration: none !important;
         }
         .mainnav a {
@@ -1044,372 +1067,6 @@
         html[data-theme="dark"] .back { background: #2A1A22; }
         html[data-theme="dark"] .mvf-block.myth { background: rgba(255,247,249,0.06); }
 
-    
-        /* ——— Menarche / Coming of Age ——— */
-        .mn-hero { padding: 36px 0 16px; }
-        .mn-hero .eyebrow {
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.16em;
-          text-transform: uppercase;
-          color: var(--pink);
-          margin-bottom: 10px;
-          display: block;
-        }
-        .mn-hero h1 {
-          font-family: 'Fraunces', Georgia, serif;
-          font-style: italic;
-          font-weight: 600;
-          font-size: clamp(28px, 5vw, 42px);
-          color: var(--plum-deep);
-          margin: 0 0 12px;
-          line-height: 1.15;
-          letter-spacing: -0.02em;
-        }
-        .mn-hero .lead {
-          font-size: 16px;
-          line-height: 1.65;
-          color: var(--ink);
-          max-width: 720px;
-          margin: 0 0 12px;
-          text-align: justify;
-        }
-        .mn-hero .sub {
-          font-size: 14.5px;
-          line-height: 1.65;
-          color: var(--ink-soft);
-          max-width: 720px;
-          margin: 0 0 20px;
-          text-align: justify;
-        }
-        .mn-banner {
-          background: linear-gradient(145deg, #2A152F 0%, #3E2745 48%, #5C3D66 100%);
-          border-radius: var(--radius);
-          padding: 24px 22px;
-          color: #FFF8FA;
-          margin-bottom: 22px;
-        }
-        .mn-banner .mod {
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: var(--gold);
-          margin-bottom: 8px;
-          display: block;
-        }
-        .mn-banner h2 {
-          font-family: 'Fraunces', Georgia, serif;
-          font-style: italic;
-          font-weight: 600;
-          font-size: clamp(20px, 3vw, 26px);
-          margin: 0 0 8px;
-          color: #fff;
-        }
-        .mn-banner p {
-          margin: 0;
-          font-size: 14px;
-          line-height: 1.55;
-          color: rgba(255,247,249,0.88);
-          max-width: 640px;
-        }
-        .pillar-nav {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 10px;
-          margin-bottom: 22px;
-        }
-        @media (max-width: 700px) {
-          .pillar-nav { grid-template-columns: 1fr 1fr; }
-        }
-        .pillar-nav a {
-          text-decoration: none;
-          text-align: center;
-          background: var(--paper);
-          border: 1px solid var(--line);
-          border-radius: var(--radius-sm);
-          padding: 14px 10px;
-          color: var(--plum-deep);
-          font-weight: 600;
-          font-size: 13px;
-          transition: border-color .15s, color .15s;
-        }
-        .pillar-nav a:hover {
-          border-color: var(--pink);
-          color: var(--pink);
-        }
-        .pillar-nav a span {
-          display: block;
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.1em;
-          color: var(--pink);
-          margin-bottom: 4px;
-          font-weight: 700;
-        }
-        .pillar {
-          background: var(--paper);
-          border: 1px solid var(--line);
-          border-radius: var(--radius);
-          padding: 24px 20px;
-          margin-bottom: 16px;
-        }
-        .pillar .eyebrow {
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: var(--pink);
-          margin-bottom: 8px;
-          display: block;
-        }
-        .pillar h2 {
-          font-family: 'Fraunces', Georgia, serif;
-          font-style: italic;
-          font-weight: 600;
-          font-size: 22px;
-          color: var(--plum-deep);
-          margin: 0 0 6px;
-        }
-        .pillar .tagline {
-          font-size: 14px;
-          font-style: italic;
-          color: var(--ink-soft);
-          margin: 0 0 12px;
-        }
-        .pillar > p {
-          font-size: 14.5px;
-          line-height: 1.65;
-          color: var(--ink);
-          margin: 0 0 14px;
-          text-align: justify;
-        }
-        .incl-label {
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: var(--ink-soft);
-          margin: 0 0 8px;
-          display: block;
-        }
-        .incl-list {
-          list-style: none;
-          padding: 0;
-          margin: 0 0 16px;
-          display: grid;
-          gap: 8px;
-        }
-        .incl-list li {
-          display: flex;
-          gap: 10px;
-          align-items: flex-start;
-          font-size: 14px;
-          color: var(--ink);
-          line-height: 1.45;
-          padding: 10px 12px;
-          background: var(--cream);
-          border-radius: 10px;
-          border: 1px solid var(--line);
-        }
-        html[data-theme="dark"] .incl-list li { background: var(--cream-deep); }
-        .incl-list li::before {
-          content: '✓';
-          color: var(--sage);
-          font-weight: 700;
-          flex-shrink: 0;
-        }
-        .incl-list li.upgrade::before { content: '✦'; color: var(--gold); }
-        .outcomes {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          margin-top: 4px;
-        }
-        .outcomes span {
-          font-size: 12px;
-          font-weight: 600;
-          color: var(--plum-deep);
-          background: var(--sage-soft);
-          border: 1px solid rgba(31, 154, 92, 0.2);
-          padding: 7px 12px;
-          border-radius: var(--radius-pill);
-        }
-        html[data-theme="dark"] .outcomes span {
-          background: var(--sage-soft);
-          color: var(--sage);
-        }
-        .promise {
-          background: linear-gradient(150deg, #2A152F 0%, #3E2745 100%);
-          border-radius: var(--radius);
-          padding: 28px 22px;
-          color: #FFF8FA;
-          margin: 8px 0 20px;
-        }
-        .promise .eyebrow {
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: var(--gold);
-          margin-bottom: 8px;
-          display: block;
-        }
-        .promise h2 {
-          font-family: 'Fraunces', Georgia, serif;
-          font-style: italic;
-          font-size: clamp(20px, 3vw, 26px);
-          margin: 0 0 8px;
-          color: #fff;
-        }
-        .promise .sub {
-          font-size: 14px;
-          color: rgba(255,247,249,0.85);
-          margin: 0 0 16px;
-        }
-        .promise-list {
-          list-style: none;
-          padding: 0;
-          margin: 0 0 18px;
-          display: grid;
-          gap: 10px;
-        }
-        .promise-list li {
-          display: flex;
-          gap: 10px;
-          align-items: flex-start;
-          font-size: 14.5px;
-          line-height: 1.5;
-          color: rgba(255,247,249,0.95);
-        }
-        .promise-list li::before {
-          content: '✔';
-          color: var(--gold);
-          font-weight: 700;
-          flex-shrink: 0;
-        }
-        .promise .closer {
-          font-family: 'Fraunces', Georgia, serif;
-          font-style: italic;
-          font-size: 17px;
-          color: #fff;
-          margin: 0;
-          border-top: 1px solid rgba(255,247,249,0.15);
-          padding-top: 14px;
-        }
-        .price-panel {
-          background: var(--paper);
-          border: 1px solid var(--line);
-          border-radius: var(--radius);
-          padding: 24px 20px;
-          margin-bottom: 20px;
-        }
-        .price-panel .eyebrow {
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: var(--gold);
-          margin-bottom: 8px;
-          display: block;
-        }
-        .price-panel h2 {
-          font-family: 'Fraunces', Georgia, serif;
-          font-style: italic;
-          font-weight: 600;
-          font-size: 22px;
-          color: var(--plum-deep);
-          margin: 0 0 6px;
-        }
-        .price-panel .intro {
-          font-size: 14px;
-          color: var(--ink-soft);
-          margin: 0 0 16px;
-        }
-        .price-row {
-          display: flex;
-          justify-content: space-between;
-          align-items: baseline;
-          gap: 12px;
-          padding: 12px 0;
-          border-bottom: 1px solid var(--line);
-          font-size: 14px;
-        }
-        .price-row:last-of-type { border-bottom: none; }
-        .price-row .label { color: var(--ink); }
-        .price-row .amt {
-          font-weight: 600;
-          color: var(--plum-deep);
-          font-variant-numeric: tabular-nums;
-          white-space: nowrap;
-        }
-        .price-row.subtotal .label,
-        .price-row.subtotal .amt { color: var(--ink-soft); font-size: 13px; }
-        .price-row.total {
-          margin-top: 6px;
-          padding-top: 14px;
-          border-top: 2px solid var(--line-strong);
-          border-bottom: none;
-        }
-        .price-row.total .label {
-          font-family: 'Fraunces', Georgia, serif;
-          font-style: italic;
-          font-size: 18px;
-          color: var(--plum-deep);
-        }
-        .price-row.total .amt {
-          font-size: 22px;
-          color: var(--pink);
-        }
-        .price-note {
-          font-size: 12px;
-          color: var(--ink-soft);
-          margin: 12px 0 0;
-        }
-        .mn-actions {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          margin: 8px 0 28px;
-        }
-        .mn-actions a {
-          text-decoration: none;
-          font-size: 13px;
-          font-weight: 600;
-          padding: 12px 18px;
-          border-radius: var(--radius-pill);
-          border: 1px solid var(--line);
-          color: var(--plum-deep);
-          background: var(--paper);
-        }
-        .mn-actions a.primary {
-          background: var(--plum-deep);
-          border-color: var(--plum-deep);
-          color: #fff;
-        }
-        .mn-actions a.primary:hover {
-          background: var(--pink);
-          border-color: var(--pink);
-        }
-        html[data-theme="dark"] .mn-actions a.primary {
-          background: var(--pink);
-          border-color: var(--pink);
-        }
-        .logo-end {
-          display: block;
-          max-width: 260px;
-          margin: 12px auto 8px;
-        }
-        html[data-theme="dark"] .pillar,
-        html[data-theme="dark"] .price-panel {
-          background: var(--paper);
-          border-color: var(--line);
-        }
-        html[data-theme="dark"] .mn-banner,
-        html[data-theme="dark"] .promise {
-          background: linear-gradient(145deg, #1A0F1E 0%, #2A152F 50%, #3E2745 100%);
-        }
-
     </style>
     <script>
         (function(){
@@ -1424,9 +1081,8 @@
           }
         })();
     </script>
-    <link rel="stylesheet" href="assets/client-feedback.css">
-</head>
-<body>    
+  </head>
+  <body>    
     <!-- Top bar -->
     <div class="topbar">
       <div class="topbar-inner">
@@ -1454,197 +1110,754 @@
       <div class="mainnav-inner" id="siteNav">
         <a href="index.html">Home</a>
         <a href="walking-beside-her.html">Walking Beside Her</a>
-        <a href="companion-guide.html">Companion Guide</a>
+        <a class="active" href="companion-guide.html">Companion Guide</a>
         <a href="becoming-you.html">Becoming You</a>
         <a href="ask.html">Ask-HerRhythm</a>
         <a href="checkout.html">Checkout</a>
         <a href="about.html">About Us</a>
       </div>
     </nav>
-    
     <div class="app">
-      <section class="mn-hero">
-        <span class="eyebrow">Coming of Age · First Period Kit</span>
-        <h1>Menarche</h1>
-        <p class="lead">Menarche is the first menstrual period — signaling the start of reproductive capacity. It is a major milestone in female development, and we at HerRhythm would like to be part of that experience.</p>
-        <p class="sub">A thoughtfully designed first-period companion that helps girls understand what is happening to their bodies, manage common symptoms, and feel supported by the people around them.</p>
-        <p class="sub">We combine education, comfort, and practical menstrual care into one beautiful experience — because every girl deserves to begin her rhythm with confidence, joy, and unshakeable self-belief.</p>
+      <section class="page-hero" id="guide">
+        <h1>The Companion Guide</h1>
+        <p>Kit by kit, card by card — small touchpoints that help you show up with care.</p>
       </section>
 
-      <div class="mn-banner">
-        <span class="mod">The Menarche Kit</span>
-        <h2>Because Menarche should be a conversation</h2>
-        <p>What’s inside: Learn · Care · Comfort · Support — everything she needs to meet her first cycle with clarity, not fear.</p>
+      <section class="hero">
+        <span class="eyebrow">HerRhythm Care</span>
+        <h1>Know the moment. Meet it gently.</h1>
+        <p>Use the kit stepper, flip the cards, and mark your pledges as you walk with her.</p>
+      </section>
+
+      <section class="quickstart">
+        <div class="quick-card"><span class="qicon">①</span><strong>Set your kit</strong><span>Move through kits as you grow into the conversation.</span></div>
+        <div class="quick-card"><span class="qicon">②</span><strong>Flip the cards</strong><span>Each card holds a fact and a myth to unlearn.</span></div>
+        <div class="quick-card"><span class="qicon">③</span><strong>Make the pledge</strong><span>Sign what you are willing to practice.</span></div>
+      </section>
+
+      <section class="intro-card">
+        <span class="eyebrow">How to use this guide</span>
+        <h2>A companion for the moments that matter</h2>
+        <p>Move through the kits at your pace. Flip cards to separate myth from fact. Save a simple pledge so the practice stays with you.</p>
+        <p class="closer">You do not need to be perfect. You need to be present.</p>
+      </section>
+
+      <div class="qr-note">
+        <div class="qr-box" aria-hidden="true"></div>
+        <div class="qr-text">Progress is saved on this device only. Nothing is sent to a server.</div>
       </div>
 
-      <nav class="pillar-nav" aria-label="Kit pillars">
-        <a href="#learn"><span>01</span>Learn</a>
-        <a href="#care"><span>02</span>Care</a>
-        <a href="#comfort"><span>03</span>Comfort</a>
-        <a href="#support"><span>04</span>Support</a>
-      </nav>
-
-      <!-- 1 Learn -->
-      <section class="pillar" id="learn">
-        <span class="eyebrow">Pillar 1</span>
-        <h2>Learn</h2>
-        <p class="tagline">“Understand what’s happening. Know what’s next.”</p>
-        <p>Everything she needs to move through her first period with clarity, not fear — plus the roadmap for what she learns next.</p>
-        <span class="incl-label">Included</span>
-        <ul class="incl-list">
-          <li><div><strong>Menarche Family Plan</strong> — where pads are stored, trusted adults, school contact, pain plan, who to call</div></li>
-          <li><div><strong>Know Your Rhythm</strong> — a guide to Menarche</div></li>
-        </ul>
-        <div class="outcomes">
-          <span>Understands her body</span>
-          <span>Knows what to expect</span>
-          <span>Feels prepared</span>
-          <span>Knows what’s next</span>
+      <section class="kitrow" aria-label="Kit selector">
+        <span class="label">Current kit</span>
+        <div class="stepper">
+          <button type="button" id="kitDown" aria-label="Previous kit">−</button>
+          <span class="kitnum" id="kitNum">1</span>
+          <button type="button" id="kitUp" aria-label="Next kit">+</button>
         </div>
       </section>
 
-      <!-- 2 Care -->
-      <section class="pillar" id="care">
-        <span class="eyebrow">Pillar 2</span>
-        <h2>Care</h2>
-        <p class="tagline">“Everything needed for her first cycle.”</p>
-        <p>Essential menstrual products chosen for care and confidence.</p>
-        <span class="incl-label">Included</span>
-        <ul class="incl-list">
-          <li><div><strong>Sanitary pads</strong> — light, regular &amp; overnight</div></li>
-          <li><div><strong>Panty liners</strong></div></li>
-          <li><div><strong>Wet wipes</strong></div></li>
-          <li><div><strong>Pocket tissues</strong></div></li>
-          <li><div><strong>DigniBag</strong> — for when she’s outside</div></li>
-          <li class="upgrade"><div><strong>Optional upgrade:</strong> Menstrual cups (2)</div></li>
-        </ul>
-        <div class="outcomes">
-          <span>Clean</span>
-          <span>Comfortable</span>
-          <span>Protected</span>
+      <section class="progresswrap" aria-label="Progress">
+        <div class="progress-head">
+          <span class="ptext" id="ptext">Touchpoint 0 of 14</span>
+          <span class="progresspct" id="progressPct">0%</span>
         </div>
+        <div class="progressbar"><div class="progressfill" id="progressFill"></div></div>
+        <div class="segments" id="segments"></div>
       </section>
 
-      <!-- 3 Comfort -->
-      <section class="pillar" id="comfort">
-        <span class="eyebrow">Pillar 3</span>
-        <h2>Comfort</h2>
-        <p class="tagline">“Gentle relief when symptoms begin.”</p>
-        <p>Designed to make the first cycle less overwhelming.</p>
-        <span class="incl-label">Included</span>
-        <ul class="incl-list">
-          <li><div><strong>Period heat patch</strong> — for when she’s outside</div></li>
-          <li><div><strong>Hot water bottle</strong> — for when she’s home</div></li>
-          <li><div><strong>Herbal tea bags</strong> — for occasional bloating relief</div></li>
-        </ul>
-        <div class="outcomes">
-          <span>Less cramping</span>
-          <span>More comfort</span>
-          <span>A moment of self-care</span>
-        </div>
-      </section>
-
-      <!-- 4 Support -->
-      <section class="pillar" id="support">
-        <span class="eyebrow">Pillar 4</span>
-        <h2>Support</h2>
-        <p class="tagline">“Because she shouldn’t go through it alone.”</p>
-        <p>Resources that help the family become part of the experience.</p>
-        <span class="incl-label">Included</span>
-        <ul class="incl-list">
-          <li><div><strong>Walking Beside Her</strong> — a mother’s helper</div></li>
-          <li><div><strong>The Companion Guide</strong> — a male guide to menstrual care</div></li>
-        </ul>
-        <div class="outcomes">
-          <span>Better conversations</span>
-          <span>Less stigma</span>
-          <span>Family support</span>
-        </div>
-      </section>
-
-      <!-- Promise -->
-      <section class="promise">
-        <span class="eyebrow">The Menarche Promise</span>
-        <h2>The first period, handled well — for the whole family</h2>
-        <p class="sub">Every Menarche Kit helps her:</p>
-        <ul class="promise-list">
-          <li><strong>Learn</strong> what’s happening to her body</li>
-          <li><strong>Feel cared for</strong> and protected through her first cycle</li>
-          <li><strong>Find comfort</strong> when symptoms hit</li>
-          <li><strong>Feel supported</strong> by the people around her</li>
-        </ul>
-        <p class="closer">You are ready. You are supported. Your rhythm starts here.</p>
-      </section>
-
-      <!-- Kit price summary (customer-facing) -->
-      <section class="price-panel">
-        <span class="eyebrow">Kit overview</span>
-        <h2>What’s in the base kit</h2>
-        <p class="intro">A complete first-period experience — education, products, comfort tools, and family guides.</p>
-        <div class="price-row subtotal"><span class="label">Learn — guide &amp; family plan</span><span class="amt">Included</span></div>
-        <div class="price-row subtotal"><span class="label">Care — pads, liners, wipes, tissues, DigniBag</span><span class="amt">Included</span></div>
-        <div class="price-row subtotal"><span class="label">Comfort — heat patch, hot water bottle, herbal tea</span><span class="amt">Included</span></div>
-        <div class="price-row subtotal"><span class="label">Support — Walking Beside Her &amp; Companion Guide</span><span class="amt">Included</span></div>
-        <div class="price-row subtotal"><span class="label">Experience packaging &amp; delivery</span><span class="amt">Included</span></div>
-        <div class="price-row total">
-          <span class="label">Base kit</span>
-          <span class="amt">KES 6,800</span>
-        </div>
-        <p class="price-note">Optional menstrual cup upgrade available. Digital Companion Guide and Cycle Tracker included via QR.</p>
-      </section>
-
-      <img class="logo-end" src="hrc1.png" alt="HerRhythm Care — Know your rhythm. Flow with it. Live empowered."/>
-
-      <div class="mn-actions">
-        <a class="primary" href="checkout.html">Get the Menarche Kit</a>
-        <a href="walking-beside-her.html">Walking Beside Her</a>
-        <a href="companion-guide.html">Companion Guide</a>
-        <a href="becoming-you.html">Becoming You</a>
+      <div class="section-title" id="cards">
+        <h2>Your companion cards</h2>
+        <span>2 at a time · tap to flip</span>
       </div>
+      <main class="deck" id="deck"></main>
+
 
       <footer class="site-footer">
         <p class="created-by">Created by <strong>HerRhythm Care</strong></p>
         <p>&copy; 2026 HerRhythm Care. All rights reserved.</p>
       </footer>
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="icon-moon" aria-hidden="true">☾</span>
+        <span class="icon-sun" aria-hidden="true">☀</span>
+      </button>
+
     </div>
-
-    <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-      <span class="icon-moon" aria-hidden="true">☾</span>
-      <span class="icon-sun" aria-hidden="true">☀</span>
-    </button>
-
     <script>
-    (function () {
-      var btn = document.getElementById('themeToggle');
-      if (btn) {
-        function current() {
-          return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      (function () {
+        var btn = document.getElementById('themeToggle');
+        if (btn) {
+          function current() {
+            return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+          }
+          function apply(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            try { localStorage.setItem('cg_theme', theme); } catch (e) {}
+            btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+            btn.title = theme === 'dark' ? 'Light mode' : 'Dark mode';
+          }
+          apply(current());
+          btn.addEventListener('click', function () {
+            apply(current() === 'dark' ? 'light' : 'dark');
+          });
         }
-        function apply(theme) {
-          document.documentElement.setAttribute('data-theme', theme);
-          try { localStorage.setItem('cg_theme', theme); } catch (e) {}
-          btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-          btn.title = theme === 'dark' ? 'Light mode' : 'Dark mode';
+        var toggle = document.getElementById('navToggle');
+        var nav = document.getElementById('siteNav');
+        if (toggle && nav) {
+          toggle.addEventListener('click', function () {
+            nav.classList.toggle('open');
+          });
         }
-        apply(current());
-        btn.addEventListener('click', function () {
-          apply(current() === 'dark' ? 'light' : 'dark');
-        });
-      }
-      var toggle = document.getElementById('navToggle');
-      var nav = document.getElementById('siteNav');
-      if (toggle && nav) {
-        toggle.addEventListener('click', function () {
-          nav.classList.toggle('open');
-        });
-      }
-    })();
+      })();
     </script>
-  
-<!-- Reusable client feedback -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/client-feedback-config.js"></script>
-<script src="assets/client-feedback.js"></script>
-</body>
-</html>
+    <script>
+    /**
+     * HerRhythm Companion Guide
+     * -------------------------
+     * Kit progress, flip cards, carousel, acknowledgements, theme.
+     */
 
+    // ---------------------------------------------------------------------------
+    // Data
+    // ---------------------------------------------------------------------------
+
+    const CARDS = [{"n": 1, "kit": 1, "title": "What Is Happening", "fact": "Her first period is called menarche. It marks a normal, healthy stage of growth, not an emergency.", "myth": "She is now fully grown up.", "truth": "Her body is changing, but she still needs the same warmth and patience as before."}, {"n": 2, "kit": 1, "title": "How Her Cycle Works", "fact": "A cycle is counted from the first day of one period to the first day of the next, and it usually repeats every 21 to 35 days.", "myth": "Every period lasts the same number of days for every woman.", "truth": "A period usually lasts 3 to 7 days, and the exact length is different for each person."}, {"n": 3, "kit": 2, "title": "What Not to Say", "fact": "A joke, a laugh, or silence in this moment can stay with her for years.", "myth": "It is best to stay quiet and let the women handle it.", "truth": "A short, kind word from you tells her she is safe and normal. Just being present is enough."}, {"n": 4, "kit": 2, "title": "What to Say Instead", "fact": "Girls remember how someone reacted more than what was said.", "myth": "“Are you okay?” is enough.", "truth": "“Let me know if you need anything, I’m here” opens the door without pressure."}, {"n": 5, "kit": 3, "title": "Symptoms Worth Watching For", "fact": "Cramps, bloating, fatigue, headaches, and mood changes are common and usually pass on their own.", "myth": "If she does not complain, she does not need help.", "truth": "Watch for her holding her stomach, going quiet, or looking tired. Very heavy bleeding, severe pain, or fainting means she should see a doctor."}, {"n": 6, "kit": 3, "title": "Practical Support", "fact": "Cramps, fatigue, and mood shifts are physical, not exaggeration.", "myth": "She is being dramatic.", "truth": "A hot drink, carrying her bag, or giving her space are simple ways to help."}, {"n": 7, "kit": 4, "title": "Chocolate and Comfort Gifts", "fact": "A small comfort gift can make a real difference during her cycle.", "myth": "Gifts during her period are unnecessary or silly.", "truth": "Dark chocolate is already part of the Rising Moon comfort kit. A bar, her favorite tea, or a warm drink is a small, simple way to show you noticed."}, {"n": 8, "kit": 4, "title": "Everyday Respect", "fact": "Period stigma often starts with small comments made at home, not outside it.", "myth": "Talking about periods is awkward or shameful.", "truth": "Treating it as normal at home is what breaks the stigma everywhere else."}, {"n": 9, "kit": 5, "title": "If There’s a Leak or Stain", "fact": "A stain in public is one of her biggest fears at this stage.", "myth": "Pointing it out right away helps her fix it fast.", "truth": "Quietly offering a jacket, a bag, or a private word protects her dignity first."}, {"n": 10, "kit": 5, "title": "Myths About Her Body and Activity", "fact": "A period does not stop her from living her life.", "myth": "She should rest and skip sports, school, or plans.", "truth": "With the right products and comfort care, she can do everything she did before."}, {"n": 11, "kit": 6, "title": "Buying Products Without Awkwardness", "fact": "Picking up pads or a heating patch for her is not a big deal.", "myth": "Buying period products is a woman’s job.", "truth": "Doing it without hesitation shows her this is normal, not shameful."}, {"n": 12, "kit": 6, "title": "Your Role Going Forward", "fact": "Her confidence in this stage often traces back to how the men around her responded the first time.", "myth": "This is a one-time conversation.", "truth": "Being an ally means checking in every cycle, not just the first one."}];
+
+    const LINES_INITIAL = ["No jokes about her period, not even the small ones.", "Patience over silence, especially when you don’t know what to say.", "Helping before she has to ask.", "Treating her body like something normal, not something to whisper about.", "Showing up, cycle after cycle."];
+
+    const LINES_RENEWAL = ["I will not joke about her period.", "I will speak to her with patience, not silence.", "I will help without being asked.", "I will treat her body as normal, not shameful.", "I will show up, every cycle."];
+
+    const TOTAL_KITS = 6;
+    const STORAGE = {
+      kit: 'cg_kit',
+      ackPrefix: 'cg_ack_',
+      theme: 'cg_theme'
+    };
+
+    // ---------------------------------------------------------------------------
+    // State
+    // ---------------------------------------------------------------------------
+
+    let currentKit = 1;
+    let carouselPage = 0;
+    /** @type {Record<number, boolean>} */
+    const flipped = {};
+
+    // ---------------------------------------------------------------------------
+    // Storage helpers
+    // ---------------------------------------------------------------------------
+
+    function loadKitFromStorage() {
+      try {
+        const value = parseInt(localStorage.getItem(STORAGE.kit) || '1', 10);
+        currentKit = Number.isFinite(value) ? value : 1;
+      } catch (err) {
+        currentKit = 1;
+      }
+      currentKit = Math.min(TOTAL_KITS, Math.max(1, currentKit));
+    }
+
+    function saveKit(kit) {
+      try {
+        localStorage.setItem(STORAGE.kit, String(kit));
+      } catch (err) {
+        /* ignore quota / private mode */
+      }
+    }
+
+    function getAck(which) {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE.ackPrefix + which) || 'null');
+      } catch (err) {
+        return null;
+      }
+    }
+
+    function setAck(which, name) {
+      const data = {
+        name: name,
+        date: new Date().toLocaleDateString('en-GB', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        })
+      };
+      try {
+        localStorage.setItem(STORAGE.ackPrefix + which, JSON.stringify(data));
+      } catch (err) {
+        /* ignore */
+      }
+      return data;
+    }
+
+    // ---------------------------------------------------------------------------
+    // Card artwork (unique icon per card number 1–12)
+    // ---------------------------------------------------------------------------
+
+    function cardArt(cardNumber) {
+      const arts = {
+        1: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FDEBF1"/><path d="M40 18c-9 8-17 15-17 27 0 10 7 17 17 17s17-7 17-17c0-12-8-19-17-27Z" fill="#E13C6E"/><circle cx="34" cy="42" r="5" fill="#fff" opacity=".7"/></svg>',
+        2: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#F2EAF5"/><circle cx="40" cy="40" r="18" fill="none" stroke="#5B3A63" stroke-width="4"/><path d="M40 22v36M22 40h36" stroke="#E13C6E" stroke-width="3" opacity=".5"/><circle cx="40" cy="40" r="6" fill="#D9A441"/></svg>',
+        3: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#E7F6ED"/><path d="M24 48c8-16 24-16 32 0" fill="none" stroke="#2E9E5B" stroke-width="5" stroke-linecap="round"/><circle cx="28" cy="30" r="7" fill="#5B3A63"/><circle cx="52" cy="30" r="7" fill="#E13C6E"/></svg>',
+        4: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FFF4D9"/><path d="M22 44c9-14 27-14 36 0" fill="none" stroke="#D9A441" stroke-width="5" stroke-linecap="round"/><path d="M28 50c6 7 18 7 24 0" fill="none" stroke="#5B3A63" stroke-width="3" stroke-linecap="round"/><circle cx="30" cy="34" r="3" fill="#E13C6E"/><circle cx="50" cy="34" r="3" fill="#E13C6E"/></svg>',
+        5: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FDEBF1"/><path d="M40 20c-10 0-18 8-18 18 0 13 12 21 18 23 6-2 18-10 18-23 0-10-8-18-18-18Z" fill="none" stroke="#E13C6E" stroke-width="5"/><path d="M31 40l6 6 12-13" fill="none" stroke="#2E9E5B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+        6: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#F2EAF5"/><path d="M24 46c4-12 10-18 16-18s12 6 16 18" fill="none" stroke="#5B3A63" stroke-width="5" stroke-linecap="round"/><path d="M28 52c6 5 18 5 24 0" fill="none" stroke="#E13C6E" stroke-width="4" stroke-linecap="round"/><path d="M40 18v10" stroke="#D9A441" stroke-width="4" stroke-linecap="round"/></svg>',
+        7: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#E8F4FC"/><path d="M26 50h28M30 42h20M34 34h12" stroke="#3D5A80" stroke-width="4" stroke-linecap="round"/><circle cx="40" cy="24" r="6" fill="#E13C6E"/></svg>',
+        8: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FDEBF1"/><rect x="26" y="24" width="28" height="34" rx="4" fill="none" stroke="#5B3A63" stroke-width="3"/><path d="M32 34h16M32 42h16M32 50h10" stroke="#E13C6E" stroke-width="3" stroke-linecap="round"/></svg>',
+        9: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#E7F6ED"/><path d="M40 18l4 12h13l-10 8 4 12-11-7-11 7 4-12-10-8h13z" fill="#D9A441"/></svg>',
+        10: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#F2EAF5"/><circle cx="40" cy="36" r="12" fill="none" stroke="#5B3A63" stroke-width="4"/><path d="M28 54c4-6 8-8 12-8s8 2 12 8" fill="none" stroke="#E13C6E" stroke-width="4" stroke-linecap="round"/></svg>',
+        11: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FFF4D9"/><path d="M40 22v36" stroke="#D9A441" stroke-width="4" stroke-linecap="round"/><path d="M28 34c8 4 16 4 24 0" fill="none" stroke="#5B3A63" stroke-width="3" stroke-linecap="round"/><path d="M28 48c8-4 16-4 24 0" fill="none" stroke="#E13C6E" stroke-width="3" stroke-linecap="round"/></svg>',
+        12: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#FDEBF1"/><path d="M26 40c0-8 6-14 14-14s14 6 14 14-6 16-14 18c-8-2-14-10-14-18z" fill="#E13C6E"/><path d="M34 38h12M40 32v12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>'
+      };
+      return arts[cardNumber] || arts[1];
+    }
+
+    // ---------------------------------------------------------------------------
+    // HTML builders
+    // ---------------------------------------------------------------------------
+
+    function lockedHTML(kitNeeded) {
+      return (
+        '<div class="locked">' +
+          '<div class="lock-icon">🔒</div>' +
+          '<div class="lock-text">Unlocks with</div>' +
+          '<div class="lock-kit">Kit ' + kitNeeded + '</div>' +
+        '</div>'
+      );
+    }
+
+    function cardHTML(card) {
+      const isFlipped = !!flipped[card.n];
+      const art = cardArt(card.n);
+      const num = String(card.n).padStart(2, '0');
+
+      return (
+        '<div class="card' + (isFlipped ? ' flipped' : '') + '"' +
+          ' data-card-n="' + card.n + '"' +
+          ' tabindex="0"' +
+          ' role="button"' +
+          ' aria-label="Card ' + card.n + ': ' + card.title + '. Tap or press Enter to flip."' +
+          ' onclick="toggleFlip(' + card.n + ')"' +
+          ' onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();toggleFlip(' + card.n + ')}">' +
+          '<div class="card-inner">' +
+            '<div class="face front">' +
+              '<div class="card-topline">' +
+                '<div class="card-num">CARD ' + num + ' / 12</div>' +
+                '<div class="card-art">' + art + '</div>' +
+              '</div>' +
+              '<div class="card-eyebrow">Did You Know</div>' +
+              '<div class="card-title">' + card.title + '</div>' +
+              '<div class="card-body">' + card.fact + '</div>' +
+              '<div class="flip-hint"><span>↻</span> Tap to see myth vs fact</div>' +
+            '</div>' +
+            '<div class="face back">' +
+              '<div class="card-topline">' +
+                '<div class="card-eyebrow">Myth vs Fact</div>' +
+                '<div class="card-art small">' + art + '</div>' +
+              '</div>' +
+              '<div class="mvf-row">' +
+                '<div class="mvf-block myth">' +
+                  '<div class="mvf-label">Myth</div>' +
+                  '<div class="mvf-text">' + card.myth + '</div>' +
+                '</div>' +
+                '<div class="mvf-block fact">' +
+                  '<div class="mvf-label">Fact</div>' +
+                  '<div class="mvf-text">' + card.truth + '</div>' +
+                '</div>' +
+              '</div>' +
+              '<div class="flip-hint"><span>↻</span> Tap to flip back</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>'
+      );
+    }
+
+    function ackCardHTML(which, heading, sub, lines, noteText, prefillFrom) {
+      const existing = getAck(which);
+      const linesHTML = lines.map(function (line) {
+        return '<li>' + line + '</li>';
+      }).join('');
+
+      let signHTML;
+      if (existing) {
+        signHTML =
+          '<div class="signed-block">' +
+            '<div class="sname">' + existing.name + '</div>' +
+            '<div class="sdate">' + existing.date + '</div>' +
+            '<div class="snote">' + noteText + '</div>' +
+          '</div>';
+      } else {
+        let prefill = '';
+        if (prefillFrom) {
+          const previous = getAck(prefillFrom);
+          if (previous) prefill = previous.name;
+        }
+        signHTML =
+          '<div class="sign-row">' +
+            '<input type="text" value="' + prefill + '" placeholder="Add your name, not a signature" ' +
+              'id="ackInput_' + which + '" ' +
+              'onblur="doAck(\'' + which + '\')" ' +
+              'onkeydown="if(event.key===\'Enter\'){this.blur()}"/>' +
+            '<div class="savenote">Saved for you, not sent anywhere.</div>' +
+          '</div>';
+      }
+
+      return (
+        '<div class="pledge-card">' +
+          '<span class="eyebrow">' + heading + '</span>' +
+          '<h3>' + sub + '</h3>' +
+          '<ul class="pledge-list">' + linesHTML + '</ul>' +
+          signHTML +
+        '</div>'
+      );
+    }
+
+    // ---------------------------------------------------------------------------
+    // Card flip
+    // ---------------------------------------------------------------------------
+
+    function toggleFlip(cardNumber) {
+      flipped[cardNumber] = !flipped[cardNumber];
+
+      const cardEl = document.querySelector('.card[data-card-n="' + cardNumber + '"]');
+      if (cardEl) {
+        cardEl.classList.toggle('flipped', !!flipped[cardNumber]);
+        return;
+      }
+
+      // Fallback: full re-render (keeps carousel scroll)
+      const scroller = document.getElementById('cardScroller');
+      const keepScroll = scroller ? scroller.scrollLeft : 0;
+      render();
+      const scrollerAfter = document.getElementById('cardScroller');
+      if (scrollerAfter) {
+        scrollerAfter.scrollLeft = keepScroll;
+        updateCarouselUI();
+      }
+    }
+
+    window.toggleFlip = toggleFlip;
+
+    function doAck(which) {
+      const input = document.getElementById('ackInput_' + which);
+      const name = (input && input.value || '').trim();
+      if (!name) return;
+      setAck(which, name);
+      render();
+    }
+
+    window.doAck = doAck;
+
+    // ---------------------------------------------------------------------------
+    // Carousel
+    // ---------------------------------------------------------------------------
+
+    function getCarouselPageCount() {
+      const scroller = document.getElementById('cardScroller');
+      if (!scroller) return 1;
+      return scroller.querySelectorAll('.card-page').length || 1;
+    }
+
+    function goCarouselPage(page) {
+      const scroller = document.getElementById('cardScroller');
+      if (!scroller) return;
+
+      const pages = scroller.querySelectorAll('.card-page');
+      const maxIndex = Math.max(0, pages.length - 1);
+      carouselPage = Math.max(0, Math.min(page, maxIndex));
+
+      const target = pages[carouselPage];
+      if (target) {
+        scroller.scrollTo({
+          left: target.offsetLeft - scroller.offsetLeft,
+          behavior: 'smooth'
+        });
+      }
+      updateCarouselUI();
+    }
+
+    window.goCarouselPage = goCarouselPage;
+
+    function updateCarouselUI() {
+      const scroller = document.getElementById('cardScroller');
+      const label = document.getElementById('carouselPageLabel');
+      const prevBtn = document.getElementById('carouselPrev');
+      const nextBtn = document.getElementById('carouselNext');
+      const dots = document.getElementById('carouselDots');
+      if (!scroller) return;
+
+      const pages = scroller.querySelectorAll('.card-page');
+      const total = pages.length || 1;
+      const width = scroller.clientWidth || 1;
+
+      carouselPage = Math.round(scroller.scrollLeft / width);
+      carouselPage = Math.max(0, Math.min(carouselPage, total - 1));
+
+      if (label) label.textContent = (carouselPage + 1) + ' / ' + total;
+      if (prevBtn) prevBtn.disabled = carouselPage <= 0;
+      if (nextBtn) nextBtn.disabled = carouselPage >= total - 1;
+
+      if (dots) {
+        dots.querySelectorAll('button').forEach(function (btn, index) {
+          btn.setAttribute('aria-current', index === carouselPage ? 'true' : 'false');
+        });
+      }
+    }
+
+    /**
+     * Touch / pointer swipe on the card scroller.
+     * Horizontal swipes change page; vertical scrolls the document.
+     * Clicks on .card are ignored so flip still works on desktop.
+     */
+    function bindSwipeGestures(scroller) {
+      if (!scroller || scroller.dataset.swipeBound === '1') return;
+      scroller.dataset.swipeBound = '1';
+
+      var startX = 0;
+      var startY = 0;
+      var startTime = 0;
+      var lastX = 0;
+      var tracking = false;
+      var axisLock = null; // 'h' | 'v' | null
+
+      var SWIPE_MIN_PX = 50;
+      var SWIPE_MAX_MS = 600;
+
+      function onStart(x, y) {
+        startX = lastX = x;
+        startY = y;
+        startTime = Date.now();
+        tracking = true;
+        axisLock = null;
+      }
+
+      function onMove(x, y, event) {
+        if (!tracking) return;
+        var dx = x - startX;
+        var dy = y - startY;
+
+        if (axisLock === null) {
+          if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+          axisLock = Math.abs(dx) > Math.abs(dy) ? 'h' : 'v';
+        }
+
+        if (axisLock === 'h') {
+          if (event && event.cancelable) event.preventDefault();
+          lastX = x;
+        }
+      }
+
+      function onEnd(x) {
+        if (!tracking) return;
+        tracking = false;
+
+        if (axisLock !== 'h') {
+          axisLock = null;
+          return;
+        }
+
+        var dx = (x != null ? x : lastX) - startX;
+        var elapsed = Date.now() - startTime;
+        axisLock = null;
+
+        if (Math.abs(dx) < SWIPE_MIN_PX || elapsed > SWIPE_MAX_MS) {
+          goCarouselPage(carouselPage);
+          return;
+        }
+
+        if (dx < 0) goCarouselPage(carouselPage + 1);
+        else goCarouselPage(carouselPage - 1);
+      }
+
+      scroller.addEventListener('touchstart', function (event) {
+        if (event.touches.length !== 1) return;
+        onStart(event.touches[0].clientX, event.touches[0].clientY);
+      }, { passive: true });
+
+      scroller.addEventListener('touchmove', function (event) {
+        if (event.touches.length !== 1) return;
+        onMove(event.touches[0].clientX, event.touches[0].clientY, event);
+      }, { passive: false });
+
+      scroller.addEventListener('touchend', function (event) {
+        var touch = event.changedTouches && event.changedTouches[0];
+        onEnd(touch ? touch.clientX : lastX);
+      }, { passive: true });
+
+      scroller.addEventListener('touchcancel', function () {
+        tracking = false;
+        axisLock = null;
+        goCarouselPage(carouselPage);
+      }, { passive: true });
+
+      scroller.addEventListener('pointerdown', function (event) {
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+        if (event.pointerType === 'touch') return;
+        if (event.target && event.target.closest &&
+            (event.target.closest('.card') || event.target.closest('button'))) {
+          return;
+        }
+        onStart(event.clientX, event.clientY);
+        try { scroller.setPointerCapture(event.pointerId); } catch (err) { /* ignore */ }
+      });
+
+      scroller.addEventListener('pointermove', function (event) {
+        if (event.pointerType === 'touch') return;
+        if (!tracking) return;
+        onMove(event.clientX, event.clientY, event);
+      });
+
+      scroller.addEventListener('pointerup', function (event) {
+        if (event.pointerType === 'touch') return;
+        if (!tracking) return;
+        onEnd(event.clientX);
+      });
+
+      scroller.addEventListener('pointercancel', function (event) {
+        if (event.pointerType === 'touch') return;
+        tracking = false;
+        axisLock = null;
+      });
+
+      scroller.addEventListener('keydown', function (event) {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          goCarouselPage(carouselPage - 1);
+        }
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          goCarouselPage(carouselPage + 1);
+        }
+      });
+    }
+
+    function bindCarouselControls() {
+      var prevBtn = document.getElementById('carouselPrev');
+      var nextBtn = document.getElementById('carouselNext');
+      var scroller = document.getElementById('cardScroller');
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+          goCarouselPage(carouselPage - 1);
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+          goCarouselPage(carouselPage + 1);
+        });
+      }
+
+      if (!scroller) return;
+
+      scroller.addEventListener('scroll', function () {
+        window.clearTimeout(scroller._scrollTimer);
+        scroller._scrollTimer = window.setTimeout(updateCarouselUI, 60);
+      });
+
+      bindSwipeGestures(scroller);
+
+      requestAnimationFrame(function () {
+        var pages = scroller.querySelectorAll('.card-page');
+        if (pages[carouselPage]) {
+          scroller.scrollLeft = pages[carouselPage].offsetLeft - scroller.offsetLeft;
+        }
+        updateCarouselUI();
+      });
+    }
+
+    function buildCarouselHTML(cardItems) {
+      var pagesHTML = '';
+      var pageCount = Math.ceil(cardItems.length / 2) || 1;
+
+      for (var i = 0; i < cardItems.length; i += 2) {
+        var first = cardItems[i] || '';
+        var second = cardItems[i + 1] || '<div></div>';
+        var labelTo = Math.min(i + 2, cardItems.length);
+        pagesHTML +=
+          '<div class="card-page" role="group" aria-label="Cards ' + (i + 1) + ' and ' + labelTo + '">' +
+            first + second +
+          '</div>';
+      }
+
+      var dotsHTML = '';
+      for (var d = 0; d < pageCount; d++) {
+        dotsHTML +=
+          '<button type="button" aria-label="Go to card pair ' + (d + 1) + '" ' +
+            (d === carouselPage ? 'aria-current="true"' : '') +
+            ' onclick="goCarouselPage(' + d + ')"></button>';
+      }
+
+      return (
+        '<div class="card-carousel-wrap">' +
+          '<div class="carousel-toolbar">' +
+            '<span class="hint">2 cards at a time · swipe left/right or use arrows</span>' +
+            '<div class="carousel-nav">' +
+              '<button type="button" id="carouselPrev" aria-label="Previous cards">‹</button>' +
+              '<span class="carousel-page-label" id="carouselPageLabel">1 / ' + pageCount + '</span>' +
+              '<button type="button" id="carouselNext" aria-label="Next cards">›</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="card-scroller" id="cardScroller" tabindex="0" aria-label="Companion cards carousel">' +
+            pagesHTML +
+          '</div>' +
+          '<div class="carousel-dots" id="carouselDots">' + dotsHTML + '</div>' +
+        '</div>'
+      );
+    }
+
+    // ---------------------------------------------------------------------------
+    // Progress UI
+    // ---------------------------------------------------------------------------
+
+    function updateProgressUI() {
+      var unlockedCards = CARDS.filter(function (card) {
+        return card.kit <= currentKit;
+      }).length;
+
+      var ack1Done = !!getAck('initial');
+      var ack2Done = !!getAck('renewal');
+      var doneCount = (ack1Done ? 1 : 0) + unlockedCards + (ack2Done ? 1 : 0);
+
+      var ptext = document.getElementById('ptext');
+      if (ptext) {
+        ptext.textContent =
+          'Touchpoint ' + doneCount + ' of 14 · Kit ' + currentKit + ' of ' + TOTAL_KITS;
+      }
+
+      var pct = Math.round((doneCount / 14) * 100);
+      var progressFill = document.getElementById('progressFill');
+      if (progressFill) progressFill.style.width = pct + '%';
+      var progressPct = document.getElementById('progressPct');
+      if (progressPct) progressPct.textContent = pct + '%';
+
+      var segWrap = document.getElementById('segments');
+      if (!segWrap) return;
+
+      segWrap.innerHTML = '';
+      var totalSegs = 14;
+      for (var i = 0; i < totalSegs; i++) {
+        var seg = document.createElement('div');
+        seg.className = 'seg';
+        if (i === 0 && ack1Done) seg.className += ' pledge';
+        else if (i === totalSegs - 1 && ack2Done) seg.className += ' pledge';
+        else if (i > 0 && i < totalSegs - 1 && (i - 1) < unlockedCards) seg.className += ' done';
+        segWrap.appendChild(seg);
+      }
+    }
+
+    // ---------------------------------------------------------------------------
+    // Main render
+    // ---------------------------------------------------------------------------
+
+    function render() {
+      var kitNum = document.getElementById('kitNum');
+      if (kitNum) kitNum.textContent = currentKit;
+
+      updateProgressUI();
+
+      var cardItems = CARDS.map(function (card) {
+        if (card.kit <= currentKit) return cardHTML(card);
+        return lockedHTML(card.kit);
+      });
+
+      var deck = document.getElementById('deck');
+      if (!deck) return;
+
+      var html = '';
+      html += ackCardHTML(
+        'initial',
+        'Kit 1 · Before You Start',
+        'Small Things That Matter',
+        LINES_INITIAL,
+        'Thank you for being here.',
+        null
+      );
+      html += buildCarouselHTML(cardItems);
+
+      if (currentKit >= TOTAL_KITS) {
+        html += ackCardHTML(
+          'renewal',
+          'Kit 6 · Rising Moon',
+          'You Know What This Takes Now',
+          LINES_RENEWAL,
+          'Still true. Still showing up.',
+          'initial'
+        );
+      } else {
+        html += lockedHTML(TOTAL_KITS);
+      }
+
+      deck.innerHTML = html;
+      bindCarouselControls();
+    }
+
+    // ---------------------------------------------------------------------------
+    // Kit stepper
+    // ---------------------------------------------------------------------------
+
+    function bindKitControls() {
+      var up = document.getElementById('kitUp');
+      var down = document.getElementById('kitDown');
+
+      if (up) {
+        up.onclick = function () {
+          if (currentKit < TOTAL_KITS) {
+            currentKit += 1;
+            saveKit(currentKit);
+            render();
+          }
+        };
+      }
+
+      if (down) {
+        down.onclick = function () {
+          if (currentKit > 1) {
+            currentKit -= 1;
+            saveKit(currentKit);
+            render();
+          }
+        };
+      }
+    }
+
+    // ---------------------------------------------------------------------------
+    // Theme toggle
+    // ---------------------------------------------------------------------------
+
+    function initThemeToggle() {
+      var btn = document.getElementById('themeToggle');
+      if (!btn) return;
+
+      function currentTheme() {
+        return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      }
+
+      function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        try {
+          localStorage.setItem(STORAGE.theme, theme);
+        } catch (err) { /* ignore */ }
+        btn.setAttribute(
+          'aria-label',
+          theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+        );
+        btn.title = theme === 'dark' ? 'Light mode' : 'Dark mode';
+      }
+
+      applyTheme(currentTheme());
+      btn.addEventListener('click', function () {
+        applyTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+      });
+    }
+
+    // ---------------------------------------------------------------------------
+    // Boot
+    // ---------------------------------------------------------------------------
+
+    loadKitFromStorage();
+    bindKitControls();
+    initThemeToggle();
+    render();
+
+    </script>
+  </body>
+</html>

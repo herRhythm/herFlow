@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#3E2745">
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%20%20%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%233E2745%22/%3E%20%20%3Cpath%20d%3D%22M16%207c-4.5%204-7.5%207.2-7.5%2011.2%200%204.2%203.3%207.3%207.5%207.3s7.5-3.1%207.5-7.3c0-4-3-7.2-7.5-11.2z%22%20fill%3D%22%23E13C6E%22/%3E%3C/svg%3E" type="image/svg+xml">
-    <title>Menarche · Coming of Age</title>
+    <title>Becoming You — HerRhythm Care</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -1045,9 +1045,9 @@
         html[data-theme="dark"] .mvf-block.myth { background: rgba(255,247,249,0.06); }
 
     
-        /* ——— Menarche / Coming of Age ——— */
-        .mn-hero { padding: 36px 0 16px; }
-        .mn-hero .eyebrow {
+        /* ——— Becoming You page ——— */
+        .by-hero { padding: 36px 0 16px; }
+        .by-hero .eyebrow {
           font-family: 'Space Mono', monospace;
           font-size: 10px;
           letter-spacing: 0.16em;
@@ -1056,17 +1056,17 @@
           margin-bottom: 10px;
           display: block;
         }
-        .mn-hero h1 {
+        .by-hero h1 {
           font-family: 'Fraunces', Georgia, serif;
           font-style: italic;
           font-weight: 600;
-          font-size: clamp(28px, 5vw, 42px);
+          font-size: clamp(28px, 5vw, 40px);
           color: var(--plum-deep);
           margin: 0 0 12px;
           line-height: 1.15;
           letter-spacing: -0.02em;
         }
-        .mn-hero .lead {
+        .by-hero .lead {
           font-size: 16px;
           line-height: 1.65;
           color: var(--ink);
@@ -1074,22 +1074,22 @@
           margin: 0 0 12px;
           text-align: justify;
         }
-        .mn-hero .sub {
-          font-size: 14.5px;
+        .by-hero .sub {
+          font-size: 14px;
           line-height: 1.65;
           color: var(--ink-soft);
           max-width: 720px;
           margin: 0 0 20px;
           text-align: justify;
         }
-        .mn-banner {
-          background: linear-gradient(145deg, #2A152F 0%, #3E2745 48%, #5C3D66 100%);
+        .by-banner {
+          background: linear-gradient(145deg, #2A152F 0%, #3E2745 50%, #5C3D66 100%);
           border-radius: var(--radius);
-          padding: 24px 22px;
+          padding: 22px 20px;
           color: #FFF8FA;
           margin-bottom: 22px;
         }
-        .mn-banner .mod {
+        .by-banner .mod {
           font-family: 'Space Mono', monospace;
           font-size: 10px;
           letter-spacing: 0.14em;
@@ -1098,7 +1098,7 @@
           margin-bottom: 8px;
           display: block;
         }
-        .mn-banner h2 {
+        .by-banner h2 {
           font-family: 'Fraunces', Georgia, serif;
           font-style: italic;
           font-weight: 600;
@@ -1106,55 +1106,45 @@
           margin: 0 0 8px;
           color: #fff;
         }
-        .mn-banner p {
+        .by-banner p {
           margin: 0;
           font-size: 14px;
           line-height: 1.55;
           color: rgba(255,247,249,0.88);
           max-width: 640px;
         }
-        .pillar-nav {
+        .doors {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 10px;
-          margin-bottom: 22px;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+          margin-bottom: 24px;
         }
-        @media (max-width: 700px) {
-          .pillar-nav { grid-template-columns: 1fr 1fr; }
-        }
-        .pillar-nav a {
-          text-decoration: none;
-          text-align: center;
+        @media (max-width: 640px) { .doors { grid-template-columns: 1fr; } }
+        .door-card {
           background: var(--paper);
           border: 1px solid var(--line);
-          border-radius: var(--radius-sm);
-          padding: 14px 10px;
-          color: var(--plum-deep);
-          font-weight: 600;
-          font-size: 13px;
-          transition: border-color .15s, color .15s;
+          border-radius: var(--radius);
+          padding: 18px 16px;
         }
-        .pillar-nav a:hover {
-          border-color: var(--pink);
-          color: var(--pink);
-        }
-        .pillar-nav a span {
+        .door-card strong {
           display: block;
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.1em;
-          color: var(--pink);
-          margin-bottom: 4px;
-          font-weight: 700;
+          color: var(--plum-deep);
+          font-size: 14px;
+          margin-bottom: 6px;
         }
-        .pillar {
+        .door-card span {
+          font-size: 13px;
+          color: var(--ink-soft);
+          line-height: 1.5;
+        }
+        .section {
           background: var(--paper);
           border: 1px solid var(--line);
           border-radius: var(--radius);
           padding: 24px 20px;
           margin-bottom: 16px;
         }
-        .pillar .eyebrow {
+        .section .eyebrow {
           font-family: 'Space Mono', monospace;
           font-size: 10px;
           letter-spacing: 0.14em;
@@ -1163,216 +1153,266 @@
           margin-bottom: 8px;
           display: block;
         }
-        .pillar h2 {
+        .section h2 {
           font-family: 'Fraunces', Georgia, serif;
           font-style: italic;
           font-weight: 600;
           font-size: 22px;
           color: var(--plum-deep);
-          margin: 0 0 6px;
+          margin: 0 0 8px;
         }
-        .pillar .tagline {
+        .section .tagline {
           font-size: 14px;
           font-style: italic;
           color: var(--ink-soft);
-          margin: 0 0 12px;
+          margin: 0 0 14px;
         }
-        .pillar > p {
+        .section p {
           font-size: 14.5px;
           line-height: 1.65;
           color: var(--ink);
-          margin: 0 0 14px;
+          margin: 0 0 12px;
           text-align: justify;
         }
-        .incl-label {
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: var(--ink-soft);
-          margin: 0 0 8px;
-          display: block;
-        }
-        .incl-list {
-          list-style: none;
-          padding: 0;
-          margin: 0 0 16px;
+        .section p:last-child { margin-bottom: 0; }
+        .phase-grid {
           display: grid;
-          gap: 8px;
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
+          margin: 16px 0 8px;
         }
-        .incl-list li {
-          display: flex;
-          gap: 10px;
-          align-items: flex-start;
-          font-size: 14px;
-          color: var(--ink);
-          line-height: 1.45;
-          padding: 10px 12px;
+        @media (max-width: 700px) { .phase-grid { grid-template-columns: 1fr; } }
+        .phase-card {
           background: var(--cream);
-          border-radius: 10px;
           border: 1px solid var(--line);
-        }
-        html[data-theme="dark"] .incl-list li { background: var(--cream-deep); }
-        .incl-list li::before {
-          content: '✓';
-          color: var(--sage);
-          font-weight: 700;
-          flex-shrink: 0;
-        }
-        .incl-list li.upgrade::before { content: '✦'; color: var(--gold); }
-        .outcomes {
+          border-radius: var(--radius-sm);
+          overflow: hidden;
           display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          margin-top: 4px;
+          flex-direction: column;
         }
-        .outcomes span {
-          font-size: 12px;
-          font-weight: 600;
-          color: var(--plum-deep);
-          background: var(--sage-soft);
-          border: 1px solid rgba(31, 154, 92, 0.2);
-          padding: 7px 12px;
-          border-radius: var(--radius-pill);
-        }
-        html[data-theme="dark"] .outcomes span {
-          background: var(--sage-soft);
-          color: var(--sage);
-        }
-        .promise {
-          background: linear-gradient(150deg, #2A152F 0%, #3E2745 100%);
-          border-radius: var(--radius);
-          padding: 28px 22px;
-          color: #FFF8FA;
-          margin: 8px 0 20px;
-        }
-        .promise .eyebrow {
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: var(--gold);
-          margin-bottom: 8px;
+        html[data-theme="dark"] .phase-card { background: var(--cream-deep); }
+        .phase-card img {
+          width: 100%;
+          height: auto;
           display: block;
+          aspect-ratio: 4/5;
+          object-fit: cover;
+          background: var(--pink-soft);
         }
-        .promise h2 {
+        .phase-card .phase-body {
+          padding: 14px 14px 16px;
+        }
+        .phase-card h3 {
           font-family: 'Fraunces', Georgia, serif;
           font-style: italic;
-          font-size: clamp(20px, 3vw, 26px);
-          margin: 0 0 8px;
-          color: #fff;
-        }
-        .promise .sub {
-          font-size: 14px;
-          color: rgba(255,247,249,0.85);
-          margin: 0 0 16px;
-        }
-        .promise-list {
-          list-style: none;
-          padding: 0;
-          margin: 0 0 18px;
-          display: grid;
-          gap: 10px;
-        }
-        .promise-list li {
-          display: flex;
-          gap: 10px;
-          align-items: flex-start;
-          font-size: 14.5px;
-          line-height: 1.5;
-          color: rgba(255,247,249,0.95);
-        }
-        .promise-list li::before {
-          content: '✔';
-          color: var(--gold);
-          font-weight: 700;
-          flex-shrink: 0;
-        }
-        .promise .closer {
-          font-family: 'Fraunces', Georgia, serif;
-          font-style: italic;
+          font-weight: 600;
           font-size: 17px;
-          color: #fff;
-          margin: 0;
-          border-top: 1px solid rgba(255,247,249,0.15);
-          padding-top: 14px;
-        }
-        .price-panel {
-          background: var(--paper);
-          border: 1px solid var(--line);
-          border-radius: var(--radius);
-          padding: 24px 20px;
-          margin-bottom: 20px;
-        }
-        .price-panel .eyebrow {
-          font-family: 'Space Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: var(--gold);
-          margin-bottom: 8px;
-          display: block;
-        }
-        .price-panel h2 {
-          font-family: 'Fraunces', Georgia, serif;
-          font-style: italic;
-          font-weight: 600;
-          font-size: 22px;
           color: var(--plum-deep);
           margin: 0 0 6px;
         }
-        .price-panel .intro {
-          font-size: 14px;
-          color: var(--ink-soft);
-          margin: 0 0 16px;
+        .phase-card .days {
+          font-family: 'Space Mono', monospace;
+          font-size: 10px;
+          letter-spacing: 0.08em;
+          color: var(--pink);
+          margin-bottom: 8px;
+          display: block;
         }
-        .price-row {
+        .phase-card p {
+          font-size: 13px;
+          line-height: 1.5;
+          color: var(--ink-soft);
+          margin: 0;
+          text-align: left;
+        }
+        .cycle-img {
+          display: block;
+          width: 100%;
+          max-width: 520px;
+          margin: 12px auto 16px;
+          border-radius: var(--radius-sm);
+          border: 1px solid var(--line);
+        }
+        .data-table {
+          width: 100%;
+          border-collapse: collapse;
+          font-size: 13px;
+          margin: 12px 0;
+        }
+        .data-table th,
+        .data-table td {
+          text-align: left;
+          padding: 10px 12px;
+          border-bottom: 1px solid var(--line);
+          vertical-align: top;
+        }
+        .data-table th {
+          font-family: 'Space Mono', monospace;
+          font-size: 10px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--ink-soft);
+          font-weight: 600;
+          background: var(--cream-deep);
+        }
+        html[data-theme="dark"] .data-table th { background: #1A1520; }
+        .data-table td { color: var(--ink); }
+        .data-table td strong { color: var(--plum-deep); }
+        .callout {
           display: flex;
-          justify-content: space-between;
-          align-items: baseline;
           gap: 12px;
-          padding: 12px 0;
+          background: var(--pink-mist);
+          border: 1px solid var(--line);
+          border-radius: var(--radius-sm);
+          padding: 14px 16px;
+          margin: 14px 0;
+        }
+        .callout.warn {
+          background: #FBF0D6;
+          border-color: rgba(201, 149, 42, 0.25);
+        }
+        html[data-theme="dark"] .callout.warn { background: var(--gold-soft); }
+        .callout.help {
+          background: var(--sage-soft);
+          border-color: rgba(31, 154, 92, 0.2);
+        }
+        .callout .ico { font-size: 20px; flex-shrink: 0; line-height: 1.2; }
+        .callout .txt { font-size: 13.5px; line-height: 1.55; color: var(--ink); }
+        .callout .txt strong { color: var(--plum-deep); }
+        .callout ul {
+          margin: 8px 0 0;
+          padding-left: 1.2em;
+        }
+        .callout li { margin-bottom: 4px; }
+        .myth-grid {
+          display: grid;
+          gap: 10px;
+          margin-top: 12px;
+        }
+        .myth-card {
+          background: var(--cream);
+          border: 1px solid var(--line);
+          border-left: 3px solid var(--gold);
+          border-radius: var(--radius-sm);
+          padding: 14px 16px;
+        }
+        html[data-theme="dark"] .myth-card { background: var(--cream-deep); }
+        .myth-card .myth {
+          font-size: 13px;
+          color: var(--pink);
+          font-weight: 600;
+          margin: 0 0 6px;
+        }
+        .myth-card .fact {
+          font-size: 13.5px;
+          color: var(--ink);
+          margin: 0;
+          line-height: 1.5;
+        }
+        .check-list {
+          list-style: none;
+          padding: 0;
+          margin: 12px 0 0;
+          counter-reset: q;
+        }
+        .check-list li {
+          counter-increment: q;
+          position: relative;
+          padding: 12px 12px 12px 44px;
           border-bottom: 1px solid var(--line);
           font-size: 14px;
+          color: var(--ink);
+          line-height: 1.5;
         }
-        .price-row:last-of-type { border-bottom: none; }
-        .price-row .label { color: var(--ink); }
-        .price-row .amt {
+        .check-list li::before {
+          content: counter(q);
+          position: absolute;
+          left: 8px;
+          top: 12px;
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          background: var(--pink-mist);
+          color: var(--pink);
+          font-family: 'Space Mono', monospace;
+          font-size: 11px;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .answers details {
+          margin-top: 14px;
+          border: 1px solid var(--line);
+          border-radius: var(--radius-sm);
+          padding: 12px 14px;
+          background: var(--cream);
+        }
+        html[data-theme="dark"] .answers details { background: var(--cream-deep); }
+        .answers summary {
+          cursor: pointer;
           font-weight: 600;
           color: var(--plum-deep);
-          font-variant-numeric: tabular-nums;
-          white-space: nowrap;
+          font-size: 14px;
         }
-        .price-row.subtotal .label,
-        .price-row.subtotal .amt { color: var(--ink-soft); font-size: 13px; }
-        .price-row.total {
-          margin-top: 6px;
-          padding-top: 14px;
-          border-top: 2px solid var(--line-strong);
-          border-bottom: none;
+        .answers .indented {
+          margin-top: 10px;
+          font-size: 13.5px;
+          color: var(--ink-soft);
+          line-height: 1.55;
         }
-        .price-row.total .label {
+        .answers .indented p { margin: 0 0 8px; }
+        .nutri-img {
+          width: 100%;
+          max-width: 700px;
+          margin: 12px auto;
+          display: block;
+          border-radius: var(--radius-sm);
+          border: 1px solid var(--line);
+        }
+        .next-mod {
+          background: linear-gradient(150deg, #2A152F 0%, #3E2745 100%);
+          border-radius: var(--radius);
+          padding: 22px 20px;
+          color: #FFF8FA;
+          margin: 8px 0 20px;
+        }
+        .next-mod .eyebrow {
+          font-family: 'Space Mono', monospace;
+          font-size: 10px;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: var(--gold);
+          margin-bottom: 8px;
+          display: block;
+        }
+        .next-mod h2 {
           font-family: 'Fraunces', Georgia, serif;
           font-style: italic;
-          font-size: 18px;
-          color: var(--plum-deep);
-        }
-        .price-row.total .amt {
           font-size: 22px;
-          color: var(--pink);
+          margin: 0 0 10px;
+          color: #fff;
         }
-        .price-note {
-          font-size: 12px;
-          color: var(--ink-soft);
-          margin: 12px 0 0;
+        .next-mod ul {
+          margin: 0;
+          padding-left: 1.2em;
+          font-size: 14px;
+          line-height: 1.55;
+          color: rgba(255,247,249,0.9);
         }
-        .mn-actions {
+        .next-mod li { margin-bottom: 6px; }
+        .logo-end {
+          display: block;
+          max-width: 280px;
+          margin: 20px auto 8px;
+        }
+        .by-actions {
           display: flex;
           flex-wrap: wrap;
           gap: 10px;
           margin: 8px 0 28px;
         }
-        .mn-actions a {
+        .by-actions a {
           text-decoration: none;
           font-size: 13px;
           font-weight: 600;
@@ -1382,31 +1422,21 @@
           color: var(--plum-deep);
           background: var(--paper);
         }
-        .mn-actions a.primary {
+        .by-actions a.primary {
           background: var(--plum-deep);
           border-color: var(--plum-deep);
           color: #fff;
         }
-        .mn-actions a.primary:hover {
-          background: var(--pink);
-          border-color: var(--pink);
+        .by-actions a.primary:hover { background: var(--pink); border-color: var(--pink); }
+        html[data-theme="dark"] .by-actions a.primary {
+          background: var(--pink); border-color: var(--pink);
         }
-        html[data-theme="dark"] .mn-actions a.primary {
-          background: var(--pink);
-          border-color: var(--pink);
-        }
-        .logo-end {
-          display: block;
-          max-width: 260px;
-          margin: 12px auto 8px;
-        }
-        html[data-theme="dark"] .pillar,
-        html[data-theme="dark"] .price-panel {
+        html[data-theme="dark"] .section,
+        html[data-theme="dark"] .door-card {
           background: var(--paper);
           border-color: var(--line);
         }
-        html[data-theme="dark"] .mn-banner,
-        html[data-theme="dark"] .promise {
+        html[data-theme="dark"] .by-banner {
           background: linear-gradient(145deg, #1A0F1E 0%, #2A152F 50%, #3E2745 100%);
         }
 
@@ -1424,8 +1454,7 @@
           }
         })();
     </script>
-    <link rel="stylesheet" href="assets/client-feedback.css">
-</head>
+  </head>
 <body>    
     <!-- Top bar -->
     <div class="topbar">
@@ -1455,7 +1484,7 @@
         <a href="index.html">Home</a>
         <a href="walking-beside-her.html">Walking Beside Her</a>
         <a href="companion-guide.html">Companion Guide</a>
-        <a href="becoming-you.html">Becoming You</a>
+        <a class="active" href="becoming-you.html">Becoming You</a>
         <a href="ask.html">Ask-HerRhythm</a>
         <a href="checkout.html">Checkout</a>
         <a href="about.html">About Us</a>
@@ -1463,143 +1492,270 @@
     </nav>
     
     <div class="app">
-      <section class="mn-hero">
-        <span class="eyebrow">Coming of Age · First Period Kit</span>
-        <h1>Menarche</h1>
-        <p class="lead">Menarche is the first menstrual period — signaling the start of reproductive capacity. It is a major milestone in female development, and we at HerRhythm would like to be part of that experience.</p>
-        <p class="sub">A thoughtfully designed first-period companion that helps girls understand what is happening to their bodies, manage common symptoms, and feel supported by the people around them.</p>
-        <p class="sub">We combine education, comfort, and practical menstrual care into one beautiful experience — because every girl deserves to begin her rhythm with confidence, joy, and unshakeable self-belief.</p>
+      <section class="by-hero">
+        <span class="eyebrow">Rising Moon · Module 1</span>
+        <h1>Becoming You</h1>
+        <p class="lead">Understanding how your cycle affects your daily routine gives you an upper hand — so you can leverage the highs and navigate the lows.</p>
+        <p class="sub">You already know your rhythm. Now let’s own it.</p>
       </section>
 
-      <div class="mn-banner">
-        <span class="mod">The Menarche Kit</span>
-        <h2>Because Menarche should be a conversation</h2>
-        <p>What’s inside: Learn · Care · Comfort · Support — everything she needs to meet her first cycle with clarity, not fear.</p>
+      <div class="by-banner">
+        <span class="mod">Module 1 · Rising Moon Curriculum</span>
+        <h2>Two doors, one module</h2>
+        <p>Whether she completed Menarche with us or started on her own, this is the clear breakdown she may never have gotten the first time.</p>
       </div>
 
-      <nav class="pillar-nav" aria-label="Kit pillars">
-        <a href="#learn"><span>01</span>Learn</a>
-        <a href="#care"><span>02</span>Care</a>
-        <a href="#comfort"><span>03</span>Comfort</a>
-        <a href="#support"><span>04</span>Support</a>
-      </nav>
+      <div class="doors">
+        <div class="door-card">
+          <strong>Continuing her rhythm</strong>
+          <span>She completed Menarche — this is her next chapter.</span>
+        </div>
+        <div class="door-card">
+          <strong>Already flowing</strong>
+          <span>She started on her own — this is the clear breakdown she may never have gotten the first time.</span>
+        </div>
+      </div>
 
-      <!-- 1 Learn -->
-      <section class="pillar" id="learn">
-        <span class="eyebrow">Pillar 1</span>
-        <h2>Learn</h2>
-        <p class="tagline">“Understand what’s happening. Know what’s next.”</p>
-        <p>Everything she needs to move through her first period with clarity, not fear — plus the roadmap for what she learns next.</p>
-        <span class="incl-label">Included</span>
-        <ul class="incl-list">
-          <li><div><strong>Menarche Family Plan</strong> — where pads are stored, trusted adults, school contact, pain plan, who to call</div></li>
-          <li><div><strong>Know Your Rhythm</strong> — a guide to Menarche</div></li>
-        </ul>
-        <div class="outcomes">
-          <span>Understands her body</span>
-          <span>Knows what to expect</span>
-          <span>Feels prepared</span>
-          <span>Knows what’s next</span>
+      <!-- 1. Cycle explained -->
+      <section class="section" id="cycle">
+        <span class="eyebrow">Section 1</span>
+        <h2>Your Cycle, Explained</h2>
+        <p class="tagline">It’s not just the bleed days.</p>
+        <p>Your cycle is counted from the first day of one period to the first day of the next, usually <strong>21 to 35 days</strong>. It runs in four phases, on repeat, whether or not you’re bleeding that week.</p>
+        <img class="cycle-img" src="image.png" alt="The 4 phases of your menstrual cycle"/>
+        <table class="data-table">
+          <thead>
+            <tr><th>Phase</th><th>Roughly</th><th>What’s happening</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Period</strong></td><td>Days 1–7</td><td>Uterus lining leaves your body. Energy is often lowest here.</td></tr>
+            <tr><td><strong>Follicular</strong></td><td>Days 1–13</td><td>Body prepares an egg. Energy and mood tend to climb.</td></tr>
+            <tr><td><strong>Ovulation</strong></td><td>Around day 14</td><td>An egg is released. Many feel most energetic and social here.</td></tr>
+            <tr><td><strong>Luteal</strong></td><td>Days 15–28</td><td>Body waits to see if pregnancy begins. Mood, skin, appetite often shift — this is PMS.</td></tr>
+          </tbody>
+        </table>
+        <p><strong>PMS</strong> (Premenstrual Syndrome) is a set of physical and emotional symptoms many people experience in the days or week before their period starts: mood changes, bloating, breast tenderness, headaches, fatigue, food cravings, sleep changes, and mild-to-moderate discomfort. Symptoms usually ease once menstruation begins. If they’re severe enough to disrupt daily life, it may be <strong>PMDD</strong> — worth discussing with a doctor.</p>
+        <p>Knowing where you are in the cycle explains how you feel that week. No more feeling blindsided every month.</p>
+
+        <div class="phase-grid">
+          <article class="phase-card">
+            <img src="MENSTRUAL_PHASE.png" alt="Menstrual phase illustration"/>
+            <div class="phase-body">
+              <span class="days">Days 1–5</span>
+              <h3>Menstrual phase</h3>
+              <p>Rest and comfort, iron-rich foods, gentleness and emotional space. The body is shedding — fatigue and cramps are common.</p>
+            </div>
+          </article>
+          <article class="phase-card">
+            <img src="FOLLICULAR_PHASE.png" alt="Follicular phase illustration"/>
+            <div class="phase-body">
+              <span class="days">Days 6–14</span>
+              <h3>Follicular phase</h3>
+              <p>Activity and fuel, hydration and balanced meals, curiosity and inspiration. Energy and mood tend to rise.</p>
+            </div>
+          </article>
+          <article class="phase-card">
+            <img src="OVULATION_PHASE.png" alt="Ovulation phase illustration"/>
+            <div class="phase-body">
+              <span class="days">Around day 14</span>
+              <h3>Ovulation phase</h3>
+              <p>Hydration, lighter meals, connection and communication. Many feel most energetic and social here.</p>
+            </div>
+          </article>
+          <article class="phase-card">
+            <img src="LUTEAL_PHASE.png" alt="Luteal phase illustration"/>
+            <div class="phase-body">
+              <span class="days">Days 15–28</span>
+              <h3>Luteal phase</h3>
+              <p>Movement, magnesium-rich foods and B vitamins, reassurance and emotional stability. PMS often shows up here.</p>
+            </div>
+          </article>
         </div>
       </section>
 
-      <!-- 2 Care -->
-      <section class="pillar" id="care">
-        <span class="eyebrow">Pillar 2</span>
-        <h2>Care</h2>
-        <p class="tagline">“Everything needed for her first cycle.”</p>
-        <p>Essential menstrual products chosen for care and confidence.</p>
-        <span class="incl-label">Included</span>
-        <ul class="incl-list">
-          <li><div><strong>Sanitary pads</strong> — light, regular &amp; overnight</div></li>
-          <li><div><strong>Panty liners</strong></div></li>
-          <li><div><strong>Wet wipes</strong></div></li>
-          <li><div><strong>Pocket tissues</strong></div></li>
-          <li><div><strong>DigniBag</strong> — for when she’s outside</div></li>
-          <li class="upgrade"><div><strong>Optional upgrade:</strong> Menstrual cups (2)</div></li>
-        </ul>
-        <div class="outcomes">
-          <span>Clean</span>
-          <span>Comfortable</span>
-          <span>Protected</span>
+      <!-- 2. Products -->
+      <section class="section" id="products">
+        <span class="eyebrow">Section 2</span>
+        <h2>Product Choices</h2>
+        <p class="tagline">Pads, liners, cups, tampons — what fits your life.</p>
+        <table class="data-table">
+          <thead>
+            <tr><th>Product</th><th>Best for</th><th>Change every</th><th>In your kit?</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Panty liners</strong></td><td>Daily freshness, light days, discharge</td><td>4–6 hours</td><td>Yes, default</td></tr>
+            <tr><td><strong>Pads</strong></td><td>Heavier flow, overnight</td><td>4–6 hours</td><td>Your kit funds a Dignikit instead</td></tr>
+            <tr><td><strong>Menstrual cups</strong></td><td>Lower cost per cycle, less waste, swimming</td><td>Every 8–12 hours</td><td>Optional upgrade</td></tr>
+            <tr><td><strong>Tampons</strong></td><td>Sports, tight clothing, swimming</td><td>4–8 hours</td><td>Not yet — ask first</td></tr>
+          </tbody>
+        </table>
+        <div class="callout">
+          <div class="ico" aria-hidden="true">💡</div>
+          <div class="txt"><strong>Cost over one year.</strong> Pads or tampons bought monthly cost more over time than a single cup. A cup lasts on average about 5 years, pays for itself within a few cycles, and creates far less waste.</div>
+        </div>
+        <p>Not sure what’s right for you? Ask mum or a trusted caregiver.</p>
+      </section>
+
+      <!-- 3. Symptoms -->
+      <section class="section" id="symptoms">
+        <span class="eyebrow">Section 3</span>
+        <h2>Managing Symptoms</h2>
+        <p class="tagline">Cramps, bloating, fatigue, mood swings — all normal.</p>
+        <table class="data-table">
+          <thead>
+            <tr><th>Symptom</th><th>Why it happens</th><th>What helps</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Cramps</strong></td><td>Uterus contracts to shed its lining</td><td>Heat patch, hot water bottle, gentle movement</td></tr>
+            <tr><td><strong>Fatigue</strong></td><td>Iron loss and hormone shifts lower energy</td><td>Rest without guilt, iron-rich meals, earlier bedtime, yoga or stretches</td></tr>
+            <tr><td><strong>Bloating</strong></td><td>Hormones cause water and salt retention</td><td>Less salt, more water, herbal tea</td></tr>
+            <tr><td><strong>Mood swings</strong></td><td>Hormone shifts affect brain chemistry</td><td>Name the feeling, talk to someone, rest, nourishing food</td></tr>
+            <tr><td><strong>Breakouts</strong></td><td>Rising hormones increase oil before your period</td><td>Gentle cleansing, avoid picking — usually passes within days</td></tr>
+          </tbody>
+        </table>
+        <p>None of these mean something is wrong with you. They mean it’s worth knowing the line — covered next.</p>
+      </section>
+
+      <!-- 4. When to get help -->
+      <section class="section" id="help">
+        <span class="eyebrow">Section 4</span>
+        <h2>When to Get Help</h2>
+        <div class="callout warn">
+          <div class="ico" aria-hidden="true">⚠️</div>
+          <div class="txt">
+            <strong>Reach out to a trusted adult, doctor, or Ask-HerRhythm if:</strong>
+            <ul>
+              <li>Your period lasts longer than 7 days</li>
+              <li>Pain doesn’t ease up with rest, heat, or your usual care</li>
+              <li>You soak through a pad or liner in under an hour, for more than an hour or two</li>
+              <li>You notice an unusual smell, itching, or irritation</li>
+              <li>Your cycle changes suddenly and stays changed for more than one month</li>
+              <li>You simply have a question — that’s always reason enough</li>
+            </ul>
+          </div>
+        </div>
+        <p>None of these are emergencies to panic over. They’re simply reasons to check in, the same way you would for any other part of your growing body.</p>
+      </section>
+
+      <!-- 5. Tracking -->
+      <section class="section" id="tracking">
+        <span class="eyebrow">Section 5</span>
+        <h2>Tracking Your Cycle</h2>
+        <p class="tagline">Know before it happens.</p>
+        <div class="callout help">
+          <div class="ico" aria-hidden="true">📱</div>
+          <div class="txt">Use the QR-linked Cycle Tracker inside your kit. Log your start date, flow, and symptoms each cycle. Over time it learns your pattern and predicts your next period — so your next Rising Moon kit arrives before you need it, not after.</div>
+        </div>
+        <p>Tracking also makes it easier to describe changes worth mentioning to a doctor: a cycle that suddenly runs much longer or shorter, or symptoms that are new.</p>
+      </section>
+
+      <!-- 6. Nutrition -->
+      <section class="section" id="nutrition">
+        <span class="eyebrow">Section 6</span>
+        <h2>Nutrition and Self-Care</h2>
+        <p class="tagline">What to eat more of, what to eat less of, and where your kit’s tea fits in.</p>
+        <div class="callout">
+          <div class="ico" aria-hidden="true">📝</div>
+          <div class="txt">Guidance drawn from published nutrition sources. Still pending review by a qualified nutritionist before this is treated as final.</div>
+        </div>
+        <img class="nutri-img" src="nutrition_split.svg" alt="Eat more and eat less nutrition guide"/>
+        <p><strong>Iron</strong> drops during your period — replacing it keeps fatigue at bay. Pair iron-rich foods with vitamin C so your body absorbs more.</p>
+        <p><strong>Magnesium</strong> relaxes the muscle that causes cramps, and most people don’t get enough through diet alone.</p>
+        <p><strong>Omega-3s</strong> from fish may ease cramp intensity. <strong>Water</strong> keeps bloating and headaches down.</p>
+        <p><strong>Caffeinated tea and coffee</strong> tighten blood vessels, can worsen cramps, and block iron absorption if taken with meals. Your kit’s herbal teas — ginger, hibiscus, chamomile — are caffeine-free; drink these freely.</p>
+        <p><strong>A sample day</strong></p>
+        <table class="data-table">
+          <tbody>
+            <tr><td><strong>Breakfast</strong></td><td>Eggs, whole wheat bread, orange slices</td></tr>
+            <tr><td><strong>Lunch</strong></td><td>Beans, rice, spinach</td></tr>
+            <tr><td><strong>Snack</strong></td><td>Banana, a handful of nuts (watch for allergies), or your kit’s herbal tea</td></tr>
+            <tr><td><strong>Dinner</strong></td><td>Lean meat or lentils, leafy greens, a small portion of grains</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Quick reference -->
+      <section class="section" id="reference">
+        <span class="eyebrow">Cheat sheet</span>
+        <h2>Quick Reference</h2>
+        <table class="data-table">
+          <tbody>
+            <tr><td><strong>Cycle length, average</strong></td><td>21 to 35 days, tracked start to start</td></tr>
+            <tr><td><strong>Bleed length, average</strong></td><td>3 to 7 days</td></tr>
+            <tr><td><strong>Iron-rich foods</strong></td><td>Spinach, beans, lentils, eggs, red meat</td></tr>
+            <tr><td><strong>Pair iron with</strong></td><td>Vitamin C: oranges, tomatoes, peppers</td></tr>
+            <tr><td><strong>Ease cramps with</strong></td><td>Magnesium foods, heat patch, herbal tea, gentle movement</td></tr>
+            <tr><td><strong>Limit</strong></td><td>Salt, sugar, fried food, caffeinated tea and coffee</td></tr>
+            <tr><td><strong>Get help if</strong></td><td>Period over 7 days, pain doesn’t ease, a pad soaks in under an hour, unusual smell or itching</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Myths -->
+      <section class="section" id="myths">
+        <span class="eyebrow">Clarity</span>
+        <h2>Myth Busters</h2>
+        <div class="myth-grid">
+          <div class="myth-card">
+            <p class="myth">Myth: A normal cycle is always exactly 28 days</p>
+            <p class="fact"><strong>Fact:</strong> 21 to 35 days is normal. Stress, travel, and illness can shift it further.</p>
+          </div>
+          <div class="myth-card">
+            <p class="myth">Myth: PMS is exaggeration</p>
+            <p class="fact"><strong>Fact:</strong> PMS is driven by real hormone shifts in the luteal phase. Not in your head, not a character flaw.</p>
+          </div>
+          <div class="myth-card">
+            <p class="myth">Myth: You should push through cramps to prove you’re tough</p>
+            <p class="fact"><strong>Fact:</strong> Rest and gentle movement both ease cramps. Pain that stops your day is a signal, not a test.</p>
+          </div>
         </div>
       </section>
 
-      <!-- 3 Comfort -->
-      <section class="pillar" id="comfort">
-        <span class="eyebrow">Pillar 3</span>
-        <h2>Comfort</h2>
-        <p class="tagline">“Gentle relief when symptoms begin.”</p>
-        <p>Designed to make the first cycle less overwhelming.</p>
-        <span class="incl-label">Included</span>
-        <ul class="incl-list">
-          <li><div><strong>Period heat patch</strong> — for when she’s outside</div></li>
-          <li><div><strong>Hot water bottle</strong> — for when she’s home</div></li>
-          <li><div><strong>Herbal tea bags</strong> — for occasional bloating relief</div></li>
-        </ul>
-        <div class="outcomes">
-          <span>Less cramping</span>
-          <span>More comfort</span>
-          <span>A moment of self-care</span>
+      <!-- Learning check -->
+      <section class="section" id="check">
+        <span class="eyebrow">Confidence check</span>
+        <h2>Learning Check</h2>
+        <p class="tagline">Short, self-graded. Not a test — a confidence check before Module 2 unlocks.</p>
+        <ol class="check-list">
+          <li>Name the four phases of your cycle, in order.</li>
+          <li>Which phase usually has the lowest energy?</li>
+          <li>Name one food that helps your body absorb iron.</li>
+          <li>Your period has lasted 9 days. What do you do?</li>
+          <li>What tool helps your kit arrive before you need it?</li>
+          <li>Name one thing you can say to a friend who thinks periods are dirty.</li>
+        </ol>
+        <div class="answers">
+          <details>
+            <summary>Show answers</summary>
+            <div class="indented">
+              <p>1. Period, follicular, ovulation, luteal</p>
+              <p>2. Period (menstrual phase)</p>
+              <p>3. Vitamin C foods — oranges, tomatoes, or peppers</p>
+              <p>4. Reach out to a trusted adult, doctor, or Ask-HerRhythm — 9 days is past the 7-day marker</p>
+              <p>5. The QR-linked Cycle Tracker</p>
+              <p>6. A period is a normal body process, not dirty — or your own words that land the same point</p>
+            </div>
+          </details>
         </div>
       </section>
 
-      <!-- 4 Support -->
-      <section class="pillar" id="support">
-        <span class="eyebrow">Pillar 4</span>
-        <h2>Support</h2>
-        <p class="tagline">“Because she shouldn’t go through it alone.”</p>
-        <p>Resources that help the family become part of the experience.</p>
-        <span class="incl-label">Included</span>
-        <ul class="incl-list">
-          <li><div><strong>Walking Beside Her</strong> — a mother’s helper</div></li>
-          <li><div><strong>The Companion Guide</strong> — a male guide to menstrual care</div></li>
+      <div class="next-mod">
+        <span class="eyebrow">Coming next</span>
+        <h2>What to Expect in Module 2</h2>
+        <p style="margin:0 0 10px;color:rgba(255,247,249,0.9);font-size:14px;"><strong>Owning Your Rhythm</strong> — unlocked in an upcoming kit.</p>
+        <ul>
+          <li><strong>Symptom mastery:</strong> the pain scale, and when normal crosses into “see a doctor”</li>
+          <li><strong>Product choice, deep dive:</strong> cups and tampons step by step</li>
+          <li><strong>Cycle syncing:</strong> planning school, sport, and travel around your predicted cycle</li>
         </ul>
-        <div class="outcomes">
-          <span>Better conversations</span>
-          <span>Less stigma</span>
-          <span>Family support</span>
-        </div>
-      </section>
-
-      <!-- Promise -->
-      <section class="promise">
-        <span class="eyebrow">The Menarche Promise</span>
-        <h2>The first period, handled well — for the whole family</h2>
-        <p class="sub">Every Menarche Kit helps her:</p>
-        <ul class="promise-list">
-          <li><strong>Learn</strong> what’s happening to her body</li>
-          <li><strong>Feel cared for</strong> and protected through her first cycle</li>
-          <li><strong>Find comfort</strong> when symptoms hit</li>
-          <li><strong>Feel supported</strong> by the people around her</li>
-        </ul>
-        <p class="closer">You are ready. You are supported. Your rhythm starts here.</p>
-      </section>
-
-      <!-- Kit price summary (customer-facing) -->
-      <section class="price-panel">
-        <span class="eyebrow">Kit overview</span>
-        <h2>What’s in the base kit</h2>
-        <p class="intro">A complete first-period experience — education, products, comfort tools, and family guides.</p>
-        <div class="price-row subtotal"><span class="label">Learn — guide &amp; family plan</span><span class="amt">Included</span></div>
-        <div class="price-row subtotal"><span class="label">Care — pads, liners, wipes, tissues, DigniBag</span><span class="amt">Included</span></div>
-        <div class="price-row subtotal"><span class="label">Comfort — heat patch, hot water bottle, herbal tea</span><span class="amt">Included</span></div>
-        <div class="price-row subtotal"><span class="label">Support — Walking Beside Her &amp; Companion Guide</span><span class="amt">Included</span></div>
-        <div class="price-row subtotal"><span class="label">Experience packaging &amp; delivery</span><span class="amt">Included</span></div>
-        <div class="price-row total">
-          <span class="label">Base kit</span>
-          <span class="amt">KES 6,800</span>
-        </div>
-        <p class="price-note">Optional menstrual cup upgrade available. Digital Companion Guide and Cycle Tracker included via QR.</p>
-      </section>
+      </div>
 
       <img class="logo-end" src="hrc1.png" alt="HerRhythm Care — Know your rhythm. Flow with it. Live empowered."/>
 
-      <div class="mn-actions">
-        <a class="primary" href="checkout.html">Get the Menarche Kit</a>
-        <a href="walking-beside-her.html">Walking Beside Her</a>
-        <a href="companion-guide.html">Companion Guide</a>
-        <a href="becoming-you.html">Becoming You</a>
+      <div class="by-actions">
+        <a class="primary" href="companion-guide.html">Companion Guide</a>
+        <a href="ask.html">Ask-HerRhythm</a>
+        <a href="checkout.html">Get the kit</a>
       </div>
 
       <footer class="site-footer">
@@ -1640,11 +1796,6 @@
       }
     })();
     </script>
-  
-<!-- Reusable client feedback -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/client-feedback-config.js"></script>
-<script src="assets/client-feedback.js"></script>
-</body>
+  </body>
 </html>
 

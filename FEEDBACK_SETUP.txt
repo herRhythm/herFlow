@@ -1,0 +1,32 @@
+HerRhythm multi-page client feedback setup
+=========================================
+
+1. In Supabase -> SQL Editor, run:
+   supabase_feedback_multi_page.sql
+
+   This adds the `page` column to public.client_recommendations and assigns
+   existing recommendations to index.html.
+
+2. Upload this website to GitHub Pages as usual.
+
+3. The feedback component is shared by all real HTML pages through:
+   assets/client-feedback.css
+   assets/client-feedback-config.js
+   assets/client-feedback.js
+
+4. To add feedback to a NEW HTML page later, add this in <head>:
+   <link rel="stylesheet" href="assets/client-feedback.css">
+
+   And add these before </body>:
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script src="assets/client-feedback-config.js"></script>
+   <script src="assets/client-feedback.js"></script>
+
+5. Recommendations are automatically tagged with the current page filename.
+   The feedback drawer only lists recommendations belonging to the page being viewed.
+
+6. Sections are detected automatically from the page's <section>, <main>, and <article>
+   headings/IDs, plus Header / Navigation, Footer and Other.
+
+7. If you change Supabase projects later, update only:
+   assets/client-feedback-config.js
