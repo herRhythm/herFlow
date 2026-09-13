@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#3E2745">
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%20%20%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%233E2745%22/%3E%20%20%3Cpath%20d%3D%22M16%207c-4.5%204-7.5%207.2-7.5%2011.2%200%204.2%203.3%207.3%207.5%207.3s7.5-3.1%207.5-7.3c0-4-3-7.2-7.5-11.2z%22%20fill%3D%22%23E13C6E%22/%3E%3C/svg%3E" type="image/svg+xml">
-  <title>Companion Guide</title>
+  <title>Rising Moon Experience</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -416,7 +416,7 @@
       }
       
       /* ——— Modules section ——— */
-      /* .section {
+      .section {
         max-width: 1180px;
         margin: 0 auto;
         padding: 48px 20px;
@@ -445,7 +445,7 @@
         margin: 0;
         color: var(--ink-soft);
         max-width: 520px;
-      } */
+      }
       .module-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -543,7 +543,291 @@
       .theme-toggle .icon-sun { display: none; }
       html[data-theme="dark"] .theme-toggle .icon-sun { display: inline; }
       html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
-      
+
+      /* ——— Brand pillars ——— */
+      .pillars {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 56px 20px 8px;
+      }
+      .pillars-inner {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .pillar {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 26px 24px;
+        background: var(--paper);
+        position: relative;
+        overflow: hidden;
+      }
+      .pillar::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--pink), var(--gold));
+      }
+      .pillar .pillar-num {
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        color: var(--pink);
+        display: block;
+        margin-bottom: 14px;
+      }
+      .pillar h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 21px;
+        color: var(--plum-deep);
+        margin: 0 0 8px;
+      }
+      .pillar p {
+        margin: 0;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+      }
+
+      /* ——— Experiences ——— */
+      .experience-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .experience-card {
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        padding: 28px 24px;
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+      }
+      .experience-card .exp-tag {
+        align-self: flex-start;
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #fff;
+        background: var(--plum);
+        border-radius: 999px;
+        padding: 5px 12px;
+        margin-bottom: 16px;
+      }
+      .experience-card:nth-child(1) .exp-tag { background: var(--pink); }
+      .experience-card:nth-child(2) .exp-tag { background: var(--plum); }
+      .experience-card:nth-child(3) .exp-tag { background: var(--maroon); }
+      .experience-card h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 24px;
+        color: var(--plum-deep);
+        margin: 0 0 12px;
+      }
+      .experience-card p {
+        margin: 0 0 10px;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        flex: 1;
+      }
+      .experience-card p:last-of-type { margin-bottom: 18px; }
+      .experience-card .cta {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--pink);
+      }
+
+      /* ——— Impact band (Dignikits) ——— */
+      .impact-band {
+        position: relative;
+        overflow: hidden;
+        color: #fff;
+        background:
+          linear-gradient(105deg, rgba(20, 10, 18, 0.7) 0%, rgba(20, 10, 18, 0.3) 50%, rgba(20, 10, 18, 0.2) 100%),
+          linear-gradient(160deg, #3E2745 0%, #6B1E2B 55%, #C9952A 130%);
+        padding: 56px 20px;
+        text-align: center;
+      }
+      .impact-inner {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      .impact-band .eyebrow {
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 247, 249, 0.75);
+        display: block;
+        margin-bottom: 14px;
+      }
+      .impact-band h2 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: clamp(24px, 4vw, 34px);
+        margin: 0 0 16px;
+      }
+      .impact-band p {
+        margin: 0 auto 26px;
+        color: rgba(255, 247, 249, 0.86);
+        font-size: 14.5px;
+        max-width: 600px;
+      }
+      .impact-stats {
+        display: flex;
+        justify-content: center;
+        gap: 34px;
+        flex-wrap: wrap;
+        margin-bottom: 28px;
+      }
+      .impact-stats div { text-align: center; }
+      .impact-stats strong {
+        display: block;
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-size: 30px;
+        color: var(--gold);
+      }
+      .impact-stats span {
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        color: rgba(255, 247, 249, 0.75);
+        text-transform: uppercase;
+      }
+
+      /* ——— Loyalty program ——— */
+      .benefit-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-bottom: 28px;
+      }
+      .benefit-card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px 14px;
+        background: var(--paper);
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .benefit-card .b-icon {
+        width: 32px; height: 32px;
+        border-radius: 50%;
+        background: var(--cream-deep);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        flex-shrink: 0;
+      }
+      .benefit-card span.b-text {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--plum-deep);
+        line-height: 1.35;
+      }
+      .loyalty-extra {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .loyalty-card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--paper);
+        padding: 24px;
+      }
+      .loyalty-card h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 19px;
+        color: var(--plum-deep);
+        margin: 0 0 14px;
+      }
+      .points-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .points-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+      }
+      .points-list li::before {
+        content: '✦';
+        color: var(--gold);
+        flex-shrink: 0;
+      }
+      .milestone-track {
+        display: flex;
+        gap: 4px;
+        margin: 16px 0 10px;
+      }
+      .milestone-track span {
+        flex: 1;
+        height: 8px;
+        border-radius: 4px;
+        background: var(--cream-deep);
+      }
+      .milestone-track span.on {
+        background: linear-gradient(90deg, var(--pink), var(--gold));
+      }
+      .milestone-note {
+        font-size: 12.5px;
+        color: var(--ink-soft);
+      }
+      .milestone-note strong { color: var(--plum-deep); }
+
+      /* ——— Holidays ——— */
+      .holidays-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 14px;
+      }
+      .holiday-card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px 14px;
+        background: var(--paper);
+        text-align: center;
+      }
+      .holiday-card .h-date {
+        font-family: 'Space Mono', monospace;
+        font-size: 12px;
+        color: var(--pink);
+        letter-spacing: 0.04em;
+        margin-bottom: 8px;
+      }
+      .holiday-card .h-name {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--plum-deep);
+        line-height: 1.3;
+      }
+
+      @media (max-width: 900px) {
+        .pillars-inner { grid-template-columns: 1fr; }
+        .experience-grid { grid-template-columns: 1fr; }
+        .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+        .loyalty-extra { grid-template-columns: 1fr; }
+        .impact-stats { gap: 24px; }
+      }
+
       @media (max-width: 900px) {
         .features-inner { grid-template-columns: repeat(2, 1fr); }
         .feature:nth-child(2) { border-right: none; }
@@ -574,6 +858,198 @@
         .feature { border-right: none; border-bottom: 1px solid var(--line); }
         .feature:last-child { border-bottom: none; }
         .hero-inner { padding: 40px 18px 48px; }
+        .benefit-grid { grid-template-columns: 1fr 1fr; }
+        .impact-stats { gap: 18px; }
+      }
+
+      /* ——— Rising Moon: two doors ——— */
+      .pillars-inner.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+      /* ——— Pillar detail blocks ——— */
+      .pillar-detail {
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--paper);
+        padding: 30px 28px;
+        margin-bottom: 20px;
+      }
+      .pd-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 14px;
+      }
+      .pd-icon {
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 21px;
+        color: #fff;
+        flex-shrink: 0;
+      }
+      .pillar-detail h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 21px;
+        color: var(--plum-deep);
+        margin: 0;
+      }
+      .pd-tagline {
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        margin: 2px 0 0;
+      }
+      .pillar-detail p.pd-lead {
+        margin: 0 0 14px;
+        font-size: 14px;
+        color: var(--ink);
+      }
+      .pillar-detail ul.pd-list {
+        list-style: none;
+        margin: 0 0 14px;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 24px;
+      }
+      .pillar-detail ul.pd-list li {
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+      }
+      .pillar-detail ul.pd-list li::before {
+        content: '✓';
+        color: var(--pink);
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .pillar-detail .pd-close {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-size: 14.5px;
+        color: var(--plum-deep);
+        margin: 0;
+      }
+
+      /* ——— Promise ——— */
+      .promise-tagline {
+        text-align: center;
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: clamp(18px, 3vw, 24px);
+        color: var(--plum-deep);
+        margin: 26px 0 0;
+      }
+
+      /* ——— Pricing ——— */
+      .price-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .price-card {
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--paper);
+        padding: 30px 26px;
+        display: flex;
+        flex-direction: column;
+      }
+      .price-card.is-featured {
+        border-color: var(--pink);
+        box-shadow: 0 14px 34px -14px rgba(225, 29, 96, 0.4);
+      }
+      .price-badge {
+        align-self: flex-start;
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #fff;
+        background: var(--pink);
+        border-radius: 999px;
+        padding: 5px 12px;
+        margin-bottom: 16px;
+      }
+      .price-card.is-secondary .price-badge { background: var(--ink-soft); }
+      .price-card h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 19px;
+        color: var(--plum-deep);
+        margin: 0 0 8px;
+      }
+      .price-amount {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 32px;
+        color: var(--plum-deep);
+        margin: 0 0 6px;
+      }
+      .price-amount span {
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--ink-soft);
+      }
+      .price-card p.price-desc {
+        font-size: 13px;
+        color: var(--ink-soft);
+        margin: 0 0 18px;
+      }
+      .price-card ul.price-list {
+        list-style: none;
+        margin: 0 0 22px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        flex: 1;
+      }
+      .price-card ul.price-list li {
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+      }
+      .price-card ul.price-list li::before {
+        content: '✓';
+        color: var(--pink);
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .price-card .btn-hero, .price-card .btn-ghost-outline {
+        text-align: center;
+        justify-content: center;
+      }
+      .btn-ghost-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1.5px solid var(--line-strong);
+        color: var(--plum-deep);
+        font-weight: 700;
+        font-size: 14px;
+        padding: 13px 20px;
+        border-radius: 999px;
+        transition: border-color .15s, color .15s;
+      }
+      .btn-ghost-outline:hover { border-color: var(--pink); color: var(--pink); }
+
+      @media (max-width: 860px) {
+        .pillars-inner.cols-2 { grid-template-columns: 1fr; }
+        .pillar-detail ul.pd-list { grid-template-columns: 1fr; }
+        .price-grid { grid-template-columns: 1fr; }
       }
   </style>
   <script>
@@ -621,8 +1097,9 @@
   <div class="mainnav-inner" id="siteNav">
     <a href="index.html">Home</a>
     <a href="walking-beside-her.html">Walking Beside Her</a>
-    <a class="active" href="companion-guide.html">Companion Guide</a>
+    <a href="companion-guide.html">Companion Guide</a>
     <a href="becoming-you.html">Becoming You</a>
+    <a href="ask.html">Ask-HerRhythm</a>
     <a href="checkout.html">Checkout</a>
     <a href="about.html">About Us</a>
   </div>
@@ -631,74 +1108,240 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-eyebrow">Private care · Guided at her pace</span>
-        <h1>The Companion Guide</h1>
-        <p class="hero-lead">Kit by kit, card by card — small touchpoints that help you show up with care.</p>
+    <span class="hero-eyebrow">Flow with it · Teens</span>
+    <h1>Rising Moon Experience</h1>
+    <p class="hero-lead">
+      Your complete period care experience — curated by healthcare professionals, delivered before you need it, and designed to help you move through every cycle with confidence.
+    </p>
     <div class="hero-actions">
-      <a class="btn-hero" href="companion.html">Open the Companion Guide</a>
-      <a class="btn-ghost" href="checkout.html">Get the kit →</a>
+      <a class="btn-hero" href="checkout.html">Get your kit →</a>
+      <a class="btn-ghost" href="#pillars">See what's inside →</a>
+    </div>
+    <div class="hero-checks">
+      <span>5 pillars, one kit</span>
+      <span>Delivered monthly</span>
+      <span>Funds 3 Dignikits every kit</span>
+    </div>
+    <div class="hero-badge">
+      <div class="badge-icon">♥</div>
+      <div>
+        <div class="stars">●●●●●</div>
+        <strong>Built for her, with love</strong>
+        <span>Companion tools for caring adults</span>
+      </div>
     </div>
   </div>
 </section>
- 
-<!-- Feature strip -->
-<section class="features" aria-label="Why HerRhythm">
-  <div class="features-inner">
-    <article class="feature">
-      <div class="feature-icon">01</div>
-      <div class="label">Private planning</div>
-      <h3>Shaped around her</h3>
-      <p>Language and timing that respect where she is — not a script.</p>
-    </article>
-    <article class="feature">
-      <div class="feature-icon">02</div>
-      <div class="label">Clear guidance</div>
-      <h3>Myth vs fact cards</h3>
-      <p>Short truths you can use in the moment, without the lecture.</p>
-    </article>
-    <article class="feature">
-      <div class="feature-icon">03</div>
-      <div class="label">Response promise</div>
-      <h3>Ask when you need</h3>
-      <p>Bring questions to Ask-HerRhythm whenever something feels unclear.</p>
-    </article>
-    <article class="feature">
-      <div class="feature-icon">04</div>
-      <div class="label">Local care</div>
-      <h3>Rooted in context</h3>
-      <p>Designed for families and caregivers navigating real life here.</p>
-    </article>
+
+<!-- Two doors -->
+<section class="pillars" aria-label="Two doors, one kit">
+  <div class="section-head">
+    <span class="eyebrow">Two doors, one kit</span>
+    <h2>However you got here, you belong</h2>
+    <p>Same 5 pillars, same price, same Impact model — either way in.</p>
+  </div>
+  <div class="pillars-inner cols-2">
+    <div class="pillar">
+      <span class="pillar-num">01</span>
+      <h3>Continuing your rhythm</h3>
+      <p>You completed Menarche with us — Rising Moon is your next step.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-num">02</span>
+      <h3>Already flowing</h3>
+      <p>You started your period on your own. Rising Moon meets you exactly where you are — no assumption you're new to this.</p>
+    </div>
   </div>
 </section>
- 
-<!-- Modules -->
-<!-- <section class="section">
+
+<!-- Five pillars -->
+<section class="section" id="pillars">
   <div class="section-head">
-    <h2>Where to begin</h2>
-    <p>Three core sections hold the journey. Start with the Companion Guide.</p>
+    <span class="eyebrow">What's inside</span>
+    <h2>The 5 pillars</h2>
+    <p>Learn, Care, Comfort, Support, Impact — every Rising Moon kit stands on all five.</p>
   </div>
-  <div class="module-grid">
-    <a class="module-card" href="walking-beside-her.html">
-      <span class="mod-num">01</span>
-      <h3>Walking Beside Her</h3>
-      <p>Presence, patience, and practical care.</p>
-      <span class="cta">Open guide →</span>
-    </a>
-    <a class="module-card" href="companion-guide.html">
-      <span class="mod-num">02</span>
-      <h3>The Companion Guide</h3>
-      <p>Kits, flip cards, and pledges — the guide is ready to use now.</p>
-      <span class="cta">Open guide →</span>
-    </a>
-    <a class="module-card" href="becoming-you.html">
-      <span class="mod-num">03</span>
-      <h3>Becoming You</h3>
-      <p>Growth and identity.</p>
-      <span class="cta">Open guide →</span>
-    </a>
+
+  <div class="pillar-detail">
+    <div class="pd-head">
+      <div class="pd-icon" style="background: var(--gold);">📖</div>
+      <div>
+        <h3>Learn</h3>
+        <p class="pd-tagline">Understand your body. Own your rhythm.</p>
+      </div>
+    </div>
+    <p class="pd-lead">When you understand your menstrual cycle, you make better decisions for your health and wellbeing. Every Rising Moon Experience includes trusted, easy-to-understand resources developed with healthcare professionals and menstrual educators.</p>
+    <ul class="pd-list">
+      <li>Understanding your menstrual cycle</li>
+      <li>Managing common period symptoms</li>
+      <li>Nutrition and self-care during your period</li>
+      <li>Tracking your cycle</li>
+      <li>Menstrual hygiene and product choices</li>
+      <li>When to seek medical advice</li>
+    </ul>
+    <p class="pd-close">Knowledge turns uncertainty into confidence.</p>
   </div>
-</section> -->
- 
+
+  <div class="pillar-detail">
+    <div class="pd-head">
+      <div class="pd-icon" style="background: var(--plum);">🌙</div>
+      <div>
+        <h3>Care</h3>
+        <p class="pd-tagline">Stay ready. Stay a step ahead.</p>
+      </div>
+    </div>
+    <p class="pd-lead">Your cycle shouldn't catch you by surprise. The Care experience helps you stay one step ahead, so you can focus on school, work, sports, or life — not your period.</p>
+    <ul class="pd-list">
+      <li>Personalized cycle prep card</li>
+      <li>Panty liners for lighter flow days</li>
+      <li>Pocket tissues</li>
+      <li>Wet wipes for freshening up on the go</li>
+      <li>A reusable DigniBag to keep your essentials organized wherever you are</li>
+    </ul>
+    <p class="pd-close">Because confidence begins with being prepared.</p>
+  </div>
+
+  <div class="pillar-detail">
+    <div class="pd-head">
+      <div class="pd-icon" style="background: var(--pink);">💜</div>
+      <div>
+        <h3>Comfort</h3>
+        <p class="pd-tagline">Be kind to your body.</p>
+      </div>
+    </div>
+    <p class="pd-lead">Periods can bring cramps, fatigue, bloating, and mood changes. We've thoughtfully selected comforting essentials to help you slow down, recharge, and feel supported throughout your cycle.</p>
+    <ul class="pd-list">
+      <li>Deep Heat period patch</li>
+      <li>Herbal tea selection (ginger, peppermint, or chamomile)</li>
+      <li>Dark chocolate for those days</li>
+      <li>Hot water bottle</li>
+    </ul>
+    <p class="pd-close">Small comforts can make a big difference.</p>
+  </div>
+
+  <div class="pillar-detail">
+    <div class="pd-head">
+      <div class="pd-icon" style="background: var(--maroon);">🤝</div>
+      <div>
+        <h3>Support</h3>
+        <p class="pd-tagline">You're never navigating your period alone.</p>
+      </div>
+    </div>
+    <p class="pd-lead">When you choose Rising Moon, you become part of a growing community of girls and women who believe menstruation should be met with confidence — not stigma.</p>
+    <ul class="pd-list">
+      <li>Menstrual health tips and educational content</li>
+      <li>Self-care reminders throughout your cycle</li>
+      <li>Access to workshops and community events</li>
+      <li>Access to our health professionals</li>
+      <li>A safe space to learn, ask questions, and grow</li>
+      <li>Stories from women who inspire and uplift one another</li>
+    </ul>
+    <p class="pd-close">Together, we're creating a future where every period is met with dignity.</p>
+  </div>
+
+  <div class="pillar-detail">
+    <div class="pd-head">
+      <div class="pd-icon" style="background: linear-gradient(135deg, var(--pink), var(--gold));">🌍</div>
+      <div>
+        <h3>Impact</h3>
+        <p class="pd-tagline">Your period creates possibilities for another girl.</p>
+      </div>
+    </div>
+    <p class="pd-lead">Every Rising Moon Kit purchased funds 3 Dignikits for a girl who needs it. Each Dignikit contains 2 packs of sanitary towels, menstrual education, bathroom tissues, wet wipes, and delivery to her.</p>
+    <ul class="pd-list">
+      <li>Deliver a full Dignikit to an underserved girl</li>
+      <li>Support menstrual health education in schools</li>
+      <li>Break menstrual stigma through awareness programs</li>
+      <li>Build a generation of confident, informed young women</li>
+      <li>Make men our allies instead of bystanders</li>
+    </ul>
+    <p class="pd-close">Together, we'll help her know her rhythm, so she can flow through life empowered.</p>
+  </div>
+</section>
+
+<!-- Promise -->
+<section class="section">
+  <div class="section-head">
+    <span class="eyebrow">The Rising Moon promise</span>
+    <h2>Every month, your kit helps you</h2>
+  </div>
+  <div class="benefit-grid">
+    <div class="benefit-card">
+      <span class="b-icon">✔</span>
+      <span class="b-text">Stay prepared — before your period starts</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">✔</span>
+      <span class="b-text">Feel comfortable — throughout your cycle</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">✔</span>
+      <span class="b-text">Learn — more about your body</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">✔</span>
+      <span class="b-text">Connect — with a supportive community</span>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">✔</span>
+      <span class="b-text">Create lasting impact — for 3 other girls, month on month</span>
+    </div>
+  </div>
+  <p class="promise-tagline">Know Your Rhythm. Flow With It. Live Empowered.</p>
+</section>
+
+<!-- Pricing -->
+<section class="section" id="pricing">
+  <div class="section-head">
+    <span class="eyebrow">Choose your kit</span>
+    <h2>Simple, monthly, either way in</h2>
+    <p>Both options include Learn, Care, Comfort, and Support — the difference is Impact.</p>
+  </div>
+  <div class="price-grid">
+    <div class="price-card is-featured">
+      <span class="price-badge">Full kit · Includes impact</span>
+      <h3>Rising Moon — Full Kit</h3>
+      <p class="price-amount">KSh 6,800 <span>/ month</span></p>
+      <p class="price-desc">Everything across all 5 pillars, plus 3 Dignikits funded for a girl who needs them.</p>
+      <ul class="price-list">
+        <li>Learn resources &amp; guides</li>
+        <li>Full Care essentials + reusable DigniBag</li>
+        <li>Comfort essentials — heat patch, teas, chocolate, hot water bottle</li>
+        <li>Community &amp; health-professional support</li>
+        <li>Funds 3 Dignikits every kit</li>
+      </ul>
+      <a class="btn-hero" href="checkout.html">Get the Full Kit →</a>
+    </div>
+    <div class="price-card is-secondary">
+      <span class="price-badge">Opt-out</span>
+      <h3>Rising Moon — Opt-out</h3>
+      <p class="price-amount">KSh 6,500 <span>/ month</span></p>
+      <p class="price-desc">All the same Learn, Care, Comfort, and Support — without the Dignikit donation.</p>
+      <ul class="price-list">
+        <li>Learn resources &amp; guides</li>
+        <li>Full Care essentials + reusable DigniBag</li>
+        <li>Comfort essentials — heat patch, teas, chocolate, hot water bottle</li>
+        <li>Community &amp; health-professional support</li>
+        <li>No Dignikit funded this kit</li>
+      </ul>
+      <a class="btn-ghost-outline" href="checkout.html">Choose Opt-out →</a>
+    </div>
+  </div>
+  <p style="text-align:center; max-width:620px; margin:26px auto 0; font-size:12.5px; color:var(--ink-soft); font-style:italic;">
+    No pads in this kit, by design — if you can afford this kit, you can afford your own. Your purchase instead funds a full menstrual solution for a girl who can't.
+  </p>
+</section>
+
+<!-- Closing impact band -->
+<section class="impact-band">
+  <div class="impact-inner">
+    <span class="eyebrow">Live Empowered</span>
+    <h2>Ready to rise?</h2>
+    <p>Two doors, one kit, five pillars — start your Rising Moon Experience today and fund 3 Dignikits for a girl who needs them, every single month.</p>
+    <a class="btn-hero" href="checkout.html">Get your kit →</a>
+  </div>
+</section>
+
 <footer class="site-footer">
   <p>Created by <strong>HerRhythm Care</strong></p>
   <p>&copy; 2026 HerRhythm Care. All rights reserved.</p>
@@ -744,5 +1387,3 @@
 <script src="assets/client-feedback.js"></script>
 </body>
 </html>
- 
-
