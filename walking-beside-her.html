@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#3E2745">
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%20%20%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%233E2745%22/%3E%20%20%3Cpath%20d%3D%22M16%207c-4.5%204-7.5%207.2-7.5%2011.2%200%204.2%203.3%207.3%207.5%207.3s7.5-3.1%207.5-7.3c0-4-3-7.2-7.5-11.2z%22%20fill%3D%22%23E13C6E%22/%3E%3C/svg%3E" type="image/svg+xml">
-  <title>HerRhythm Care — Walk Beside Her</title>
+  <title>HerRhythm Care · Walking Beside Her</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
         --maroon-mid: #8B2E3C;
         --safe-b: env(safe-area-inset-bottom, 0px);
       }
-      
+
       html[data-theme="dark"] {
         color-scheme: dark;
         --cream: #121016;
@@ -46,7 +46,7 @@
         --maroon: #A83D4D;
         --maroon-mid: #C45A68;
       }
-      
+
       *, *::before, *::after { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
       body {
@@ -58,9 +58,9 @@
         background: var(--cream);
         -webkit-font-smoothing: antialiased;
       }
-      
+
       a { color: inherit; text-decoration: none; }
-      
+
       /* ——— Top utility bar ——— */
       .topbar {
         background: #FFFFFF;
@@ -157,7 +157,7 @@
       }
       .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
       html[data-theme="dark"] .btn-primary { background: var(--maroon); }
-      
+
       /* ——— Main nav ——— */
       .mainnav {
         background: var(--paper);
@@ -225,7 +225,7 @@
         font-weight: 600;
         cursor: pointer;
       }
-      
+
       /* ——— Hero ——— */
       .hero {
         position: relative;
@@ -238,6 +238,7 @@
           linear-gradient(105deg, rgba(20, 10, 18, 0.72) 0%, rgba(20, 10, 18, 0.35) 48%, rgba(20, 10, 18, 0.25) 100%),
           radial-gradient(ellipse at 70% 40%, rgba(225, 29, 96, 0.2), transparent 50%),
           linear-gradient(160deg, #3E2745 0%, #5C3D66 40%, #8B4A5C 70%, #C9952A 100%);
+        background-size: cover;
       }
       .hero-inner {
         position: relative;
@@ -269,7 +270,7 @@
       }
       .hero-lead {
         margin: 0 0 28px;
-        max-width: 520px;
+        max-width: 560px;
         font-size: 16px;
         line-height: 1.6;
         color: rgba(255, 247, 249, 0.86);
@@ -309,117 +310,18 @@
         transition: background .15s;
       }
       .btn-ghost:hover { background: rgba(255,255,255,0.2); }
-      .hero-checks {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px 22px;
-        font-size: 13px;
-        color: rgba(255, 247, 249, 0.88);
-      }
-      .hero-checks span {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .hero-checks span::before {
-        content: '✓';
-        color: #E8C56A;
-        font-weight: 700;
-      }
-      
-      .hero-badge {
-        position: absolute;
-        right: max(20px, calc((100% - 1180px) / 2 + 20px));
-        bottom: 28px;
-        z-index: 3;
-        background: rgba(20, 14, 18, 0.72);
-        border: 1px solid rgba(255,255,255,0.12);
-        backdrop-filter: blur(10px);
-        color: #fff;
-        border-radius: 16px;
-        padding: 14px 16px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        max-width: 280px;
-      }
-      .hero-badge .badge-icon {
-        width: 40px; height: 40px;
-        border-radius: 50%;
-        border: 1px solid rgba(255,255,255,0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        flex-shrink: 0;
-      }
-      .hero-badge strong {
-        display: block;
-        font-size: 18px;
-        letter-spacing: 0.02em;
-      }
-      .hero-badge span {
-        font-size: 10px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        opacity: 0.75;
-      }
-      .stars { color: #7DDEA8; letter-spacing: 2px; font-size: 12px; }
-      
-      /* ——— Feature strip ——— */
-      .features {
-        background: var(--paper);
-        border-bottom: 1px solid var(--line);
-      }
-      .features-inner {
-        max-width: 1180px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-      .feature {
-        padding: 28px 22px;
-        border-right: 1px solid var(--line);
-      }
-      .feature:last-child { border-right: none; }
-      .feature-icon {
-        width: 40px; height: 40px;
-        border-radius: 50%;
-        border: 1px solid var(--line-strong);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 14px;
-        font-size: 18px;
-        color: var(--plum);
-      }
-      .feature .label {
-        font-family: 'Space Mono', monospace;
-        font-size: 10px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--ink-soft);
-        margin-bottom: 6px;
-      }
-      .feature h3 {
-        margin: 0 0 6px;
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--plum-deep);
-        line-height: 1.3;
-      }
-      .feature p {
-        margin: 0;
-        font-size: 13px;
-        color: var(--ink-soft);
-        line-height: 1.45;
-      }
-      
-      /* ——— Modules section ——— */
-      /* .section {
-        max-width: 1180px;
+
+      /* ——— Guide content ——— */
+      .section {
+        max-width: 760px;
         margin: 0 auto;
         padding: 48px 20px;
+      }
+      .section-wide {
+        max-width: 1180px;
+      }
+      .section + .section {
+        border-top: 1px solid var(--line);
       }
       .section-head {
         margin-bottom: 22px;
@@ -444,51 +346,255 @@
       .section-head p {
         margin: 0;
         color: var(--ink-soft);
-        max-width: 520px;
-      } */
-      .module-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
       }
-      .module-card {
+      .lede {
+        font-size: 17px;
+        line-height: 1.65;
+        color: var(--ink);
+        margin: 0 0 16px;
+      }
+      .lede em {
+        color: var(--ink-soft);
+      }
+      .accent {
+        color: var(--pink);
+        font-style: normal;
+        font-weight: 700;
+      }
+      .guide-figure {
+        margin: 8px 0 36px;
+      }
+      .guide-figure img {
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        display: block;
+      }
+      .mv-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin: 28px 0 4px;
+      }
+      .mv-card {
         background: var(--paper);
         border: 1px solid var(--line);
         border-radius: 16px;
         padding: 22px 20px;
-        display: flex;
-        flex-direction: column;
-        min-height: 180px;
-        transition: border-color .15s;
       }
-      .module-card:hover { border-color: var(--pink); }
-      .module-card .mod-num {
+      .mv-card .eyebrow {
         font-family: 'Space Mono', monospace;
         font-size: 10px;
         letter-spacing: 0.12em;
+        text-transform: uppercase;
         color: var(--pink);
-        margin-bottom: 12px;
+        display: block;
+        margin-bottom: 10px;
       }
-      .module-card h3 {
+      .mv-card p {
+        margin: 0;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+      .pull-quote {
         font-family: 'Fraunces', Georgia, serif;
         font-style: italic;
-        font-size: 22px;
+        font-weight: 500;
+        font-size: clamp(22px, 3.2vw, 30px);
+        line-height: 1.35;
+        color: var(--plum-deep);
+        text-align: center;
+        max-width: 620px;
+        margin: 0 auto;
+        padding: 8px 0;
+      }
+      .module-tag {
+        font-family: 'Space Mono', monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--pink);
+        text-align: center;
+        margin: 0 0 14px;
+      }
+      .chapter-title {
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: clamp(24px, 3.4vw, 32px);
+        color: var(--plum-deep);
+        margin: 0 0 16px;
+      }
+      .chapter-kicker {
+        font-weight: 600;
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 0 0 16px;
+      }
+      .section p {
+        margin: 0 0 14px;
+        font-size: 14.5px;
+        color: var(--ink);
+        line-height: 1.7;
+      }
+      .section p:last-child {
+        margin-bottom: 0;
+      }
+      .guide-list {
+        margin: 0 0 18px;
+        padding-left: 0;
+        list-style: none;
+      }
+      .guide-list li {
+        position: relative;
+        padding-left: 22px;
+        margin-bottom: 10px;
+        font-size: 14.5px;
+        color: var(--ink);
+        line-height: 1.6;
+      }
+      .guide-list li::before {
+        content: '';
+        position: absolute;
+        left: 2px;
+        top: 8px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--pink);
+      }
+      .guide-list li:last-child {
+        margin-bottom: 0;
+      }
+      .callout {
+        display: flex;
+        gap: 14px;
+        background: var(--cream-deep);
+        border: 1px solid var(--line);
+        border-left: 3px solid var(--plum);
+        border-radius: 14px;
+        padding: 18px 20px;
+        margin: 8px 0 24px;
+      }
+      .callout-icon {
+        font-size: 20px;
+        line-height: 1.2;
+        flex-shrink: 0;
+      }
+      .callout-body p {
+        margin: 0 0 8px;
+        font-size: 14px;
+      }
+      .callout-body p:last-child {
+        margin-bottom: 0;
+      }
+      .callout-title {
+        font-weight: 700;
         color: var(--plum-deep);
         margin: 0 0 8px;
+        font-size: 14px;
       }
-      .module-card p {
-        margin: 0;
-        font-size: 13px;
-        color: var(--ink-soft);
-        flex: 1;
+      .callout-warning {
+        border-left-color: var(--maroon);
       }
-      .module-card .cta {
-        margin-top: 16px;
-        font-size: 13px;
-        font-weight: 600;
+      .moment {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-left: 3px solid var(--pink);
+        border-radius: 14px;
+        padding: 18px 20px;
+        margin: 8px 0 0;
+      }
+      .moment-label {
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
         color: var(--pink);
+        display: block;
+        margin-bottom: 8px;
       }
-      
+      .moment p {
+        margin: 0;
+        font-size: 14px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+      .compare-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 4px 0 24px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      .compare-table th {
+        background: var(--cream-deep);
+        font-family: 'Space Mono', monospace;
+        font-size: 10.5px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--plum-deep);
+        padding: 12px 16px;
+        text-align: left;
+        border-bottom: 1px solid var(--line);
+      }
+      .compare-table td {
+        padding: 13px 16px;
+        font-size: 13.5px;
+        color: var(--ink);
+        border-top: 1px solid var(--line);
+        vertical-align: top;
+        line-height: 1.5;
+      }
+      .compare-table tr:first-child td {
+        border-top: none;
+      }
+      .fact-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin: 4px 0 0;
+      }
+      .fact-card {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 20px 18px;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+      .fact-card strong {
+        color: var(--plum-deep);
+      }
+      .reflection-prompt {
+        font-size: 14.5px;
+        color: var(--ink);
+        font-weight: 600;
+        margin: 0 0 10px;
+      }
+      .reflection-box {
+        border: 1px dashed var(--line-strong);
+        border-radius: 12px;
+        min-height: 64px;
+        margin: 0 0 24px;
+        background: var(--cream-deep);
+      }
+      .reflection-box:last-child {
+        margin-bottom: 0;
+      }
+      .divider {
+        max-width: 760px;
+        margin: 0 auto;
+        border: none;
+        border-top: 1px solid var(--line);
+      }
+
       /* ——— Footer ——— */
       .site-footer {
         border-top: 1px solid var(--line);
@@ -498,67 +604,50 @@
         font-size: 12px;
       }
       .site-footer strong { color: var(--plum-deep); }
-      
-      /* Floating WhatsApp */
-        .fab-wa {
-          position: fixed;
-          right: 18px;
-          bottom: calc(18px + var(--safe-b));
-          z-index: 50;
-          width: 56px; height: 56px;
-          border-radius: 50%;
-          background: #25D366;
-          color: #fff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 28px;
-          box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-          border: none;
-          cursor: pointer;
-          text-decoration: none;
-          transition: transform .15s, box-shadow .15s, filter .15s;
-        }
-        .fab-wa:hover {
-          transform: translateY(-2px) scale(1.05);
-          box-shadow: 0 12px 28px rgba(0,0,0,0.28);
-          filter: brightness(1.05);
-        }
+
+      /* ——— Floating actions ——— */
+      .fab-wa {
+        position: fixed;
+        right: 18px;
+        bottom: calc(18px + var(--safe-b));
+        width: 54px; height: 54px;
+        border-radius: 50%;
+        background: #25D366;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        z-index: 50;
+        transition: transform .15s;
+      }
+      .fab-wa:hover { transform: scale(1.06); }
       .theme-toggle {
         position: fixed;
         left: 18px;
         bottom: calc(18px + var(--safe-b));
-        z-index: 50;
         width: 44px; height: 44px;
         border-radius: 50%;
         border: 1px solid var(--line-strong);
         background: var(--paper);
         color: var(--plum-deep);
-        font-size: 18px;
-        cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
+        z-index: 50;
+        font-size: 16px;
       }
-      .theme-toggle .icon-sun { display: none; }
-      html[data-theme="dark"] .theme-toggle .icon-sun { display: inline; }
-      html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
-      
+      .icon-sun { display: none; }
+      html[data-theme="dark"] .icon-moon { display: none; }
+      html[data-theme="dark"] .icon-sun { display: inline; }
+
       @media (max-width: 900px) {
-        .features-inner { grid-template-columns: repeat(2, 1fr); }
-        .feature:nth-child(2) { border-right: none; }
-        .feature:nth-child(1),
-        .feature:nth-child(2) { border-bottom: 1px solid var(--line); }
-        .module-grid { grid-template-columns: 1fr; }
-        .hero-badge {
-          position: static;
-          margin-top: 24px;
-          max-width: 100%;
-        }
         .topbar-inner { flex-wrap: wrap; }
         .topbar-logo { order: -1; width: 100%; margin-bottom: 4px; }
+        .mv-grid { grid-template-columns: 1fr; }
+        .fact-grid { grid-template-columns: 1fr; }
       }
-      
+
       @media (max-width: 640px) {
         .topbar-right .topbar-link { display: none; }
         .mainnav-inner {
@@ -570,10 +659,9 @@
         .mainnav-inner.open { display: flex; }
         .mainnav a { padding: 12px; }
         .nav-toggle { display: block; }
-        .features-inner { grid-template-columns: 1fr; }
-        .feature { border-right: none; border-bottom: 1px solid var(--line); }
-        .feature:last-child { border-bottom: none; }
         .hero-inner { padding: 40px 18px 48px; }
+        .section { padding: 36px 18px; }
+        .compare-table { font-size: 13px; }
       }
   </style>
   <script>
@@ -589,9 +677,10 @@
         }
       })();
   </script>
+  <link rel="stylesheet" href="assets/client-feedback.css">
 </head>
 <body>
- 
+
 <!-- Top bar -->
 <div class="topbar">
   <div class="topbar-inner">
@@ -613,7 +702,7 @@
     </div>
   </div>
 </div>
- 
+
 <!-- Main navigation -->
 <nav class="mainnav" aria-label="Primary">
   <button type="button" class="nav-toggle" id="navToggle">Menu</button>
@@ -622,93 +711,242 @@
     <a class="active" href="walking-beside-her.html">Walking Beside Her</a>
     <a href="companion-guide.html">Companion Guide</a>
     <a href="becoming-you.html">Becoming You</a>
-    <a href="ask.html">Ask-HerRhythm</a>
     <a href="checkout.html">Checkout</a>
     <a href="about.html">About Us</a>
   </div>
 </nav>
- 
+
 <!-- Hero -->
-<section class="hero">
+<section class="hero" style="background-image: linear-gradient(105deg, rgba(20, 10, 18, 0.78) 0%, rgba(20, 10, 18, 0.5) 48%, rgba(20, 10, 18, 0.35) 100%), url('https://images.unsplash.com/photo-1535332371349-a5d229f49cb5?ixlib=rb-4.1.0&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb'); background-position: center 19.56%;">
   <div class="hero-inner">
-    <span class="hero-eyebrow">Private care · Guided at her pace</span>
-    <h1>Walk Beside Her,<br>With Clarity and Care</h1>
-    <p class="hero-lead">
-      A calmer path for the people who love her — practical guidance, honest language,
-      and small promises you can keep.
-    </p>
+    <span class="hero-eyebrow">For Rising Moon Mums</span>
+    <h1>Walking Beside Her</h1>
+    <p class="hero-lead">"You already showed up once. This is you, showing up again."</p>
     <div class="hero-actions">
-      <a class="btn-hero" href="walking-beside-her.html">Open the walking beside her Guide</a>
-      <a class="btn-ghost" href="checkout.html">Get the kit →</a>
-    </div>
-    <div class="hero-checks">
-      <span>Kit-by-kit guidance</span>
-      <span>No pressure, her pace</span>
-      <span>Saved only on your device</span>
+      <a class="btn-hero" href="#before-you-begin">Start reading</a>
+      <a class="btn-ghost" href="companion-guide.html">Back to the Companion Guide</a>
     </div>
   </div>
 </section>
- 
-<!-- Feature strip -->
-<section class="features" aria-label="Why HerRhythm">
-  <div class="features-inner">
-    <article class="feature">
-      <div class="feature-icon">01</div>
-      <div class="label">Private planning</div>
-      <h3>Shaped around her</h3>
-      <p>Language and timing that respect where she is — not a script.</p>
-    </article>
-    <article class="feature">
-      <div class="feature-icon">02</div>
-      <div class="label">Clear guidance</div>
-      <h3>Myth vs fact cards</h3>
-      <p>Short truths you can use in the moment, without the lecture.</p>
-    </article>
-    <article class="feature">
-      <div class="feature-icon">03</div>
-      <div class="label">Response promise</div>
-      <h3>Ask when you need</h3>
-      <p>Bring questions to Ask-HerRhythm whenever something feels unclear.</p>
-    </article>
-    <article class="feature">
-      <div class="feature-icon">04</div>
-      <div class="label">Local care</div>
-      <h3>Rooted in context</h3>
-      <p>Designed for families and caregivers navigating real life here.</p>
-    </article>
+
+<!-- Intro -->
+<section class="section">
+  <p class="lede">We are a menstrual care ecosystem rooted in <span class="accent">education</span> and <span class="accent">community impact</span>, built by women who know these stories firsthand.</p>
+  <p class="lede"><em>We believe that understanding how your cycle affects your daily routine may provide an upper hand that allows you leverage the highs and navigate the lows.</em></p>
+
+  <div class="mv-grid">
+    <div class="mv-card">
+      <span class="eyebrow">Our Mission</span>
+      <p>We empower girls and women to navigate menstruation with dignity through trusted education, quality menstrual care, accessible healthcare, and community support — while creating measurable menstrual equity with every purchase.</p>
+    </div>
+    <div class="mv-card">
+      <span class="eyebrow">Our Vision</span>
+      <p>To become Africa's most trusted menstrual health companion, walking with every girl and woman through every stage of her menstrual journey while ensuring that every purchase creates lasting opportunities for another.</p>
+    </div>
   </div>
 </section>
- 
-<!-- Modules -->
-<!-- <section class="section">
-  <div class="section-head">
-    <h2>Where to begin</h2>
-    <p>Three core sections hold the journey. Start with the Companion Guide.</p>
+
+<!-- Module opener -->
+<section class="section">
+  <p class="module-tag">For Rising Moon Mums</p>
+  <p class="pull-quote">"You already showed up once. This is you, showing up again."</p>
+
+  <div class="callout" style="margin-top:28px;">
+    <span class="callout-icon">🚪</span>
+    <div class="callout-body">
+      <p class="callout-title">Two doors, one guide</p>
+      <p><strong>Continuing with her:</strong> you read Walking Beside Her at Menarche, this is your next chapter together.</p>
+      <p><strong>Starting here:</strong> she came to Rising Moon on her own, you're catching up on the conversation, not starting late.</p>
+    </div>
   </div>
-  <div class="module-grid">
-    <a class="module-card" href="walking-beside-her.html">
-      <span class="mod-num">01</span>
-      <h3>Walking Beside Her</h3>
-      <p>Presence, patience, and practical care.</p>
-      <span class="cta">Open guide →</span>
-    </a>
-    <a class="module-card" href="companion-guide.html">
-      <span class="mod-num">02</span>
-      <h3>The Companion Guide</h3>
-      <p>Kits, flip cards, and pledges — the guide is ready to use now.</p>
-      <span class="cta">Open guide →</span>
-    </a>
-    <a class="module-card" href="becoming-you.html">
-      <span class="mod-num">03</span>
-      <h3>Becoming You</h3>
-      <p>Growth and identity.</p>
-      <span class="cta">Open guide →</span>
-    </a>
+
+  <figure class="guide-figure">
+    <img src="images/transition_arc.svg" alt="The transition arc from Menarche to Rising Moon"/>
+  </figure>
+</section>
+
+<!-- Before You Begin -->
+<section class="section" id="before-you-begin">
+  <h2 class="chapter-title">Before You Begin</h2>
+  <p>The first guide was about a single day, <strong>her first period</strong>, and everything leading up to it.</p>
+  <p><strong>This one is about the next stretch,</strong> months and cycles, where the job changes from getting her through one moment to helping her own her entire rhythm.</p>
+  <p>You're not starting over. You're not done either. This is the middle chapter, the one where she starts doing more of this herself, and you're learning what your role looks like when she does.</p>
+  <p>A little about how this guide works, same as before:</p>
+  <ul class="guide-list">
+    <li>Each section still ends with a Mother's Moment.</li>
+    <li>You don't need to read it in one sitting.</li>
+    <li>Nothing here replaces a conversation, it just gives you a place to start one.</li>
+    <li>You are her mother, and us, we're just the guide, kudos to you mama 😊</li>
+  </ul>
+</section>
+
+<!-- 1. When to Loop In a Doctor -->
+<section class="section">
+  <h2 class="chapter-title">1. When to Loop In a Doctor</h2>
+  <div class="callout callout-warning">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-body">
+      <p class="callout-title">Worth a doctor's visit, not a reason to panic:</p>
+      <ul class="guide-list" style="margin-bottom:0;">
+        <li>Her period lasts longer than 7 days</li>
+        <li>Pain stops her from going to school or daily activities, and rest or heat doesn't ease it</li>
+        <li>She soaks a pad or liner in under an hour, for more than an hour or two</li>
+        <li>Her cycle changes suddenly and stays changed for more than one month</li>
+        <li>Anything that simply doesn't feel right to either of you</li>
+      </ul>
+    </div>
   </div>
-</section> -->
- 
+  <p>None of these are emergencies. They're simply reasons to check in, the same way you would for any other part of her growing body.</p>
+  <div class="moment">
+    <span class="moment-label">Mother's Moment</span>
+    <p>Save the Ask-HerRhythm number somewhere you'll actually find it at 11pm. That's the whole moment, just save the number.</p>
+  </div>
+</section>
+
+<!-- 2. Where She Is Now -->
+<section class="section">
+  <h2 class="chapter-title">2. Where She Is Now</h2>
+  <p class="chapter-kicker"><em>What changes once a period isn't a single event anymore, it's a pattern.</em></p>
+  <p>She's likely noticed her cycle isn't identical every month, and that's normal, not a sign something's off.</p>
+  <p>What's different now isn't the biology, it's the rhythm of it. She's moved from "this happened to me" to "this is part of how my month works."</p>
+  <p>That shift is worth naming out loud to her, she may not have noticed it herself yet.</p>
+  <div class="moment">
+    <span class="moment-label">Mother's Moment</span>
+    <p>Ask her, "What's different about your period now compared to when it first started?" Then just listen, you're not looking for a specific answer.</p>
+  </div>
+</section>
+
+<!-- 3. Keeping the Conversation Open -->
+<section class="section">
+  <h2 class="chapter-title">3. Keeping the Conversation Open</h2>
+  <p class="chapter-kicker"><em>The first conversation was hard because it was new. This one is hard for the opposite reason, it's easy to assume it's already been had.</em></p>
+  <p>The risk at this stage isn't silence, it's <strong>assumption</strong>. You already talked once, so it's tempting to think the topic is closed. It isn't.</p>
+  <p>Her questions now are different, more specific, more about her life than her body.</p>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Instead of...</th>
+        <th>Try…</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>"You know how this works by now."</td>
+        <td>Do you need any help with this?</td>
+      </tr>
+      <tr>
+        <td>"Did you take your kit?"</td>
+        <td>Have you packed your Dignibag?</td>
+      </tr>
+      <tr>
+        <td>"You're fine, right?"</td>
+        <td>Is there anything you'd like us to do together?</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="moment">
+    <span class="moment-label">Mother's Moment</span>
+    <p>Ask her one open question from the table above this week. Just one, don't turn it into an interview.</p>
+  </div>
+</section>
+
+<!-- 4. What She's Probably Feeling Now -->
+<section class="section">
+  <h2 class="chapter-title">4. What She's Probably Feeling Now</h2>
+  <p class="chapter-kicker"><em>Different fears than her first period. Less of "will everyone know," more of "is this ever going to feel manageable."</em></p>
+  <p>Where her first-period questions were about being seen, her questions now are more likely to be about being in control.</p>
+  <p>"Why does this month feel worse than last month?" "Is it normal that I still get caught off guard sometimes?"</p>
+  <p>She has a tool for this now, the Emotion Wheel from her own guide, name it, notice it, decide what helps. You don't need to run it for her. Just ask if she's using it.</p>
+  <div class="moment">
+    <span class="moment-label">Mother's Moment</span>
+    <p>Ask her, "Did you try the Emotion Wheel this month? What came up?" Let her answer carry the conversation.</p>
+  </div>
+</section>
+
+<!-- 5. Her Rising Moon Kit, Together -->
+<section class="section">
+  <h2 class="chapter-title">5. Her Rising Moon Kit, Together</h2>
+  <p class="chapter-kicker"><em>Less unboxing a gift, more checking in on what's working.</em></p>
+  <p>It's where she'll start hearing about product choices beyond pads and liners, cups and tampons, when she's ready and curious, not before.</p>
+  <ul class="guide-list">
+    <li><strong>Cycle Tracker:</strong> ask if she's actually logging it</li>
+    <li><strong>Product choices:</strong> go through the different options with her, work through your fears together</li>
+    <li><strong>Ask-HerRhythm:</strong> real answers, no judgment, for the questions she may not want to ask you directly yet.</li>
+    <li><strong>Live Empowered:</strong> As part of Her Kit, we have a Nutritionist, a Doctor and a Gynecologist on board. Reach out to us.</li>
+  </ul>
+  <div class="moment">
+    <span class="moment-label">Mother's Moment</span>
+    <p>Sit with her while she logs one entry in the Cycle Tracker, just once, so she knows you know it exists.</p>
+  </div>
+</section>
+
+<!-- 6. Helping Her Build Independence -->
+<section class="section">
+  <h2 class="chapter-title">6. Helping Her Build Independence</h2>
+  <p class="chapter-kicker"><em>Confidence was the goal at Menarche. Independence is the goal now.</em></p>
+  <ul class="guide-list">
+    <li>Managing her own kit inventory, noticing when something's running low</li>
+    <li>Deciding on her own when a symptom is worth mentioning to you versus just managing it</li>
+    <li>Knowing she can message <strong>Ask-HerRhythm</strong> herself, without routing every question through you</li>
+    <li>Starting to notice her own patterns, energy, mood, timing, without being told what to expect</li>
+  </ul>
+  <p>Each of these is you doing less, on purpose. That's not distance, that's the plan working.</p>
+  <div class="moment">
+    <span class="moment-label">Mother's Moment</span>
+    <p>Let her restock her own emergency pouch this month, without checking her work.</p>
+  </div>
+</section>
+
+<!-- 7. Did You Know? -->
+<section class="section section-wide">
+  <h2 class="chapter-title">7. Did You Know?</h2>
+  <div class="fact-grid">
+    <div class="fact-card">Girls who track their own cycle from early on report fewer surprises and less anxiety around their period. <strong>Tracking turns an unpredictable event into a known pattern.</strong></div>
+    <div class="fact-card">A cycle isn't fully settled for up to two years after it starts. If hers still varies month to month, that's still within normal range, not a reason to worry.</div>
+    <div class="fact-card">Daughters whose <strong>mothers stay engaged past the first period</strong>, not just during it, are more likely to come to them first when something feels wrong later on.</div>
+  </div>
+</section>
+
+<!-- What Comes Next -->
+<section class="section">
+  <h2 class="chapter-title">What Comes Next</h2>
+  <div class="callout">
+    <span class="callout-icon">🔮</span>
+    <div class="callout-body">
+      <p>Her next kit brings <strong>Owning Your Rhythm</strong>, Module 2 of her <strong>Becoming You curriculum</strong>. A second <strong>Walking Beside Her guide</strong> unlocks around her third certificate, when her needs shift again, from partnership to trust. You'll know when that one arrives.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Your Daughter Is Growing -->
+<section class="section">
+  <h2 class="chapter-title">8. Your Daughter Is Growing</h2>
+  <p><strong>She still needs you.</strong> Not the way she did at eleven, but she needs you.</p>
+  <p>Puberty didn't mean she needed you less, it meant she needed you differently, and that's still true now, further down the road.</p>
+  <p>There will be months she wants to talk it through in detail, and months she wants to handle it entirely on her own and say nothing.</p>
+  <p>Both are her trusting you'll be there either way.</p>
+</section>
+
+<!-- Mum's Reflection -->
+<section class="section">
+  <h2 class="chapter-title">Mum's Reflection</h2>
+  <p class="chapter-kicker"><em>A page for you, not her.</em></p>
+
+  <p class="reflection-prompt">What's changed in how I talk to her about this, since her first period...</p>
+  <div class="reflection-box"></div>
+
+  <p class="reflection-prompt">What I'm learning to let go of...</p>
+  <div class="reflection-box"></div>
+
+  <p class="reflection-prompt">What I still want to say to her, someday...</p>
+  <div class="reflection-box"></div>  
+</section>
+
 <footer class="site-footer">
-  <p>Created by <strong>HerRhythm Care</strong></p>
+  <a class="topbar-logo" href="index.html" aria-label="HerRhythm Care home">
+    <img class="logo-light" src="images/logos/herRyhthmLight.png" alt="HerRhythm Care"/>
+    <img class="logo-dark" src="images/logos/herRyhthmDark.png" alt="HerRhythm Care"/>
+  </a>
   <p>&copy; 2026 HerRhythm Care. All rights reserved.</p>
 </footer>
 <a class="fab-wa" href="https://wa.me/254795500696" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
@@ -720,6 +958,7 @@
 </button>
 
 <script>
+
     (function () {
       var btn = document.getElementById('themeToggle');
       if (btn) {
@@ -745,7 +984,10 @@
       }
     })();
 </script>
+
+<!-- Reusable client feedback -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/client-feedback-config.js"></script>
+<script src="assets/client-feedback.js"></script>
 </body>
 </html>
- 
-

@@ -979,11 +979,11 @@
         <div class="field-grid">
           <div class="field full">
             <label for="fullName">Full name</label>
-            <input type="text" id="fullName" name="fullName" placeholder="Jane Wanjiru" required>
+            <input type="text" id="fullName" name="fullName" placeholder="Janet Wanjiru" required>
           </div>
           <div class="field">
             <label for="email">Email address</label>
-            <input type="email" id="email" name="email" placeholder="jane@email.com" required>
+            <input type="email" id="email" name="email" placeholder="janet@email.com" required>
           </div>
           <div class="field">
             <label for="phone">Phone number</label>
@@ -1018,7 +1018,7 @@
         <div class="pay-panel is-active" id="panel-card">
           <div class="field full">
             <label for="cardName">Name on card</label>
-            <input type="text" id="cardName" placeholder="Jane Wanjiru" autocomplete="cc-name">
+            <input type="text" id="cardName" placeholder="Janet Wanjiru" autocomplete="cc-name">
           </div>
           <div class="field full field-icon-wrap">
             <label for="cardNumber">Card number</label>
@@ -1091,11 +1091,11 @@
           <button type="button">Apply</button>
         </div>
 
-        <div class="order-line"><span>Subtotal</span><span>KSh 2,500</span></div>
+        <div class="order-line"><span>Subtotal</span><span>KSh 0</span></div>
         <div class="order-line"><span>Processing fee</span><span>KSh 0</span></div>
-        <div class="order-line total"><span>Total due</span><span>KSh 2,500</span></div>
+        <div class="order-line total"><span>Total due</span><span>KSh 0</span></div>
 
-        <button type="submit" class="pay-cta" id="payCta">Pay KSh 2,500 →</button>
+        <button type="submit" class="pay-cta" id="payCta">Pay</button>
 
         <div class="secure-badge">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
@@ -1111,10 +1111,12 @@
       </div>
     </aside>
   </form>
-</section>
- 
+</section> 
 <footer class="site-footer">
-  <p>Created by <strong>HerRhythm Care</strong></p>
+  <a class="topbar-logo" href="index.html" aria-label="HerRhythm Care home">
+    <img class="logo-light" src="images/logos/herRyhthmLight.png" alt="HerRhythm Care"/>
+    <img class="logo-dark" src="images/logos/herRyhthmDark.png" alt="HerRhythm Care"/>
+  </a>
   <p>&copy; 2026 HerRhythm Care. All rights reserved.</p>
 </footer>
 <a class="fab-wa" href="https://wa.me/254795500696" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
@@ -1124,7 +1126,6 @@
   <span class="icon-moon">☾</span>
   <span class="icon-sun">☀</span>
 </button>
-
 <script>
     (function () {
       var btn = document.getElementById('themeToggle');
@@ -1235,7 +1236,6 @@
       }
     })();
 </script>
-
 <!-- Reusable client feedback -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="assets/client-feedback-config.js"></script>

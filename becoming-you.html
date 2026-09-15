@@ -1515,14 +1515,13 @@
           <span>She started on her own — this is the clear breakdown she may never have gotten the first time.</span>
         </div>
       </div>
-
       <!-- 1. Cycle explained -->
       <section class="section" id="cycle">
         <span class="eyebrow">Section 1</span>
         <h2>Your Cycle, Explained</h2>
         <p class="tagline">It’s not just the bleed days.</p>
         <p>Your cycle is counted from the first day of one period to the first day of the next, usually <strong>21 to 35 days</strong>. It runs in four phases, on repeat, whether or not you’re bleeding that week.</p>
-        <img class="cycle-img" src="image.png" alt="The 4 phases of your menstrual cycle"/>
+        <img class="cycle-img" src="images/4phases.png" alt="The 4 phases of your menstrual cycle"/>
         <table class="data-table">
           <thead>
             <tr><th>Phase</th><th>Roughly</th><th>What’s happening</th></tr>
@@ -1539,7 +1538,7 @@
 
         <div class="phase-grid">
           <article class="phase-card">
-            <img src="MENSTRUAL_PHASE.png" alt="Menstrual phase illustration"/>
+            <img src="images/MENSTRUAL_PHASE.png" alt="Menstrual phase illustration"/>
             <div class="phase-body">
               <span class="days">Days 1–5</span>
               <h3>Menstrual phase</h3>
@@ -1547,7 +1546,7 @@
             </div>
           </article>
           <article class="phase-card">
-            <img src="FOLLICULAR_PHASE.png" alt="Follicular phase illustration"/>
+            <img src="images/FOLLICULAR_PHASE.png" alt="Follicular phase illustration"/>
             <div class="phase-body">
               <span class="days">Days 6–14</span>
               <h3>Follicular phase</h3>
@@ -1555,7 +1554,7 @@
             </div>
           </article>
           <article class="phase-card">
-            <img src="OVULATION_PHASE.png" alt="Ovulation phase illustration"/>
+            <img src="images/OVULATION_PHASE.png" alt="Ovulation phase illustration"/>
             <div class="phase-body">
               <span class="days">Around day 14</span>
               <h3>Ovulation phase</h3>
@@ -1563,7 +1562,7 @@
             </div>
           </article>
           <article class="phase-card">
-            <img src="LUTEAL_PHASE.png" alt="Luteal phase illustration"/>
+            <img src="images/LUTEAL_PHASE.png" alt="Luteal phase illustration"/>
             <div class="phase-body">
               <span class="days">Days 15–28</span>
               <h3>Luteal phase</h3>
@@ -1658,7 +1657,7 @@
           <div class="ico" aria-hidden="true">📝</div>
           <div class="txt">Guidance drawn from published nutrition sources. Still pending review by a qualified nutritionist before this is treated as final.</div>
         </div>
-        <img class="nutri-img" src="nutrition_split.svg" alt="Eat more and eat less nutrition guide"/>
+        <img class="nutri-img" src="images/NUTRITION_SPLIT.png" alt="Eat more and eat less nutrition guide"/>
         <p><strong>Iron</strong> drops during your period — replacing it keeps fatigue at bay. Pair iron-rich foods with vitamin C so your body absorbs more.</p>
         <p><strong>Magnesium</strong> relaxes the muscle that causes cramps, and most people don’t get enough through diet alone.</p>
         <p><strong>Omega-3s</strong> from fish may ease cramp intensity. <strong>Water</strong> keeps bloating and headaches down.</p>
@@ -1750,15 +1749,17 @@
         </ul>
       </div>
 
-      <img class="logo-end" src="hrc1.png" alt="HerRhythm Care — Know your rhythm. Flow with it. Live empowered."/>
+      <!-- <img class="logo-end" src="hrc1.png" alt="HerRhythm Care — Know your rhythm. Flow with it. Live empowered."/> -->
 
       <div class="by-actions">
         <a class="primary" href="companion-guide.html">Companion Guide</a>
         <a href="checkout.html">Get the kit</a>
       </div>
-
       <footer class="site-footer">
-        <p class="created-by">Created by <strong>HerRhythm Care</strong></p>
+        <a class="topbar-logo" href="index.html" aria-label="HerRhythm Care home">
+          <img class="logo-light" src="images/logos/herRyhthmLight.png" alt="HerRhythm Care"/>
+          <img class="logo-dark" src="images/logos/herRyhthmDark.png" alt="HerRhythm Care"/>
+        </a>
         <p>&copy; 2026 HerRhythm Care. All rights reserved.</p>
       </footer>
     </div>
@@ -1769,31 +1770,31 @@
     </button>
 
     <script>
-    (function () {
-      var btn = document.getElementById('themeToggle');
-      if (btn) {
-        function current() {
-          return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      (function () {
+        var btn = document.getElementById('themeToggle');
+        if (btn) {
+          function current() {
+            return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+          }
+          function apply(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            try { localStorage.setItem('cg_theme', theme); } catch (e) {}
+            btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+            btn.title = theme === 'dark' ? 'Light mode' : 'Dark mode';
+          }
+          apply(current());
+          btn.addEventListener('click', function () {
+            apply(current() === 'dark' ? 'light' : 'dark');
+          });
         }
-        function apply(theme) {
-          document.documentElement.setAttribute('data-theme', theme);
-          try { localStorage.setItem('cg_theme', theme); } catch (e) {}
-          btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-          btn.title = theme === 'dark' ? 'Light mode' : 'Dark mode';
+        var toggle = document.getElementById('navToggle');
+        var nav = document.getElementById('siteNav');
+        if (toggle && nav) {
+          toggle.addEventListener('click', function () {
+            nav.classList.toggle('open');
+          });
         }
-        apply(current());
-        btn.addEventListener('click', function () {
-          apply(current() === 'dark' ? 'light' : 'dark');
-        });
-      }
-      var toggle = document.getElementById('navToggle');
-      var nav = document.getElementById('siteNav');
-      if (toggle && nav) {
-        toggle.addEventListener('click', function () {
-          nav.classList.toggle('open');
-        });
-      }
-    })();
+      })();
     </script>
   
 <!-- Reusable client feedback -->
