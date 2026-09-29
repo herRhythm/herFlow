@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#3E2745">
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%20%20%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%233E2745%22/%3E%20%20%3Cpath%20d%3D%22M16%207c-4.5%204-7.5%207.2-7.5%2011.2%200%204.2%203.3%207.3%207.5%207.3s7.5-3.1%207.5-7.3c0-4-3-7.2-7.5-11.2z%22%20fill%3D%22%23E13C6E%22/%3E%3C/svg%3E" type="image/svg+xml">
-  <title>Checkout</title>
+  <title>Checkout · HerRhythm Care</title>
+  <meta name="referrer" content="no-referrer">
+  <link rel="stylesheet" href="assets/checkout.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -624,7 +626,7 @@
       }
       .checkout-steps span.is-current {
         background: #fff;
-        color: var(--plum-deep);
+        color: #2F1C36;
       }
 
       .checkout-section {
@@ -916,7 +918,6 @@
         }
       })();
   </script>
-  <link rel="stylesheet" href="assets/client-feedback.css">
 </head>
 <body>
  
@@ -960,158 +961,87 @@
   <div class="checkout-hero-inner">
     <span class="eyebrow">Private care · Guided at her pace</span>
     <h1>Secure checkout</h1>
-    <p>Your details are used only to complete this order and are never shared. Choose whichever payment method feels easiest.</p>
+    <p>Choose your kit and enter your delivery details. Payment is completed securely on Paystack; your contact details are used to process payment and fulfil your order.</p>
     <div class="checkout-steps">
       <span>Cart</span>
-      <span class="is-current">Payment</span>
-      <span>Confirmation</span>
+      <span class="is-current" id="paymentStep">Payment</span>
+      <span id="confirmationStep">Confirmation</span>
     </div>
   </div>
 </section>
 
 <!-- Checkout form -->
 <section class="checkout-section">
-  <form class="checkout-wrap" id="checkoutForm">
-    <div class="checkout-main">
-
+  <div class="checkout-notice" id="checkoutStatus" role="status" aria-live="polite" tabindex="-1">Loading checkout…</div>
+  <noscript><p>JavaScript is required for online payment. <a href="https://wa.me/254795500696">Contact HerRhythm to order</a>.</p></noscript>
+  <form class="checkout-wrap" id="checkoutForm" novalidate>
+    <fieldset class="checkout-main" id="orderFields" disabled>
+      <legend class="sr-only">Order details</legend>
       <div class="checkout-card">
-        <h2>Contact details</h2>
+        <h2>Choose your kit</h2>
+        <div class="field full">
+          <label for="kit">Kit</label>
+          <select id="kit" name="kit" required aria-describedby="kitError">
+            <option value="menarche">Menarche Kit — KSh 6,800</option>
+            <option value="rising-moon">Rising Moon Full Kit — KSh 6,800</option>
+            <option value="rising-moon-opt-out">Rising Moon Kit — Opt-out — KSh 6,500</option>
+          </select>
+          <span class="field-error" id="kitError"></span>
+        </div>
+        <p>One kit per order. Rising Moon covers one month; this payment does not start an automatic subscription.</p>
+      </div>
+      <div class="checkout-card">
+        <h2>Contact and delivery</h2>
         <div class="field-grid">
           <div class="field full">
             <label for="fullName">Full name</label>
-            <input type="text" id="fullName" name="fullName" placeholder="Janet Wanjiru" required>
+            <input id="fullName" name="fullName" autocomplete="name" maxlength="100" required aria-describedby="fullNameError">
+            <span class="field-error" id="fullNameError"></span>
           </div>
           <div class="field">
             <label for="email">Email address</label>
-            <input type="email" id="email" name="email" placeholder="janet@email.com" required>
+            <input type="email" id="email" name="email" autocomplete="email" maxlength="254" required aria-describedby="emailError">
+            <span class="field-error" id="emailError"></span>
           </div>
           <div class="field">
-            <label for="phone">Phone number</label>
-            <input type="tel" id="phone" name="phone" placeholder="+254 7XX XXX XXX" required>
+            <label for="phone">Kenyan mobile number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="0712 345 678" maxlength="30" required aria-describedby="phoneError">
+            <span class="field-error" id="phoneError"></span>
+          </div>
+          <div class="field full">
+            <label for="address">Delivery address (Kenya)</label>
+            <textarea id="address" name="address" autocomplete="street-address" rows="3" maxlength="500" placeholder="Town, street, building and delivery instructions" required aria-describedby="addressError"></textarea>
+            <span class="field-error" id="addressError"></span>
           </div>
         </div>
       </div>
-
       <div class="checkout-card">
-        <h2>Payment method</h2>
-
-        <div class="pay-methods" role="tablist" aria-label="Payment method">
-          <button type="button" class="pay-method is-active" data-method="card" role="tab" aria-selected="true">
-            <span class="pm-icon pm-card">VISA</span>
-            Card
-          </button>
-          <button type="button" class="pay-method" data-method="paypal" role="tab" aria-selected="false">
-            <span class="pm-icon pm-paypal">PP</span>
-            PayPal
-          </button>
-          <button type="button" class="pay-method" data-method="mpesa" role="tab" aria-selected="false">
-            <span class="pm-icon pm-mpesa">M</span>
-            M-Pesa
-          </button>
-          <button type="button" class="pay-method" data-method="airtel" role="tab" aria-selected="false">
-            <span class="pm-icon pm-airtel">A</span>
-            Airtel Money
-          </button>
-        </div>
-
-        <!-- Card panel -->
-        <div class="pay-panel is-active" id="panel-card">
-          <div class="field full">
-            <label for="cardName">Name on card</label>
-            <input type="text" id="cardName" placeholder="Janet Wanjiru" autocomplete="cc-name">
-          </div>
-          <div class="field full field-icon-wrap">
-            <label for="cardNumber">Card number</label>
-            <input type="text" id="cardNumber" inputmode="numeric" placeholder="4242 4242 4242 4242" maxlength="19" autocomplete="cc-number">
-            <span class="card-brand-icon" id="cardBrandIcon">VISA</span>
-          </div>
-          <div class="field-grid">
-            <div class="field">
-              <label for="cardExpiry">Expiry (MM/YY)</label>
-              <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" autocomplete="cc-exp">
-            </div>
-            <div class="field">
-              <label for="cardCvv">CVV</label>
-              <input type="text" id="cardCvv" inputmode="numeric" placeholder="123" maxlength="4" autocomplete="cc-csc">
-            </div>
-          </div>
-          <label class="save-card-row">
-            <input type="checkbox" id="saveCard"> Save this card for future orders
-          </label>
-        </div>
-
-        <!-- PayPal panel -->
-        <div class="pay-panel" id="panel-paypal">
-          <div class="pay-note">
-            <span>🅿️</span>
-            <span><strong>Pay with PayPal.</strong> You'll be redirected to PayPal to log in and confirm this payment securely, then brought back here to finish.</span>
-          </div>
-        </div>
-
-        <!-- M-Pesa panel -->
-        <div class="pay-panel" id="panel-mpesa">
-          <div class="field full">
-            <label for="mpesaPhone">M-Pesa phone number</label>
-            <input type="tel" id="mpesaPhone" placeholder="07XX XXX XXX">
-          </div>
-          <div class="pay-note">
-            <span>📲</span>
-            <span><strong>You'll get an STK push.</strong> Enter your M-Pesa PIN on your phone to approve the payment once you tap the button below.</span>
-          </div>
-        </div>
-
-        <!-- Airtel Money panel -->
-        <div class="pay-panel" id="panel-airtel">
-          <div class="field full">
-            <label for="airtelPhone">Airtel Money phone number</label>
-            <input type="tel" id="airtelPhone" placeholder="07XX XXX XXX">
-          </div>
-          <div class="pay-note">
-            <span>📲</span>
-            <span><strong>You'll get a payment prompt.</strong> Approve it on your phone with your Airtel Money PIN to complete the order.</span>
-          </div>
-        </div>
-
+        <h2>Payment</h2>
+        <p>You will continue to Paystack to choose from the card and mobile-money methods available for this order. Enter card details or approve mobile payment only there.</p>
+        <p>Keep your order reference. If payment is interrupted, return here to check its status before paying again.</p>
       </div>
-    </div>
-
+    </fieldset>
     <aside class="checkout-aside">
       <div class="checkout-card order-summary">
         <h2>Order summary</h2>
-        <div class="order-item">
-          <div class="thumb" aria-hidden="true"></div>
-          <div>
-            <div class="name">The Companion Guide Kit</div>
-            <div class="desc">Digital access · Kits, flip cards &amp; pledges</div>
-          </div>
-        </div>
-
-        <div class="promo-row">
-          <input type="text" placeholder="Promo code">
-          <button type="button">Apply</button>
-        </div>
-
-        <div class="order-line"><span>Subtotal</span><span>KSh 0</span></div>
+        <div class="order-item"><div>
+          <div class="name" id="kitName">Menarche Kit</div>
+          <div class="desc" id="kitDescription">One kit · packaging and delivery included</div>
+        </div></div>
+        <div class="order-line"><span>Subtotal</span><span id="subtotal">KSh 6,800</span></div>
         <div class="order-line"><span>Processing fee</span><span>KSh 0</span></div>
-        <div class="order-line total"><span>Total due</span><span>KSh 0</span></div>
-
-        <button type="submit" class="pay-cta" id="payCta">Pay</button>
-
-        <div class="secure-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-          256-bit encrypted &amp; PCI-compliant checkout
-        </div>
-        <div class="trust-row">
-          <span>VISA</span>
-          <span>MASTERCARD</span>
-          <span>PAYPAL</span>
-          <span>M-PESA</span>
-          <span>AIRTEL MONEY</span>
-        </div>
+        <div class="order-line total"><span id="totalLabel">Total due</span><span id="total">KSh 6,800</span></div>
+        <button type="submit" class="pay-cta" id="payCta" disabled>Continue to payment</button>
+        <p id="orderReference"></p>
+        <a class="pay-cta" id="resumePayment" hidden>Continue existing payment</a>
+        <button type="button" id="checkStatus" hidden>Check payment status</button>
+        <button type="button" id="retryPayment" hidden>Retry opening this order</button>
+        <button type="button" id="newOrder" hidden>Start another order</button>
+        <p><a href="https://wa.me/254795500696" rel="noopener">Contact HerRhythm for help</a></p>
       </div>
     </aside>
   </form>
-</section> 
+</section>
 <footer class="site-footer">
   <a class="topbar-logo" href="index.html" aria-label="HerRhythm Care home">
     <img class="logo-light" src="images/logos/herRyhthmLight.png" alt="HerRhythm Care"/>
@@ -1152,95 +1082,7 @@
       }
     })();
 
-    (function () {
-      var methods = document.querySelectorAll('.pay-method');
-      var panels = document.querySelectorAll('.pay-panel');
-      var payCta = document.getElementById('payCta');
-      var total = 'KSh 2,500';
-      var labels = {
-        card: 'Pay ' + total + ' →',
-        paypal: 'Continue to PayPal →',
-        mpesa: 'Send M-Pesa prompt →',
-        airtel: 'Send Airtel Money prompt →'
-      };
-
-      function selectMethod(method) {
-        methods.forEach(function (btn) {
-          var active = btn.getAttribute('data-method') === method;
-          btn.classList.toggle('is-active', active);
-          btn.setAttribute('aria-selected', active ? 'true' : 'false');
-        });
-        panels.forEach(function (panel) {
-          panel.classList.toggle('is-active', panel.id === 'panel-' + method);
-        });
-        if (payCta && labels[method]) payCta.textContent = labels[method];
-      }
-
-      methods.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          selectMethod(btn.getAttribute('data-method'));
-        });
-      });
-
-      // Card number: space every 4 digits + basic brand detection
-      var cardNumber = document.getElementById('cardNumber');
-      var cardBrandIcon = document.getElementById('cardBrandIcon');
-      if (cardNumber) {
-        cardNumber.addEventListener('input', function () {
-          var digits = cardNumber.value.replace(/\D/g, '').slice(0, 16);
-          cardNumber.value = digits.replace(/(.{4})/g, '$1 ').trim();
-          if (cardBrandIcon) {
-            if (/^4/.test(digits)) cardBrandIcon.textContent = 'VISA';
-            else if (/^5[1-5]/.test(digits)) cardBrandIcon.textContent = 'MASTERCARD';
-            else if (/^3[47]/.test(digits)) cardBrandIcon.textContent = 'AMEX';
-            else cardBrandIcon.textContent = 'CARD';
-          }
-        });
-      }
-
-      // Expiry MM/YY auto-format
-      var cardExpiry = document.getElementById('cardExpiry');
-      if (cardExpiry) {
-        cardExpiry.addEventListener('input', function () {
-          var digits = cardExpiry.value.replace(/\D/g, '').slice(0, 4);
-          cardExpiry.value = digits.length > 2 ? digits.slice(0, 2) + '/' + digits.slice(2) : digits;
-        });
-      }
-
-      // CVV numeric only
-      var cardCvv = document.getElementById('cardCvv');
-      if (cardCvv) {
-        cardCvv.addEventListener('input', function () {
-          cardCvv.value = cardCvv.value.replace(/\D/g, '').slice(0, 4);
-        });
-      }
-
-      // Submit (demo — no backend wired up)
-      var form = document.getElementById('checkoutForm');
-      if (form) {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          var active = document.querySelector('.pay-method.is-active');
-          var method = active ? active.getAttribute('data-method') : 'card';
-          if (payCta) {
-            var original = payCta.textContent;
-            payCta.textContent = 'Processing…';
-            payCta.disabled = true;
-            setTimeout(function () {
-              alert('This is a demo checkout — connect a payment processor (Stripe, PayPal, M-Pesa Daraja, or Airtel Money API) to accept a real ' + method + ' payment.');
-              payCta.textContent = original;
-              payCta.disabled = false;
-            }, 900);
-          }
-        });
-      }
-    })();
 </script>
-<!-- Reusable client feedback -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/client-feedback-config.js"></script>
-<script src="assets/client-feedback.js"></script>
+<script type="module" src="assets/checkout.js"></script>
 </body>
 </html>
- 
-
