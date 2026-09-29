@@ -1,0 +1,45 @@
+html { color-scheme: light; }
+html[data-theme="dark"] { color-scheme: dark; }
+/* An explicit palette keeps the control readable on every page and theme. */
+#themeToggle {
+  position: fixed;
+  left: max(18px, env(safe-area-inset-left, 0px));
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 9991;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: auto;
+  min-width: 92px;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #5c3d66;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #2f1c36;
+  box-shadow: 0 3px 12px #0002;
+  font: 600 14px/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+html[data-theme="dark"] #themeToggle { background: #2f1c36; color: #fff7f9; border-color: #e8bfdc; }
+#themeToggle > span:first-child { font-size: 22px; }
+#themeToggle:focus-visible { outline: 3px solid #e13c6e; outline-offset: 3px; }
+@media print { #themeToggle { display: none; } }
+
+/* The downloadable companion has its own palette and no previous dark theme. */
+html[data-theme="dark"] .digital-guide {
+  --cream: #19151e;
+  --paper: #27212d;
+  --ink: #fff7f9;
+  --plum: #e7bfdf;
+  --plum-deep: #f3d5ed;
+  --pink: #ff94b4;
+  --sage: #95dfb0;
+  --sage-soft: #203a2a;
+}
+html[data-theme="dark"] .digital-guide .hero,
+html[data-theme="dark"] .digital-guide .pledge-card { background: linear-gradient(160deg,#3e2745,#5b3a63); color: #fff7f9; }
+html[data-theme="dark"] .digital-guide .back { background: #34283d; }
+html[data-theme="dark"] .digital-guide .mvf-block.myth .mvf-text { color: #decfe2; }
+html[data-theme="dark"] .digital-guide .sign-row input { color: #fff7f9; }

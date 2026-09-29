@@ -2,6 +2,15 @@
 
 The root HTML files are the live site; `dev/` holds historical snapshots.
 
+## Theme
+
+All nine live site pages and the digital Companion Guide load `assets/theme.js`
+and `assets/theme.css`. Light is the default, independent of device appearance.
+The fixed Light/Dark button saves an explicit selection under `cg_theme` and
+keeps it across page navigation. Missing, invalid or inaccessible storage falls
+back to light. Historical `dev/` snapshots and the raw `file.html` content draft
+are not live site pages.
+
 ## Pricing and scope
 
 September 15 commit `8533a61` replaced the checkout's KSh 2,500 summary with zero,
