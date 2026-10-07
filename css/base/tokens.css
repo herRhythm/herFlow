@@ -1,0 +1,19 @@
+/* Design tokens shared by the marketing pages. Experience pages override these in their own style block. */
+
+:root {
+  --cream: #FBF7F4;
+  --cream-deep: #F3ECE7;
+  --plum: #5C3D66;
+  --plum-deep: #2F1C36;
+  --pink: #E11D60;
+  --pink-hot: #F0437A;
+  --gold: #C9952A;
+  --ink: #2A2226;
+  --ink-soft: #5C5358;
+  --paper: #FFFFFF;
+  --line: rgba(47, 28, 54, 0.08);
+  --line-strong: rgba(47, 28, 54, 0.14);
+  --maroon: #6B1E2B;
+  --maroon-mid: #8B2E3C;
+  --safe-b: env(safe-area-inset-bottom, 0px);
+}
