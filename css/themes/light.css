@@ -41,51 +41,84 @@ html[data-theme="light"] .holiday-card {
   color: var(--ink);
 }
 
-html[data-theme="light"] .hero,
-html[data-theme="light"] .mn-banner,
-html[data-theme="light"] .promise,
-html[data-theme="light"] .pledge-card,
+/* Brand-colored bands. Still lighter than dark mode, but not a washed cream. */
+html[data-theme="light"] .hero {
+  background:
+    radial-gradient(ellipse at 88% 0%, rgba(255, 196, 120, 0.55), transparent 42%),
+    radial-gradient(ellipse at 8% 100%, rgba(92, 61, 102, 0.35), transparent 46%),
+    linear-gradient(150deg, #e11d60 0%, #c43b74 38%, #8b4a6e 72%, #c9952a 130%);
+  color: #fff7f9;
+}
+
 html[data-theme="light"] .impact-band {
   background:
-    radial-gradient(ellipse at 80% 20%, rgba(225, 29, 96, 0.16), transparent 46%),
-    linear-gradient(165deg, #fffdfb 0%, #f8ecec 42%, #f3e4ee 100%);
-  color: var(--plum-deep);
+    radial-gradient(ellipse at 80% 120%, rgba(232, 197, 106, 0.7), transparent 48%),
+    linear-gradient(155deg, #5c3d66 0%, #8b2e3c 46%, #c9952a 120%);
+  color: #fff7f9;
+}
+
+html[data-theme="light"] .pledge-card,
+html[data-theme="light"] .mn-banner,
+html[data-theme="light"] .promise {
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(255, 214, 150, 0.45), transparent 42%),
+    linear-gradient(155deg, #6b1e2b 0%, #a33d58 48%, #c9952a 125%);
+  color: #fff7f9;
 }
 
 html[data-theme="light"] .hero h1,
 html[data-theme="light"] .hero-lead,
 html[data-theme="light"] .hero-eyebrow,
+html[data-theme="light"] .hero .eyebrow,
 html[data-theme="light"] .hero-checks,
 html[data-theme="light"] .hero-checks span,
-html[data-theme="light"] .impact-band h2,
-html[data-theme="light"] .impact-band p,
-html[data-theme="light"] .impact-band .eyebrow,
-html[data-theme="light"] .impact-stats span,
-html[data-theme="light"] .mn-banner,
-html[data-theme="light"] .promise,
-html[data-theme="light"] .pledge-card {
-  color: var(--plum-deep);
+html[data-theme="light"] .hero p {
+  color: #fff7f9;
 }
 
 html[data-theme="light"] .hero-eyebrow,
+html[data-theme="light"] .hero .eyebrow {
+  color: #ffe3ec;
+}
+
+html[data-theme="light"] .hero-checks span::before {
+  color: #ffe08a;
+}
+
+html[data-theme="light"] .impact-band h2,
+html[data-theme="light"] .impact-band p,
 html[data-theme="light"] .impact-band .eyebrow,
 html[data-theme="light"] .impact-stats span {
-  color: var(--plum);
+  color: #fff7f9;
 }
 
-html[data-theme="light"] .hero-checks span::before,
+html[data-theme="light"] .impact-band .eyebrow,
 html[data-theme="light"] .impact-stats strong {
-  color: var(--pink);
+  color: #ffe08a;
 }
 
-html[data-theme="light"] .btn-ghost {
-  background: rgba(47, 28, 54, 0.04);
-  color: var(--plum-deep) !important;
-  border-color: var(--line-strong);
+html[data-theme="light"] .pledge-card,
+html[data-theme="light"] .pledge-card h3,
+html[data-theme="light"] .pledge-card .eyebrow,
+html[data-theme="light"] .pledge-card li,
+html[data-theme="light"] .pledge-card p,
+html[data-theme="light"] .mn-banner,
+html[data-theme="light"] .promise {
+  color: #fff7f9;
+}
+
+html[data-theme="light"] .pledge-card .eyebrow {
+  color: #ffe08a;
+}
+
+html[data-theme="light"] .hero .btn-ghost {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.45);
 }
 
 html[data-theme="light"] .hero-badge {
-  background: rgba(255, 255, 255, 0.88);
-  color: var(--plum-deep);
-  border-color: var(--line-strong);
+  background: rgba(47, 28, 54, 0.45);
+  color: #fff7f9;
+  border-color: rgba(255, 255, 255, 0.22);
 }
