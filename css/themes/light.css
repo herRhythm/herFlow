@@ -1,0 +1,91 @@
+/* Explicit light theme. Dark mode stays on html[data-theme="dark"]. */
+html[data-theme="light"] {
+  color-scheme: light;
+  --cream: #FBF7F4;
+  --cream-deep: #F3ECE7;
+  --plum: #5C3D66;
+  --plum-deep: #2F1C36;
+  --plum-mid: #4A2F52;
+  --pink: #E11D60;
+  --pink-hot: #F0437A;
+  --pink-soft: #FCE4EC;
+  --pink-mist: rgba(225, 29, 96, 0.08);
+  --sage: #1F9A5C;
+  --sage-soft: #E6F7EE;
+  --gold: #C9952A;
+  --gold-soft: #FBF0D6;
+  --ink: #2A2226;
+  --ink-soft: #5C5358;
+  --paper: #FFFFFF;
+  --line: rgba(47, 28, 54, 0.08);
+  --line-strong: rgba(47, 28, 54, 0.14);
+  --maroon: #6B1E2B;
+  --maroon-mid: #8B2E3C;
+}
+
+html[data-theme="light"] body {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+html[data-theme="light"] .topbar,
+html[data-theme="light"] .mainnav,
+html[data-theme="light"] .features,
+html[data-theme="light"] .module-card,
+html[data-theme="light"] .pillar,
+html[data-theme="light"] .experience-card,
+html[data-theme="light"] .benefit-card,
+html[data-theme="light"] .loyalty-card,
+html[data-theme="light"] .holiday-card {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+html[data-theme="light"] .hero,
+html[data-theme="light"] .mn-banner,
+html[data-theme="light"] .promise,
+html[data-theme="light"] .pledge-card,
+html[data-theme="light"] .impact-band {
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(225, 29, 96, 0.16), transparent 46%),
+    linear-gradient(165deg, #fffdfb 0%, #f8ecec 42%, #f3e4ee 100%);
+  color: var(--plum-deep);
+}
+
+html[data-theme="light"] .hero h1,
+html[data-theme="light"] .hero-lead,
+html[data-theme="light"] .hero-eyebrow,
+html[data-theme="light"] .hero-checks,
+html[data-theme="light"] .hero-checks span,
+html[data-theme="light"] .impact-band h2,
+html[data-theme="light"] .impact-band p,
+html[data-theme="light"] .impact-band .eyebrow,
+html[data-theme="light"] .impact-stats span,
+html[data-theme="light"] .mn-banner,
+html[data-theme="light"] .promise,
+html[data-theme="light"] .pledge-card {
+  color: var(--plum-deep);
+}
+
+html[data-theme="light"] .hero-eyebrow,
+html[data-theme="light"] .impact-band .eyebrow,
+html[data-theme="light"] .impact-stats span {
+  color: var(--plum);
+}
+
+html[data-theme="light"] .hero-checks span::before,
+html[data-theme="light"] .impact-stats strong {
+  color: var(--pink);
+}
+
+html[data-theme="light"] .btn-ghost {
+  background: rgba(47, 28, 54, 0.04);
+  color: var(--plum-deep) !important;
+  border-color: var(--line-strong);
+}
+
+html[data-theme="light"] .hero-badge {
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--plum-deep);
+  border-color: var(--line-strong);
+}
