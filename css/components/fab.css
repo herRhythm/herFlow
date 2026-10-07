@@ -1,0 +1,27 @@
+/* Floating WhatsApp button. */
+
+.fab-wa {
+          position: fixed;
+          right: 18px;
+          bottom: calc(18px + var(--safe-b));
+          z-index: 50;
+          width: 56px; height: 56px;
+          border-radius: 50%;
+          background: #25D366;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 28px;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+          border: none;
+          cursor: pointer;
+          text-decoration: none;
+          transition: transform .15s, box-shadow .15s, filter .15s;
+        }
+
+.fab-wa:hover {
+          transform: translateY(-2px) scale(1.05);
+          box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+          filter: brightness(1.05);
+        }

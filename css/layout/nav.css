@@ -1,0 +1,75 @@
+/* Sticky main navigation shared across root pages. */
+
+.mainnav {
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        position: sticky;
+        top: 0;
+        z-index: 40;
+      }
+
+.mainnav-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 52px;
+        flex-wrap: wrap;
+      }
+
+.mainnav a {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--plum-deep);
+        padding: 10px 18px;
+        position: relative;
+        border: 1.5px solid transparent;
+        border-radius: 999px;
+        background:
+          linear-gradient(var(--paper), var(--paper)) padding-box,
+          linear-gradient(135deg, var(--pink) 0%, var(--gold) 50%, var(--plum) 100%) border-box;
+        transition: color .2s ease, transform .2s ease, box-shadow .2s ease, background .2s ease;
+      }
+
+.mainnav a:hover {
+        color: #fff;
+        background:
+          linear-gradient(135deg, var(--pink) 0%, var(--pink-hot) 45%, var(--gold) 100%) border-box;
+        border-color: transparent;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px -8px rgba(225, 29, 96, 0.55);
+      }
+
+.mainnav a.active {
+        color: #fff;
+        font-weight: 700;
+        border-color: transparent;
+        background:
+          linear-gradient(135deg, var(--plum) 0%, var(--pink) 55%, var(--gold) 100%) border-box;
+        box-shadow: 0 8px 20px -8px rgba(92, 61, 102, 0.55);
+      }
+
+.mainnav a.active:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px -8px rgba(92, 61, 102, 0.6);
+      }
+
+.mainnav a.active::after {
+        content: none;
+      }
+
+.nav-toggle {
+        display: none;
+        margin: 8px auto;
+        border: 1px solid var(--line-strong);
+        background: var(--paper);
+        color: var(--plum-deep);
+        border-radius: 10px;
+        padding: 8px 14px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+      }

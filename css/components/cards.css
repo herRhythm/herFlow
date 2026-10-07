@@ -1,0 +1,9 @@
+/* Shared card bits. */
+
+.module-card .mod-num {
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        color: var(--pink);
+        margin-bottom: 12px;
+      }

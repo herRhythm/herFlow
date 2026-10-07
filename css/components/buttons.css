@@ -1,0 +1,55 @@
+/* Primary, hero, and ghost buttons. */
+
+.btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #6B4A2B;
+        color: #fff !important;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 12px 18px;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        transition: filter .15s, transform .15s;
+      }
+
+.btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+html[data-theme="dark"] .btn-primary { background: var(--maroon); }
+
+.btn-hero {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #C4A574;
+        color: #2A1C12 !important;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 14px 22px;
+        border-radius: 999px;
+        border: none;
+        transition: filter .15s, transform .15s;
+      }
+
+.btn-hero:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+.btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255,255,255,0.12);
+        color: #fff !important;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 13px 20px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.35);
+        backdrop-filter: blur(6px);
+        transition: background .15s;
+      }
+
+.btn-ghost:hover { background: rgba(255,255,255,0.2); }

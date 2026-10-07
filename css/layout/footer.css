@@ -1,0 +1,11 @@
+/* Site footer shared by the marketing pages. */
+
+.site-footer {
+        border-top: 1px solid var(--line);
+        padding: 28px 20px;
+        text-align: center;
+        color: var(--ink-soft);
+        font-size: 12px;
+      }
+
+.site-footer strong { color: var(--plum-deep); }

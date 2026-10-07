@@ -1,19 +1,37 @@
 /* Design tokens shared by the marketing pages. Experience pages override these in their own style block. */
 
 :root {
-  --cream: #FBF7F4;
-  --cream-deep: #F3ECE7;
-  --plum: #5C3D66;
-  --plum-deep: #2F1C36;
-  --pink: #E11D60;
-  --pink-hot: #F0437A;
-  --gold: #C9952A;
-  --ink: #2A2226;
-  --ink-soft: #5C5358;
-  --paper: #FFFFFF;
-  --line: rgba(47, 28, 54, 0.08);
-  --line-strong: rgba(47, 28, 54, 0.14);
-  --maroon: #6B1E2B;
-  --maroon-mid: #8B2E3C;
-  --safe-b: env(safe-area-inset-bottom, 0px);
-}
+        --cream: #FBF7F4;
+        --cream-deep: #F3ECE7;
+        --plum: #5C3D66;
+        --plum-deep: #2F1C36;
+        --pink: #E11D60;
+        --pink-hot: #F0437A;
+        --gold: #C9952A;
+        --ink: #2A2226;
+        --ink-soft: #5C5358;
+        --paper: #FFFFFF;
+        --line: rgba(47, 28, 54, 0.08);
+        --line-strong: rgba(47, 28, 54, 0.14);
+        --maroon: #6B1E2B;
+        --maroon-mid: #8B2E3C;
+        --safe-b: env(safe-area-inset-bottom, 0px);
+      }
+
+html[data-theme="dark"] {
+        color-scheme: dark;
+        --cream: #121016;
+        --cream-deep: #18141C;
+        --plum: #D4B8DE;
+        --plum-deep: #F3EAF7;
+        --pink: #FF5A8A;
+        --pink-hot: #FF7AA3;
+        --gold: #E8C56A;
+        --ink: #F4EEF2;
+        --ink-soft: #B9AEB6;
+        --paper: #1C1820;
+        --line: rgba(255, 247, 249, 0.08);
+        --line-strong: rgba(255, 247, 249, 0.14);
+        --maroon: #A83D4D;
+        --maroon-mid: #C45A68;
+      }
