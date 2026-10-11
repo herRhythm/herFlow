@@ -4,7 +4,7 @@
 .checkout-notice[data-state="success"] { border-color: #268447; }
 .field select, .field textarea { box-sizing: border-box; width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; font: inherit; background: var(--cream); color: var(--ink); }
 .field-error { color: #b42342; font-size: 14px; min-height: 1em; }
-html[data-theme="dark"] .field-error { color: #ff9bae; }
+
 [aria-invalid="true"] { outline: 2px solid #b42342; }
 .order-summary button, .order-summary a.pay-cta { margin: 8px 0; }
 .order-summary a.pay-cta { display: block; text-align: center; text-decoration: none; box-sizing: border-box; }

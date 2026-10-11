@@ -6,6 +6,11 @@ The root HTML files are the live site; `dev/` holds historical snapshots.
 
 All nine live site pages and the digital Companion Guide load `assets/theme.js`
 and `assets/theme.css`. Light is the default, independent of device appearance.
+Theme behavior lives only in `assets/theme.js`; palettes, theme-specific page
+overrides, and toggle styling live only in `assets/theme.css`. The script creates
+one toggle per live page. Keep theme changes in these shared files; `data-theme-page`
+scopes page-specific styles and `data-theme-document` scopes the digital guide.
+
 The fixed Light/Dark button saves an explicit selection under `cg_theme` and
 keeps it across page navigation. Missing, invalid or inaccessible storage falls
 back to light. Historical `dev/` snapshots and the raw `file.html` content draft

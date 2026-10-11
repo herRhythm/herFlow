@@ -19,7 +19,6 @@
 
 .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
 
-html[data-theme="dark"] .btn-primary { background: var(--maroon); }
 
 .btn-hero {
         display: inline-flex;

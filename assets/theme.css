@@ -1,3 +1,337 @@
+/* Single source of theme palettes, page overrides, and toggle styling. */
+/* Design tokens shared by the marketing pages. Experience pages override these in their own style block. */
+
+html[data-theme-page] {
+        --cream: #FBF7F4;
+        --cream-deep: #F3ECE7;
+        --plum: #5C3D66;
+        --plum-deep: #2F1C36;
+        --pink: #E11D60;
+        --pink-hot: #F0437A;
+        --gold: #C9952A;
+        --ink: #2A2226;
+        --ink-soft: #5C5358;
+        --paper: #FFFFFF;
+        --line: rgba(47, 28, 54, 0.08);
+        --line-strong: rgba(47, 28, 54, 0.14);
+        --maroon: #6B1E2B;
+        --maroon-mid: #8B2E3C;
+        --safe-b: env(safe-area-inset-bottom, 0px);
+      }
+
+html[data-theme-page][data-theme="dark"] {
+        color-scheme: dark;
+        --cream: #121016;
+        --cream-deep: #18141C;
+        --plum: #D4B8DE;
+        --plum-deep: #F3EAF7;
+        --pink: #FF5A8A;
+        --pink-hot: #FF7AA3;
+        --gold: #E8C56A;
+        --ink: #F4EEF2;
+        --ink-soft: #B9AEB6;
+        --paper: #1C1820;
+        --line: rgba(255, 247, 249, 0.08);
+        --line-strong: rgba(255, 247, 249, 0.14);
+        --maroon: #A83D4D;
+        --maroon-mid: #C45A68;
+      }
+
+
+html[data-theme-page="about"][data-theme="dark"] .about-actions a.primary,
+html[data-theme-page="becoming-you"][data-theme="dark"] .by-actions a.primary,
+html[data-theme-page="menarche"][data-theme="dark"] .mn-actions a.primary {
+  background: var(--pink);
+  border-color: var(--pink);
+}
+
+html[data-theme-page="becoming-you"],
+html[data-theme-page="companion"],
+html[data-theme-page="menarche"] {
+  --cream: #FFF9FB;
+  --cream-deep: #F7F0F3;
+  --plum: #5C3D66;
+  --plum-deep: #2F1C36;
+  --plum-mid: #4A2F52;
+  --pink: #E11D60;
+  --pink-hot: #F0437A;
+  --pink-soft: #FCE4EC;
+  --pink-mist: rgba(225, 29, 96, 0.08);
+  --sage: #1F9A5C;
+  --sage-soft: #E6F7EE;
+  --gold: #C9952A;
+  --gold-soft: #FBF0D6;
+  --ink: #2A2226;
+  --ink-soft: #5C5358;
+  --paper: #FFFFFF;
+  --line: rgba(47, 28, 54, 0.08);
+  --line-strong: rgba(47, 28, 54, 0.14);
+  --shadow: none;
+  --shadow-sm: 0 1px 2px rgba(47, 28, 54, 0.04);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --radius-pill: 999px;
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-t: env(safe-area-inset-top, 0px);
+  --nav-h: 64px;
+}
+
+html[data-theme-page="becoming-you"][data-theme="dark"],
+html[data-theme-page="companion"][data-theme="dark"],
+html[data-theme-page="menarche"][data-theme="dark"] {
+  color-scheme: dark;
+  --cream: #121016;
+  --cream-deep: #18141C;
+  --plum: #D4B8DE;
+  --plum-deep: #F3EAF7;
+  --plum-mid: #C9A9D4;
+  --pink: #FF5A8A;
+  --pink-hot: #FF7AA3;
+  --pink-soft: #3A2430;
+  --pink-mist: rgba(255, 90, 138, 0.12);
+  --sage: #3DDB8A;
+  --sage-soft: #1A2E24;
+  --gold: #E8C56A;
+  --gold-soft: #2A2418;
+  --ink: #F4EEF2;
+  --ink-soft: #B9AEB6;
+  --paper: #1C1820;
+  --line: rgba(255, 247, 249, 0.08);
+  --line-strong: rgba(255, 247, 249, 0.14);
+  --shadow: none;
+  --shadow-sm: none;
+}
+
+html[data-theme-page="becoming-you"][data-theme="dark"] .site-header,
+html[data-theme-page="companion"][data-theme="dark"] .site-header,
+html[data-theme-page="menarche"][data-theme="dark"] .site-header {
+  background: rgba(18, 16, 22, 0.92);
+}
+
+html[data-theme-page="becoming-you"][data-theme="dark"] .site-logo img,
+html[data-theme-page="companion"][data-theme="dark"] .site-logo img,
+html[data-theme-page="menarche"][data-theme="dark"] .site-logo img {
+  filter: invert(1) hue-rotate(180deg) contrast(1.05);
+}
+
+html[data-theme-page="becoming-you"][data-theme="dark"] .site-nav a.active,
+html[data-theme-page="companion"][data-theme="dark"] .site-nav a.active,
+html[data-theme-page="menarche"][data-theme="dark"] .site-nav a.active {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: #fff;
+}
+
+html[data-theme-page="becoming-you"][data-theme="dark"] .module-card:hover,
+html[data-theme-page="companion"][data-theme="dark"] .module-card:hover,
+html[data-theme-page="menarche"][data-theme="dark"] .module-card:hover {
+  background: #221C28;
+}
+
+html[data-theme-page="becoming-you"][data-theme="dark"] .back,
+html[data-theme-page="companion"][data-theme="dark"] .back,
+html[data-theme-page="menarche"][data-theme="dark"] .back {
+  background: #2A1A22;
+}
+
+html[data-theme-page="becoming-you"][data-theme="dark"] .mvf-block.myth,
+html[data-theme-page="companion"][data-theme="dark"] .mvf-block.myth,
+html[data-theme-page="menarche"][data-theme="dark"] .mvf-block.myth {
+  background: rgba(255,247,249,0.06);
+}
+
+html[data-theme-page="becoming-you"][data-theme="dark"] .phase-card,
+html[data-theme-page="becoming-you"][data-theme="dark"] .myth-card,
+html[data-theme-page="becoming-you"][data-theme="dark"] .answers details,
+html[data-theme-page="menarche"][data-theme="dark"] .incl-list li {
+  background: var(--cream-deep);
+}
+
+html[data-theme-page="becoming-you"][data-theme="dark"] .data-table th,
+html[data-theme="dark"] .topbar {
+  background: #1A1520;
+}
+
+html[data-theme-page="becoming-you"][data-theme="dark"] .callout.warn {
+  background: var(--gold-soft);
+}
+
+html[data-theme-page="becoming-you"][data-theme="dark"] .section,
+html[data-theme-page="becoming-you"][data-theme="dark"] .door-card,
+html[data-theme-page="menarche"][data-theme="dark"] .pillar,
+html[data-theme-page="menarche"][data-theme="dark"] .price-panel {
+  background: var(--paper);
+  border-color: var(--line);
+}
+
+html[data-theme-page="becoming-you"][data-theme="dark"] .by-banner,
+html[data-theme-page="menarche"][data-theme="dark"] .mn-banner,
+html[data-theme-page="menarche"][data-theme="dark"] .promise {
+  background: linear-gradient(145deg, #1A0F1E 0%, #2A152F 50%, #3E2745 100%);
+}
+
+html[data-theme-page="menarche"][data-theme="dark"] .outcomes span {
+  background: var(--sage-soft);
+  color: var(--sage);
+}
+
+html[data-theme="dark"] .topbar-left .wa-icon {
+  background: var(--paper);
+}
+
+html[data-theme="dark"] .topbar-logo .logo-light {
+  display: none;
+}
+
+html[data-theme="dark"] .topbar-logo .logo-dark {
+  display: block;
+}
+
+html[data-theme="dark"] .btn-primary {
+  background: var(--maroon);
+}
+
+html[data-theme="dark"] .field-error {
+  color: #ff9bae;
+}
+
+/* Explicit light theme. Dark mode stays on html[data-theme="dark"]. */
+html[data-theme-page][data-theme="light"] {
+  color-scheme: light;
+  --cream: #FFFFFF;
+  --cream-deep: #FAF8FB;
+  --plum: #5C3D66;
+  --plum-deep: #2F1C36;
+  --plum-mid: #4A2F52;
+  --pink: #E11D60;
+  --pink-hot: #F0437A;
+  --pink-soft: #FCE4EC;
+  --pink-mist: rgba(225, 29, 96, 0.08);
+  --sage: #1F9A5C;
+  --sage-soft: #E6F7EE;
+  --gold: #C9952A;
+  --gold-soft: #FBF0D6;
+  --ink: #2A2226;
+  --ink-soft: #5C5358;
+  --paper: #FFFFFF;
+  --line: rgba(47, 28, 54, 0.08);
+  --line-strong: rgba(47, 28, 54, 0.14);
+  --maroon: #6B1E2B;
+  --maroon-mid: #8B2E3C;
+}
+
+html[data-theme-page][data-theme="light"] body {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+html[data-theme-page][data-theme="light"] .topbar,
+html[data-theme-page][data-theme="light"] .mainnav,
+html[data-theme-page][data-theme="light"] .features,
+html[data-theme-page][data-theme="light"] .module-card,
+html[data-theme-page][data-theme="light"] .pillar,
+html[data-theme-page][data-theme="light"] .experience-card,
+html[data-theme-page][data-theme="light"] .benefit-card,
+html[data-theme-page][data-theme="light"] .loyalty-card,
+html[data-theme-page][data-theme="light"] .holiday-card {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* White surfaces make light mode clearly distinct from the dark palette. */
+html[data-theme-page][data-theme="light"] .hero,
+html[data-theme-page][data-theme="light"] .impact-band,
+html[data-theme-page][data-theme="light"] .pledge-card,
+html[data-theme-page][data-theme="light"] .mn-banner,
+html[data-theme-page][data-theme="light"] .promise {
+  background-color: #FFFFFF;
+  /* Also override photo overlays declared inline on the Walking Beside Her hero. */
+  background-image: none !important;
+  color: var(--plum-deep);
+  border-bottom: 1px solid var(--line);
+}
+
+html[data-theme-page][data-theme="light"] .hero h1,
+html[data-theme-page][data-theme="light"] .hero-lead,
+html[data-theme-page][data-theme="light"] .hero-eyebrow,
+html[data-theme-page][data-theme="light"] .hero .eyebrow,
+html[data-theme-page][data-theme="light"] .hero-checks,
+html[data-theme-page][data-theme="light"] .hero-checks span,
+html[data-theme-page][data-theme="light"] .hero p {
+  color: var(--plum-deep);
+}
+
+html[data-theme-page][data-theme="light"] .hero-eyebrow,
+html[data-theme-page][data-theme="light"] .hero .eyebrow {
+  color: var(--plum);
+}
+
+html[data-theme-page][data-theme="light"] .hero-checks span::before {
+  color: #795516;
+}
+
+html[data-theme-page][data-theme="light"] .impact-band h2,
+html[data-theme-page][data-theme="light"] .impact-band p,
+html[data-theme-page][data-theme="light"] .impact-band .eyebrow,
+html[data-theme-page][data-theme="light"] .impact-stats span {
+  color: var(--plum-deep);
+}
+
+html[data-theme-page][data-theme="light"] .impact-band .eyebrow,
+html[data-theme-page][data-theme="light"] .impact-stats strong {
+  color: #795516;
+}
+
+html[data-theme-page][data-theme="light"] .pledge-card,
+html[data-theme-page][data-theme="light"] .pledge-card h3,
+html[data-theme-page][data-theme="light"] .pledge-card .eyebrow,
+html[data-theme-page][data-theme="light"] .pledge-card li,
+html[data-theme-page][data-theme="light"] .pledge-card p,
+html[data-theme-page][data-theme="light"] .mn-banner,
+html[data-theme-page][data-theme="light"] .promise {
+  color: var(--plum-deep);
+}
+
+html[data-theme-page][data-theme="light"] .pledge-card .eyebrow {
+  color: #795516;
+}
+
+html[data-theme-page][data-theme="light"] .hero .btn-ghost {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--plum-deep) !important;
+  border-color: var(--line-strong);
+}
+
+html[data-theme-page][data-theme="light"] .hero-badge {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--plum-deep);
+  border-color: var(--line-strong);
+}
+
+/* Page-specific text also needs contrast on the shared light backgrounds. */
+html[data-theme-page][data-theme="light"] .mn-banner h2,
+html[data-theme-page][data-theme="light"] .mn-banner p,
+html[data-theme-page][data-theme="light"] .promise h2,
+html[data-theme-page][data-theme="light"] .promise .sub,
+html[data-theme-page][data-theme="light"] .promise li,
+html[data-theme-page][data-theme="light"] .promise .closer {
+  color: var(--plum-deep);
+}
+
+html[data-theme-page][data-theme="light"] .mn-banner .mod,
+html[data-theme-page][data-theme="light"] .promise .eyebrow,
+html[data-theme-page][data-theme="light"] .promise li::before {
+  color: #795516;
+}
+
+html[data-theme-page][data-theme="light"] .promise .closer,
+html[data-theme-page][data-theme="light"] .hero-badge .badge-icon {
+  border-color: var(--line-strong);
+}
+
+html[data-theme-page][data-theme="light"] .hero-badge .stars { color: #17683d; }
+
+
 html { color-scheme: light; }
 html[data-theme="dark"] { color-scheme: dark; }
 /* An explicit palette keeps the control readable on every page and theme. */
@@ -43,3 +377,17 @@ html[data-theme="dark"] .digital-guide .pledge-card { background: linear-gradien
 html[data-theme="dark"] .digital-guide .back { background: #34283d; }
 html[data-theme="dark"] .digital-guide .mvf-block.myth .mvf-text { color: #decfe2; }
 html[data-theme="dark"] .digital-guide .sign-row input { color: #fff7f9; }
+
+/* Default palette for the downloadable digital guide. */
+html[data-theme-document="digital"] {
+    --cream:#FFF7F9;
+    --plum:#5B3A63;
+    --plum-deep:#3E2745;
+    --pink:#E13C6E;
+    --pink-soft:#F6D6E2;
+    --sage:#2E9E5B;
+    --sage-soft:#E7F6ED;
+    --gold:#D9A441;
+    --ink:#2B2320;
+    --paper:#FFFFFF;
+  }

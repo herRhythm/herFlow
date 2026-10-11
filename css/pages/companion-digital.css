@@ -1,18 +1,7 @@
 /* Companion guide digital document. Own palette; do not load marketing tokens. */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Space+Mono&display=swap');
 
-  :root{
-    --cream:#FFF7F9;
-    --plum:#5B3A63;
-    --plum-deep:#3E2745;
-    --pink:#E13C6E;
-    --pink-soft:#F6D6E2;
-    --sage:#2E9E5B;
-    --sage-soft:#E7F6ED;
-    --gold:#D9A441;
-    --ink:#2B2320;
-    --paper:#FFFFFF;
-  }
+
   *{box-sizing:border-box;}
   body{
     margin:0;
