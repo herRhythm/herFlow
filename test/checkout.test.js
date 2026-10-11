@@ -42,6 +42,25 @@ async function fixture(t, overrides = {}) {
   return { store, requests, call, order, status, webhook, setVerify: data => { verifyData = data; } };
 }
 
+test('live pages can load their local stylesheets while private files stay blocked', async t => {
+  const f = await fixture(t);
+  for (const page of ['index', 'about', 'checkout', 'companion-guide', 'becoming-you', 'companion', 'menarche', 'rising-moon', 'walking-beside-her']) {
+    const response = await f.call('/' + page + '.html');
+    assert.equal(response.status, 200);
+    const styles = [...response.body.matchAll(/<link\b[^>]*href="([^"\s]+\.css)"/g)]
+      .map(match => match[1]).filter(path => !path.startsWith('https:'));
+    assert.ok(styles.length > 0, page + ' has local stylesheets');
+    for (const path of styles) {
+      const style = await f.call('/' + path);
+      assert.equal(style.status, 200, page + ': ' + path);
+      assert.ok(style.body.length > 0);
+    }
+  }
+  for (const path of ['/css/.env', '/css/../server/app.js', '/css/%2e%2e/server/app.js', '/server/app.js', '/data/orders.sqlite']) {
+    assert.equal((await f.call(path)).status, 404, path);
+  }
+});
+
 test('catalog uses product-page prices; validates and normalizes input', () => {
   assert.deepEqual(catalog.map(kit => kit.amount), [680000, 680000, 650000]);
   for (const phone of ['0712 345 678', '254712345678', '+254712345678', '0112345678']) assert.equal(Object.keys(validateOrder({ ...customer, phone }).errors).length, 0);

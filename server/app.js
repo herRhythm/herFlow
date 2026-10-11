@@ -132,7 +132,7 @@ export function createApp({ store, provider, secret = '', origin, root, mode = '
       if (!['GET', 'HEAD'].includes(req.method)) throw failure(405, 'Method not allowed.');
       const path = decodeURIComponent(url.pathname === '/' ? '/index.html' : url.pathname);
       // Explicit public roots; never serve server code, databases, .env, Git, or dev snapshots.
-      if (!/^\/[a-z0-9-]+\.html$/.test(path) && !/^\/(assets|images|files)\/[a-zA-Z0-9_./ -]+$/.test(path)) throw failure(404, 'Not found.');
+      if (!/^\/[a-z0-9-]+\.html$/.test(path) && !/^\/(assets|css|images|files)\/[a-zA-Z0-9_./ -]+$/.test(path)) throw failure(404, 'Not found.');
       if (path.split('/').some(part => part.startsWith('.')) || !types[extname(path)]) throw failure(404, 'Not found.');
       let content;
       try { content = await readFile(resolve(root, '.' + path)); } catch { throw failure(404, 'Not found.'); }
