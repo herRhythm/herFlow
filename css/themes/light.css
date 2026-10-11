@@ -41,29 +41,29 @@ html[data-theme="light"] .holiday-card {
   color: var(--ink);
 }
 
-/* Brand-colored bands. Still lighter than dark mode, but not a washed cream. */
+/* Pastel brand accents keep light mode bright, with dark text for contrast. */
 html[data-theme="light"] .hero {
   background:
-    radial-gradient(ellipse at 88% 0%, rgba(255, 196, 120, 0.55), transparent 42%),
-    radial-gradient(ellipse at 8% 100%, rgba(92, 61, 102, 0.35), transparent 46%),
-    linear-gradient(150deg, #e11d60 0%, #c43b74 38%, #8b4a6e 72%, #c9952a 130%);
-  color: #fff7f9;
+    radial-gradient(ellipse at 88% 0%, rgba(255, 224, 178, 0.45), transparent 42%),
+    radial-gradient(ellipse at 8% 100%, rgba(225, 205, 236, 0.35), transparent 46%),
+    linear-gradient(150deg, #fff9f5 0%, #fce4ec 55%, #f5eaf8 100%);
+  color: var(--plum-deep);
 }
 
 html[data-theme="light"] .impact-band {
   background:
-    radial-gradient(ellipse at 80% 120%, rgba(232, 197, 106, 0.7), transparent 48%),
-    linear-gradient(155deg, #5c3d66 0%, #8b2e3c 46%, #c9952a 120%);
-  color: #fff7f9;
+    radial-gradient(ellipse at 80% 120%, rgba(251, 232, 184, 0.5), transparent 48%),
+    linear-gradient(155deg, #f5eaf8 0%, #fff7f0 55%, #fbf0d6 100%);
+  color: var(--plum-deep);
 }
 
 html[data-theme="light"] .pledge-card,
 html[data-theme="light"] .mn-banner,
 html[data-theme="light"] .promise {
   background:
-    radial-gradient(ellipse at 100% 0%, rgba(255, 214, 150, 0.45), transparent 42%),
-    linear-gradient(155deg, #6b1e2b 0%, #a33d58 48%, #c9952a 125%);
-  color: #fff7f9;
+    radial-gradient(ellipse at 100% 0%, rgba(255, 230, 194, 0.4), transparent 42%),
+    linear-gradient(155deg, #fff7f0 0%, #fce4ec 55%, #f5eaf8 100%);
+  color: var(--plum-deep);
 }
 
 html[data-theme="light"] .hero h1,
@@ -73,28 +73,28 @@ html[data-theme="light"] .hero .eyebrow,
 html[data-theme="light"] .hero-checks,
 html[data-theme="light"] .hero-checks span,
 html[data-theme="light"] .hero p {
-  color: #fff7f9;
+  color: var(--plum-deep);
 }
 
 html[data-theme="light"] .hero-eyebrow,
 html[data-theme="light"] .hero .eyebrow {
-  color: #ffe3ec;
+  color: var(--plum);
 }
 
 html[data-theme="light"] .hero-checks span::before {
-  color: #ffe08a;
+  color: #795516;
 }
 
 html[data-theme="light"] .impact-band h2,
 html[data-theme="light"] .impact-band p,
 html[data-theme="light"] .impact-band .eyebrow,
 html[data-theme="light"] .impact-stats span {
-  color: #fff7f9;
+  color: var(--plum-deep);
 }
 
 html[data-theme="light"] .impact-band .eyebrow,
 html[data-theme="light"] .impact-stats strong {
-  color: #ffe08a;
+  color: #795516;
 }
 
 html[data-theme="light"] .pledge-card,
@@ -104,21 +104,44 @@ html[data-theme="light"] .pledge-card li,
 html[data-theme="light"] .pledge-card p,
 html[data-theme="light"] .mn-banner,
 html[data-theme="light"] .promise {
-  color: #fff7f9;
+  color: var(--plum-deep);
 }
 
 html[data-theme="light"] .pledge-card .eyebrow {
-  color: #ffe08a;
+  color: #795516;
 }
 
 html[data-theme="light"] .hero .btn-ghost {
-  background: rgba(255, 255, 255, 0.14);
-  color: #fff !important;
-  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--plum-deep) !important;
+  border-color: var(--line-strong);
 }
 
 html[data-theme="light"] .hero-badge {
-  background: rgba(47, 28, 54, 0.45);
-  color: #fff7f9;
-  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--plum-deep);
+  border-color: var(--line-strong);
 }
+
+/* Page-specific text also needs contrast on the shared light backgrounds. */
+html[data-theme="light"] .mn-banner h2,
+html[data-theme="light"] .mn-banner p,
+html[data-theme="light"] .promise h2,
+html[data-theme="light"] .promise .sub,
+html[data-theme="light"] .promise li,
+html[data-theme="light"] .promise .closer {
+  color: var(--plum-deep);
+}
+
+html[data-theme="light"] .mn-banner .mod,
+html[data-theme="light"] .promise .eyebrow,
+html[data-theme="light"] .promise li::before {
+  color: #795516;
+}
+
+html[data-theme="light"] .promise .closer,
+html[data-theme="light"] .hero-badge .badge-icon {
+  border-color: var(--line-strong);
+}
+
+html[data-theme="light"] .hero-badge .stars { color: #17683d; }
