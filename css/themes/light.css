@@ -1,8 +1,8 @@
 /* Explicit light theme. Dark mode stays on html[data-theme="dark"]. */
 html[data-theme="light"] {
   color-scheme: light;
-  --cream: #FBF7F4;
-  --cream-deep: #F3ECE7;
+  --cream: #FFFFFF;
+  --cream-deep: #FAF8FB;
   --plum: #5C3D66;
   --plum-deep: #2F1C36;
   --plum-mid: #4A2F52;
@@ -41,29 +41,17 @@ html[data-theme="light"] .holiday-card {
   color: var(--ink);
 }
 
-/* Pastel brand accents keep light mode bright, with dark text for contrast. */
-html[data-theme="light"] .hero {
-  background:
-    radial-gradient(ellipse at 88% 0%, rgba(255, 224, 178, 0.45), transparent 42%),
-    radial-gradient(ellipse at 8% 100%, rgba(225, 205, 236, 0.35), transparent 46%),
-    linear-gradient(150deg, #fff9f5 0%, #fce4ec 55%, #f5eaf8 100%);
-  color: var(--plum-deep);
-}
-
-html[data-theme="light"] .impact-band {
-  background:
-    radial-gradient(ellipse at 80% 120%, rgba(251, 232, 184, 0.5), transparent 48%),
-    linear-gradient(155deg, #f5eaf8 0%, #fff7f0 55%, #fbf0d6 100%);
-  color: var(--plum-deep);
-}
-
+/* White surfaces make light mode clearly distinct from the dark palette. */
+html[data-theme="light"] .hero,
+html[data-theme="light"] .impact-band,
 html[data-theme="light"] .pledge-card,
 html[data-theme="light"] .mn-banner,
 html[data-theme="light"] .promise {
-  background:
-    radial-gradient(ellipse at 100% 0%, rgba(255, 230, 194, 0.4), transparent 42%),
-    linear-gradient(155deg, #fff7f0 0%, #fce4ec 55%, #f5eaf8 100%);
+  background-color: #FFFFFF;
+  /* Also override photo overlays declared inline on the Walking Beside Her hero. */
+  background-image: none !important;
   color: var(--plum-deep);
+  border-bottom: 1px solid var(--line);
 }
 
 html[data-theme="light"] .hero h1,
