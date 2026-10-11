@@ -391,3 +391,30 @@ html[data-theme-document="digital"] {
     --ink:#2B2320;
     --paper:#FFFFFF;
   }
+
+/* Shared light-mode hero palette, including each page's named hero variant. */
+html:is([data-theme-page], [data-theme-document])[data-theme="light"] :is(.hero, .checkout-hero, .mn-hero, .by-hero, .page-hero, .mn-banner, .by-banner) {
+  background-color: #6b1e2b;
+  background-image: linear-gradient(120deg, #6b1e2b 0%, #9e244c 50%, #bd285a 100%) !important;
+  color: #ffffff;
+}
+
+html:is([data-theme-page], [data-theme-document])[data-theme="light"] :is(.hero, .checkout-hero, .mn-hero, .by-hero, .page-hero, .mn-banner, .by-banner)
+:is(h1, h2, p, .eyebrow, .hero-eyebrow, .hero-lead, .hero-checks, .hero-checks span, .mod) {
+  color: #ffffff;
+}
+
+html:is([data-theme-page], [data-theme-document])[data-theme="light"] .hero-checks span::before { color: #ffe3ec; }
+
+html:is([data-theme-page], [data-theme-document])[data-theme="light"] .hero .btn-ghost {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Inset hero variants need space between the new background and their content. */
+html[data-theme-page][data-theme="light"] :is(.mn-hero, .by-hero, .page-hero) {
+  padding: 28px 24px;
+  border-radius: var(--radius, 18px);
+  margin-bottom: 20px;
+}

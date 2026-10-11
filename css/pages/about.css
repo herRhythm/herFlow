@@ -1,6 +1,8 @@
 /* Page layout and component styles for about.html. Theme overrides live in assets/theme.css. */
 
 .app {
+        --radius: 18px;
+        --radius-pill: 999px;
         width: 100%;
         max-width: 1180px;
         margin: 0 auto;
