@@ -8,6 +8,10 @@ pages.push('files/HerRhythm_Companion_Guide_Digital_2.html');
 test('all live pages use one theme controller and stylesheet without inline theme code', () => {
   for (const page of pages) {
     const html = readFileSync(new URL(page, root), 'utf8');
+    assert.doesNotMatch(html, /<style\b|\sstyle\s*=/i, page + ' keeps static CSS in stylesheets');
+    for (const [, href] of html.matchAll(/<link\b[^>]*href="([^"\s]+\.css(?:\?[^"\s]*)?)"/g)) {
+      if (!href.startsWith('https:')) assert.ok(readFileSync(new URL(href.split('?')[0], new URL(page, root)), 'utf8').length > 0, href);
+    }
     assert.equal((html.match(/<script\b[^>]*src="(?:\.\.\/)?assets\/theme\.js[^\"]*"/g) || []).length, 1, page);
     assert.equal((html.match(/<link\b[^>]*href="(?:\.\.\/)?assets\/theme\.css[^\"]*"/g) || []).length, 1, page);
     assert.doesNotMatch(html, /cg_theme|id="themeToggle"|data-theme\s*=|prefers-color-scheme|css\/(?:themes\/light|base\/tokens|components\/theme-toggle)\.css/, page);
